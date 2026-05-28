@@ -253,6 +253,13 @@ const chiefs = [
   { name: 'Bernie T. Bustin', years: '1975–1981', note: '' },
   { name: 'Clarence McKenzie', years: '1981', note: '' },
   { name: 'Roy A. Krienke', years: '1981–1983', note: '' },
+  { name: 'David W. Smith', years: '1983–2005', note: 'Last Volunteer Fire Chief' },
+  { name: 'Lynn Bizzell', years: '2005–2011', note: 'First career Fire Chief. Now Fire Chief in Fredericksburg, TX' },
+  { name: 'Larry Hodge', years: '2011–2016', note: 'Led department through significant growth' },
+  { name: 'David Coatney', years: '2016', note: 'Left to become Dallas Fire-Rescue Chief' },
+  { name: 'Billy Wusterhausen', years: '2016', note: 'Interim Chief' },
+  { name: 'Robert Isbell', years: '2016–2021', note: 'Hired from Midland Fire Department after national search' },
+  { name: 'Shane Glaiser', years: '2022–Present', note: 'Started with RRFD in 1995, promoted through every rank' },
 ]
 
 /* ─── Notable Fires ─── */
@@ -537,10 +544,10 @@ function ChiefsSection() {
               Leadership Through the Years
             </span>
             <h2 className="text-3xl md:text-4xl font-light text-white">
-              Recorded Fire Chiefs
+              Round Rock Fire Chiefs
             </h2>
-            <p className="text-white/30 text-sm mt-3">Round Rock Volunteer Fire Department &middot; 1892–2007</p>
-          <p className="text-white/20 text-xs mt-2">From historical records &amp; Texas Historical Commission Marker #9332</p>
+            <p className="text-white/30 text-sm mt-3">Volunteer &amp; Career &middot; 1892–Present</p>
+          <p className="text-white/20 text-xs mt-2">From historical records, Texas Historical Commission, and City of Round Rock archives</p>
           </div>
         </Reveal>
 
@@ -720,6 +727,10 @@ function CTASection() {
 
 /* ─── Main Page ─── */
 export default function HistoryPage() {
+  useEffect(() => {
+    document.title = 'History of the Round Rock Fire Department — Round Rock Fire Foundation'
+  }, [])
+
   return (
     <div className="min-h-screen bg-[hsl(0,0%,4%)]">
       <Navbar />

@@ -60,9 +60,9 @@ function Reveal({
 /* ─── Hero Section ─── */
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[hsl(220,15%,8%)]">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[hsl(0,0%,4%)]">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,15%,8%)] via-[hsl(220,15%,10%)] to-[hsl(35,30%,15%)] opacity-80" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(0,0%,4%)] via-[hsl(0,0%,6%)] to-[hsl(35,30%,15%)] opacity-80" />
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[hsl(35,25%,12%)]/30 to-transparent" />
 
       {/* 1884 Watermark */}
@@ -75,7 +75,7 @@ function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <Reveal>
+            <Reveal delay={100}>
               <div className="flex items-center gap-2 mb-6">
                 <span className="w-2 h-2 rounded-full bg-gold" />
                 <span className="text-xs tracking-[0.2em] text-gold uppercase">
@@ -84,21 +84,23 @@ function HeroSection() {
               </div>
             </Reveal>
 
-            <Reveal delay={100}>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-[0.95] mb-8">
-                Honoring
+            <Reveal delay={200}>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-[0.95] mb-2">
+                Round Rock
                 <br />
-                Heroes
+                <span className="text-gold">Fire Foundation</span>
               </h1>
+              <p className="text-white/40 text-sm tracking-[0.15em] uppercase mb-8">
+                Honoring Heroes &middot; Supporting Families
+              </p>
             </Reveal>
 
             <Reveal delay={200}>
               <p className="text-white/70 text-lg leading-relaxed max-w-lg mb-8">
-                Round Rock Fire Foundation exists to stand with Round Rock
-                firefighters and their families — every day, in every way. Born
-                from an outpouring of care after profound loss, RRFF is building
-                structured, lasting support so help is ready before a family ever
-                has to ask.
+                We exist to stand with Round Rock firefighters and their families
+                — every day, in every way. Born from an outpouring of care after
+                profound loss, RRFF builds structured, lasting support so help is
+                ready before a family ever has to ask.
               </p>
             </Reveal>
 
@@ -112,19 +114,17 @@ function HeroSection() {
                 >
                   Become a Founding Legacy Donor
                 </a>
-                <a
-                  href="https://www.roundrockfirefoundation.org/get-involved"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/get-involved"
                   className="border border-white/20 text-white px-6 py-3 rounded-full font-medium text-sm hover:border-white/40 transition-colors inline-flex items-center gap-2"
                 >
-                  Volunteer with us
-                </a>
+                  Volunteer With Us
+                </Link>
                 <a
-                  href="#mission"
+                  href="#" onClick={(e) => { e.preventDefault(); document.getElementById('mission')?.scrollIntoView({ behavior: 'smooth' }); }}
                   className="text-gold text-sm inline-flex items-center gap-1 hover:underline"
                 >
-                  Learn our story <ArrowRight className="w-4 h-4" />
+                  Learn Our Story <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </Reveal>
@@ -132,19 +132,19 @@ function HeroSection() {
             {/* Why/What/How cards */}
             <Reveal delay={400}>
               <div className="grid grid-cols-3 gap-4">
-                <div className="bg-[hsl(220,15%,14%)]/80 border border-white/5 rounded-lg p-4">
+                <div className="bg-[hsl(0,0%,10%)]/80 border border-white/5 rounded-lg p-4">
                   <h3 className="text-gold text-sm font-semibold mb-2">Why</h3>
                   <p className="text-white/50 text-xs leading-relaxed">
                     Stand with fire families through hardship, healing, and the long road that follows.
                   </p>
                 </div>
-                <div className="bg-[hsl(220,15%,14%)]/80 border border-white/5 rounded-lg p-4">
+                <div className="bg-[hsl(0,0%,10%)]/80 border border-white/5 rounded-lg p-4">
                   <h3 className="text-gold text-sm font-semibold mb-2">What</h3>
                   <p className="text-white/50 text-xs leading-relaxed">
                     The 1884 Fund — a dedicated emergency-relief fund launching as the Foundation grows.
                   </p>
                 </div>
-                <div className="bg-[hsl(220,15%,14%)]/80 border border-white/5 rounded-lg p-4">
+                <div className="bg-[hsl(0,0%,10%)]/80 border border-white/5 rounded-lg p-4">
                   <h3 className="text-gold text-sm font-semibold mb-2">How</h3>
                   <p className="text-white/50 text-xs leading-relaxed">
                     Founding Legacy Donors and community partners help launch lasting care.
@@ -252,7 +252,7 @@ function FundSection() {
 
         <div className="grid lg:grid-cols-2 gap-8">
           <Reveal delay={100}>
-            <div className="bg-[hsl(220,15%,8%)] rounded-xl overflow-hidden">
+            <div className="bg-[hsl(0,0%,4%)] rounded-xl overflow-hidden">
               <div className="p-8 md:p-12">
                 <div className="flex items-center gap-2 mb-6">
                   <Shield className="w-5 h-5 text-gold" />
@@ -266,7 +266,7 @@ function FundSection() {
                 <p className="text-white/60 text-sm mb-2">Emergency relief for fire families.</p>
                 <p className="text-white/40 text-xs uppercase tracking-wider mb-8">Signature fund</p>
 
-                <div className="bg-[hsl(220,15%,14%)] rounded-lg p-6 mb-6">
+                <div className="bg-[hsl(0,0%,10%)] rounded-lg p-6 mb-6">
                   <h4 className="text-gold text-sm font-semibold mb-2">A dedicated relief fund.</h4>
                   <p className="text-white/50 text-sm leading-relaxed">
                     The 1884 Fund supports Round Rock fire families facing medical travel, care
@@ -282,13 +282,13 @@ function FundSection() {
                     rel="noopener noreferrer"
                     className="bg-gold text-[hsl(220,15%,8%)] px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[hsl(43,75%,65%)] transition-colors inline-flex items-center gap-1"
                   >
-                    Help launch the fund
+                    Help Launch the Fund
                   </a>
                   <Link
-                    to="/fund-1884"
+                    to="/the-1884-fund"
                     className="text-gold text-sm inline-flex items-center gap-1 hover:underline"
                   >
-                    See how your gift is used <ArrowRight className="w-4 h-4" />
+                    See How Your Gift Is Used <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
@@ -359,10 +359,19 @@ function EventsSection() {
       label: 'Featured Event',
       title: 'Round Rock Fire Foundation Night at Dell Diamond',
       description:
-        "The Round Rock Express and RRFF partner for an inaugural community-wide tribute to Central Texas firefighters and fire families at Dell Diamond (3400 E. Palm Valley Blvd.). Pre-game fire apparatus display, Pipes and Drums performance, Honor Guard presentation of colors, ceremonial first pitch by a RRFD chief, on-field recognition of active-duty firefighters, and Foundation information booths. Round Rock Express vs. Salt Lake Bees — 7:05 p.m. first pitch. Use code FIRE26 when purchasing tickets to support the Foundation.",
+        "An inaugural community-wide tribute to Central Texas firefighters and fire families. Round Rock Express vs. Salt Lake Bees — 7:05 p.m. first pitch at Dell Diamond (3400 E. Palm Valley Blvd.).",
+      promoCode: 'FIRE26',
+      bullets: [
+        'Pre-game fire apparatus display (Touch-A-Truck)',
+        'Pipes and Drums performance',
+        'Honor Guard presentation of colors',
+        'Ceremonial first pitch & fire family recognition',
+        'Between-innings active-duty firefighter recognition',
+        'Foundation information booths',
+      ],
       links: [
-        { label: 'Get tickets', href: 'https://mlb.tickets.com/?orgId=58189&agency=MILB_MPV&eventId=27339' },
-        { label: 'See event details', href: '/events/fire-foundation-night' },
+        { label: 'Get Tickets', href: 'https://mlb.tickets.com/?orgId=58189&agency=MILB_MPV&eventId=27339' },
+        { label: 'Event Details', href: '/events/fire-foundation-night' },
       ],
       variant: 'foundation' as const,
     },
@@ -371,11 +380,12 @@ function EventsSection() {
       label: 'Signature Fundraiser',
       title: 'Blazing Paddles Pickleball Tournament',
       description:
-        'A community pickleball tournament where sponsors, players, volunteers, and fire families gather to raise support for RRFF programs. Tournament brackets include men\'s and women\'s doubles, singles, and first responders.',
+        'A community pickleball tournament at Tejas Pickleball Club in Georgetown, TX. Sponsors, players, volunteers, and fire families gather to raise support for RRFF programs. Tournament brackets include men\'s and women\'s doubles, singles, and first responders. Registration opens June 1.',
       links: [
-        { label: 'Learn more', href: 'https://pickleball.roundrockfirefoundation.org' },
+        { label: 'Learn More', href: 'https://pickleball.roundrockfirefoundation.org' },
         { label: 'Sponsor', href: 'https://www.roundrockfirefoundation.org/pickleballsponsor' },
       ],
+      notifyMe: true,
       variant: 'default' as const,
     },
     {
@@ -383,10 +393,10 @@ function EventsSection() {
       label: 'Family Support',
       title: 'RRFF National Spouse Conference',
       description:
-        'A weekend for firefighter couples focused on connection, resilience, and the lasting care that helps fire families thrive together. $700 per couple — includes hotel accommodations at Tru by Hilton. Train side-by-side in hands-on scenarios.',
+        'A weekend for firefighter couples at the Round Rock Public Safety Training Center (2801 N Mays St). Focused on connection, resilience, and lasting care. $700 per couple — includes hotel accommodations at Tru by Hilton. Train side-by-side in hands-on scenarios.',
       links: [
         { label: 'Register', href: 'https://forms.gle/VUuMEssGe3cqP4Ge8' },
-        { label: 'Details', href: 'https://spouseconference.roundrockfirefoundation.org/' },
+        { label: 'Event Details', href: 'https://spouseconference.roundrockfirefoundation.org/' },
       ],
       variant: 'default' as const,
     },
@@ -416,49 +426,95 @@ function EventsSection() {
             <Reveal key={event.title} delay={i * 100}>
               <div className={`rounded-xl p-6 md:p-8 flex flex-col md:flex-row md:items-start gap-6 group transition-colors ${
                 event.variant === 'foundation'
-                  ? 'bg-[hsl(220,30%,15%)] border-2 border-[hsl(43,75%,45%)] hover:bg-[hsl(220,30%,18%)]'
-                  : 'bg-[hsl(220,15%,8%)] hover:bg-[hsl(220,15%,10%)]'
+                  ? 'bg-[hsl(0,0%,4%)] border-2 border-[hsl(43,75%,45%)] hover:bg-[hsl(0,0%,6%)]'
+                  : 'bg-[hsl(0,0%,4%)] hover:bg-[hsl(0,0%,6%)]'
               }`}>
                 <div className="flex items-center gap-3 md:w-48 flex-shrink-0">
-                  <Calendar className={`w-5 h-5 ${event.variant === 'foundation' ? 'text-[hsl(43,75%,55%)]' : 'text-gold'}`} />
+                  <Calendar className={`w-5 h-5 text-gold`} />
                   <div>
-                    <span className={`text-xs font-semibold ${event.variant === 'foundation' ? 'text-[hsl(43,75%,55%)]' : 'text-gold'}`}>{event.label}</span>
-                    <p className={`text-xs ${event.variant === 'foundation' ? 'text-[hsl(40,25%,85%)]' : 'text-white/50'}`}>{event.date}</p>
+                    <span className={`text-xs font-semibold ${event.variant === 'foundation' ? 'text-gold' : 'text-gold'}`}>{event.label}</span>
+                    <p className={`text-xs ${event.variant === 'foundation' ? 'text-white/50' : 'text-white/50'}`}>{event.date}</p>
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className={`text-xl md:text-2xl font-light mb-2 transition-colors ${event.variant === 'foundation' ? 'text-[hsl(40,25%,95%)] group-hover:text-[hsl(43,75%,55%)]' : 'text-white group-hover:text-gold'}`}>
+                  <h3 className={`text-xl md:text-2xl font-light mb-2 transition-colors ${event.variant === 'foundation' ? 'text-white group-hover:text-gold' : 'text-white group-hover:text-gold'}`}>
                     {event.title}
                   </h3>
-                  <p className={`text-sm leading-relaxed mb-4 ${event.variant === 'foundation' ? 'text-[hsl(40,20%,80%)]' : 'text-white/50'}`}>
+                  <p className={`text-sm leading-relaxed mb-3 ${event.variant === 'foundation' ? 'text-white/50' : 'text-white/50'}`}>
                     {event.description}
                   </p>
-                  <div className="flex gap-4">
-                    {event.links.map((link) =>
+                  {'promoCode' in event && event.promoCode && (
+                    <div className="mb-4 inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-2">
+                      <span className="text-white/50 text-xs">Use code</span>
+                      <span className="text-gold font-bold text-sm tracking-wider">{event.promoCode}</span>
+                    </div>
+                  )}
+                  {'bullets' in event && event.bullets && (
+                    <ul className="mb-4 space-y-1">
+                      {event.bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-start gap-2 text-white/50 text-sm">
+                          <span className="w-1 h-1 rounded-full bg-gold mt-2 flex-shrink-0" />
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <div className="flex flex-wrap gap-3">
+                    {event.links.map((link, li) =>
                       link.href.startsWith('http') ? (
                         <a
                           key={link.label}
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`text-sm inline-flex items-center gap-1 hover:underline ${event.variant === 'foundation' ? 'text-[hsl(43,75%,55%)]' : 'text-gold'}`}
+                          className={`text-sm inline-flex items-center gap-1 transition-colors ${
+                            event.variant === 'foundation' && li === 0
+                              ? 'bg-gold text-[hsl(0,0%,8%)] px-5 py-2.5 rounded-full font-semibold hover:bg-[hsl(43,75%,65%)]'
+                              : 'text-gold hover:underline'
+                          }`}
                         >
-                          {link.label} <ChevronRight className="w-4 h-4" />
+                          {link.label} {event.variant !== 'foundation' || li !== 0 ? <ChevronRight className="w-4 h-4" /> : null}
                         </a>
                       ) : (
                         <Link
                           key={link.label}
                           to={link.href}
-                          className={`text-sm inline-flex items-center gap-1 hover:underline ${event.variant === 'foundation' ? 'text-[hsl(43,75%,55%)]' : 'text-gold'}`}
+                          className={`text-sm inline-flex items-center gap-1 transition-colors ${
+                            event.variant === 'foundation' && li === 0
+                              ? 'bg-gold text-[hsl(0,0%,8%)] px-5 py-2.5 rounded-full font-semibold hover:bg-[hsl(43,75%,65%)]'
+                              : 'text-gold hover:underline'
+                          }`}
                         >
-                          {link.label} <ChevronRight className="w-4 h-4" />
+                          {link.label} {event.variant !== 'foundation' || li !== 0 ? <ChevronRight className="w-4 h-4" /> : null}
                         </Link>
                       )
                     )}
                   </div>
+                  {'notifyMe' in event && event.notifyMe && (
+                    <form
+                      action="https://formspree.io/f/xkoezqpp"
+                      method="POST"
+                      className="mt-4 flex gap-2"
+                    >
+                      <input type="hidden" name="subject" value="Notify me when Blazing Paddles registration opens" />
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                        className="flex-1 bg-[hsl(0,0%,14%)] border border-white/10 rounded-lg px-3 py-2 text-white text-xs focus:outline-none focus:border-gold/50 transition-colors placeholder:text-white/30"
+                      />
+                      <button
+                        type="submit"
+                        className="bg-gold/10 border border-gold/30 text-gold px-4 py-2 rounded-lg text-xs font-semibold hover:bg-gold/20 transition-colors whitespace-nowrap"
+                      >
+                        Notify Me
+                      </button>
+                    </form>
+                  )}
                 </div>
                 <div className="flex-shrink-0">
-                  <Ticket className={`w-8 h-8 transition-colors ${event.variant === 'foundation' ? 'text-[hsl(43,75%,55%)]/20 group-hover:text-[hsl(43,75%,55%)]/40' : 'text-white/10 group-hover:text-gold/30'}`} />
+                  <Ticket className={`w-8 h-8 transition-colors text-white/10 group-hover:text-gold/30`} />
                 </div>
               </div>
             </Reveal>
@@ -531,10 +587,10 @@ function LegacyCircleSection() {
                   Become a Founding Legacy Donor
                 </a>
                 <Link
-                  to="/fund-1884"
+                  to="/the-1884-fund"
                   className="text-[hsl(220,15%,40%)] text-sm inline-flex items-center gap-1 hover:text-[hsl(220,15%,20%)] transition-colors"
                 >
-                  See how your gift is used <ArrowRight className="w-4 h-4" />
+                  See How Your Gift Is Used <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -559,10 +615,10 @@ function LegacyCircleSection() {
                 Legacy Circle, Founding gifts, pledge sponsorships, and corporate and employee
                 giving conversations:{' '}
                 <a
-                  href="mailto:legacy@roundrockfirefoundation.org"
+                  href="mailto:info@roundrockfirefoundation.org"
                   className="text-gold hover:underline"
                 >
-                  legacy@roundrockfirefoundation.org
+                  info@roundrockfirefoundation.org
                 </a>
               </p>
             </div>
@@ -582,7 +638,7 @@ function ChiefLetterSection() {
           <div className="bg-white rounded-xl p-8 md:p-12 shadow-sm">
             <div className="flex items-center gap-2 mb-8">
               <span className="text-xs tracking-[0.15em] text-gold uppercase">
-                A Letter from the Chief
+                A Letter From Fire Chief Shane Glaiser
               </span>
             </div>
 
@@ -594,7 +650,7 @@ function ChiefLetterSection() {
                   className="w-full h-auto rounded-lg object-cover aspect-[3/4]"
                 />
                 <p className="text-[hsl(220,15%,40%)] text-xs mt-3 text-center">
-                  Fire Chief
+                  Fire Chief Shane Glaiser
                   <br />
                   <span className="text-gold">Round Rock Fire Department</span>
                 </p>
@@ -621,7 +677,7 @@ function ChiefLetterSection() {
                 <div className="border-t border-[hsl(40,15%,90%)] pt-4">
                   <p className="text-[hsl(220,15%,40%)] text-sm italic">With gratitude,</p>
                   <p className="text-gold text-xs uppercase tracking-wider mt-1">
-                    Fire Chief, Round Rock Fire Department
+                    Fire Chief Shane Glaiser, Round Rock Fire Department
                   </p>
                 </div>
               </div>
@@ -733,11 +789,10 @@ function ChapsCornerSection() {
                   <BookOpen className="w-6 h-6 text-gold" />
                 </div>
                 <div>
-                  <h3 className="text-white text-lg font-light mb-2">From the Chaplain</h3>
+                  <h3 className="text-white text-lg font-light mb-2">John Patterson, Fire Chaplain</h3>
                   <p className="text-white/50 text-sm leading-relaxed italic">
-                    "In the fire service, we talk about brotherhood and sisterhood — but what
-                    does that look like when the uniform comes off? It looks like showing up.
-                    It looks like listening. It looks like love that outlasts the emergency."
+                    "With faith-centered care and intentional support, firefighters can finish
+                    their careers stronger, healthier, and more connected than when they began."
                   </p>
                 </div>
               </div>
@@ -751,6 +806,10 @@ function ChapsCornerSection() {
 
 /* ─── Main Home Page ─── */
 export default function HomePage() {
+  useEffect(() => {
+    document.title = 'Round Rock Fire Foundation — Honoring Heroes, Supporting Fire Families'
+  }, [])
+
   return (
     <div className="min-h-screen">
       <Navbar />

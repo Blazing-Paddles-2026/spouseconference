@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -15,6 +16,10 @@ import {
 } from 'lucide-react'
 
 export default function EventFireFoundationNight() {
+  useEffect(() => {
+    document.title = 'Fire Foundation Night at Dell Diamond — May 29, 2026'
+  }, [])
+
   return (
     <div className="min-h-screen bg-[hsl(220,35%,12%)]">
       <Navbar />
@@ -139,12 +144,12 @@ export default function EventFireFoundationNight() {
                       },
                       {
                         icon: Users,
-                        title: 'Ceremonial First Pitch',
-                        desc: 'A Round Rock Fire Department chief throws out the ceremonial first pitch.',
+                        title: 'Ceremonial First Pitch & Fire Family Recognition',
+                        desc: 'Round Rock Fire Assistant Chief Wylie Brownell throws out the ceremonial first pitch, with recognition of fire families who have faced loss.',
                       },
                       {
                         icon: Info,
-                        title: 'Between-Innings Recognition',
+                        title: 'Between-Innings Firefighter Recognition',
                         desc: 'On-field moments recognizing active-duty firefighters serving the Round Rock community.',
                       },
                     ].map((item) => (
@@ -183,7 +188,7 @@ export default function EventFireFoundationNight() {
                     the Round Rock Fire Foundation.
                   </p>
                   <p className="text-[hsl(40,20%,40%)] text-xs mt-3">
-                    Contact: Diedra Brownell, Executive Chair &middot; (512) 967-1007 &middot; info@roundrockfirefoundation.org
+                    Contact: Diedra Brownell, Executive Director &middot; (512) 967-1007 &middot; info@roundrockfirefoundation.org
                   </p>
                 </div>
               </div>

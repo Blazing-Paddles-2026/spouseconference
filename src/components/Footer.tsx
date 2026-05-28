@@ -3,9 +3,9 @@ import { Mail, Phone, MapPin, Facebook, Instagram } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-[hsl(220,15%,6%)] border-t border-white/5">
+    <footer className="bg-[hsl(0,0%,4%)] border-t border-white/5">
       {/* Newsletter CTA */}
-      <div className="bg-[hsl(220,15%,10%)] py-16">
+      <div className="bg-[hsl(0,0%,6%)] py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h3 className="text-2xl md:text-3xl font-light text-white mb-4">
             Help build support before it is needed.
@@ -13,10 +13,10 @@ export default function Footer() {
           <p className="text-white/60 text-sm mb-6">
             Stories, events, and one annual ask — sent only when there is something worth saying. To join the list while the signup is being set up, email{' '}
             <a
-              href="mailto:legacy@roundrockfirefoundation.org"
+              href="mailto:info@roundrockfirefoundation.org"
               className="text-gold hover:underline"
             >
-              legacy@roundrockfirefoundation.org
+              info@roundrockfirefoundation.org
             </a>{' '}
             and we'll add you.
           </p>
@@ -30,7 +30,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="mb-4">
               <img
-                src="/images/rrff-logo-dark.jpg"
+                src="/images/rrff-logo-transparent.png"
                 alt="Round Rock Fire Foundation"
                 className="h-16 w-auto rounded-sm"
               />
@@ -63,34 +63,19 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="https://www.roundrockfirefoundation.org/get-involved"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white text-sm transition-colors"
-                >
-                  Volunteer
-                </a>
+                <Link to="/get-involved" className="text-white/60 hover:text-white text-sm transition-colors">
+                  Get Involved
+                </Link>
               </li>
               <li>
-                <a
-                  href="https://www.roundrockfirefoundation.org/firechaplain"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white text-sm transition-colors"
-                >
-                  Chap's Corner
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.roundrockfirefoundation.org/board-members"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white text-sm transition-colors"
-                >
+                <Link to="/board" className="text-white/60 hover:text-white text-sm transition-colors">
                   Board Members
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link to="/chaps-corner" className="text-white/60 hover:text-white text-sm transition-colors">
+                  Chap's Corner
+                </Link>
               </li>
             </ul>
           </div>
@@ -110,24 +95,14 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="https://www.roundrockfirefoundation.org/get-involved"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white text-sm transition-colors"
-                >
+                <Link to="/get-involved" className="text-white/60 hover:text-white text-sm transition-colors">
                   Sponsor an event
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="https://www.roundrockfirefoundation.org/get-involved"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white text-sm transition-colors"
-                >
+                <Link to="/get-involved" className="text-white/60 hover:text-white text-sm transition-colors">
                   Volunteer
-                </a>
+                </Link>
               </li>
               <li>
                 <span className="text-white/60 text-sm">Legacy donor circle</span>
@@ -141,15 +116,15 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-white/40 mt-0.5 flex-shrink-0" />
-                <span className="text-white/60 text-sm">P.O. Box &middot; Round Rock, TX</span>
+                <span className="text-white/60 text-sm">797 Sam Bass Rd #204 &middot; Round Rock, TX 78681</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-white/40 flex-shrink-0" />
                 <a
-                  href="mailto:legacy@roundrockfirefoundation.org"
+                  href="mailto:info@roundrockfirefoundation.org"
                   className="text-white/60 hover:text-gold text-sm transition-colors"
                 >
-                  legacy@roundrockfirefoundation.org
+                  info@roundrockfirefoundation.org
                 </a>
               </li>
               <li className="flex items-center gap-2">

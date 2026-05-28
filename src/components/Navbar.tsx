@@ -24,12 +24,12 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Home', path: '/' },
-    { label: 'Donate & Impact', path: isHome ? '#fund' : '/#fund', external: false },
-    { label: 'Events', path: isHome ? '#events' : '/#events', external: false },
+    { label: 'The 1884 Fund', path: '/the-1884-fund' },
+    { label: 'Events', path: '/events' },
     { label: 'History', path: '/history' },
     { label: 'Press Room', path: '/press-room' },
-    { label: 'Volunteer', href: 'https://www.roundrockfirefoundation.org/get-involved' },
-    { label: "Chap's Corner", href: 'https://www.roundrockfirefoundation.org/firechaplain' },
+    { label: 'Get Involved', path: '/get-involved' },
+    { label: "Chap's Corner", path: '/chaps-corner' },
   ]
 
   const handleNavClick = (link: typeof navLinks[0]) => {
@@ -42,37 +42,28 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[hsl(220,15%,8%)]/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[hsl(0,0%,4%)]/95 backdrop-blur-md ${
+        scrolled ? 'shadow-lg border-b border-white/5' : ''
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <img
-              src="/images/rrff-logo-dark.jpg"
-              alt="Round Rock Fire Foundation"
-              className="h-12 w-auto rounded-sm group-hover:scale-105 transition-transform"
-            />
+          <Link to="/" className="flex items-center group">
+            <div className="flex flex-col leading-tight">
+              <span className="text-[13px] font-bold tracking-wider text-white">
+                ROUND ROCK
+              </span>
+              <span className="text-[10px] tracking-[0.25em] text-gold uppercase font-medium">
+                FIRE FOUNDATION
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) =>
-              link.href ? (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-white/80 hover:text-gold transition-colors"
-                >
-                  {link.label}
-                </a>
-              ) : link.path?.startsWith('#') ? (
+              link.path?.startsWith('#') ? (
                 <Link
                   key={link.label}
                   to={isHome ? link.path : link.path.replace('#', '/#')}
@@ -117,20 +108,10 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-[hsl(220,15%,8%)]/98 backdrop-blur-md border-t border-white/10">
+        <div className="lg:hidden bg-[hsl(0,0%,4%)]/98 backdrop-blur-md border-t border-white/10">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) =>
-              link.href ? (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-white/80 hover:text-gold py-2 transition-colors"
-                >
-                  {link.label}
-                </a>
-              ) : link.path?.startsWith('#') ? (
+              link.path?.startsWith('#') ? (
                 <Link
                   key={link.label}
                   to={isHome ? link.path : link.path.replace('#', '/')}

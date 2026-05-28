@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -20,9 +21,9 @@ const featuredCoverage = [
     date: 'August 9, 2025',
     description:
       'The Round Rock Fire Foundation offers a new model of fire-family support, combining wellness, crisis relief, and community integration to uplift firefighters and their loved ones. According to Assistant Chief Wylie Brownell, the foundation is setting a new standard in caring for fire families.',
-    image: '/images/press-kxan-thumb.jpg',
+    image: '/images/press-kxan-real.jpg',
     href: 'https://www.kxan.com/video/round-rock-nonprofit-launches-to-support-firefighters/10968718/',
-    articleHref: 'https://www.kxan.com/news/local/round-rock/round-rock-nonprofit-launches-to-support-firefighters/amp/',
+    articleHref: 'https://www.kxan.com/news/local/round-rock/round-rock-nonprofit-launches-to-support-firefighters/',
     type: 'video' as const,
   },
   {
@@ -44,7 +45,7 @@ const foundationNews = [
     outlet: 'Voyage Austin',
     date: '2025',
     description:
-      'An in-depth interview with RRFF Executive Chair Diedra Brownell about the Foundation\'s mission, her personal story, and the vision for supporting fire families in Round Rock.',
+      'An in-depth interview with RRFF Executive Director Diedra Brownell about the Foundation\'s mission, her personal story, and the vision for supporting fire families in Round Rock.',
     image: '/images/diedra-brownell.jpg',
     href: 'https://voyageaustin.com/interview/exploring-life-business-with-diedra-brownell-of-round-rock-fire-foundation',
     type: 'article' as const,
@@ -54,11 +55,11 @@ const foundationNews = [
 /* ─── Press Release Data ─── */
 const pressReleases = [
   {
-    title: 'Round Rock Express and Round Rock Fire Foundation Host Inaugural Fire Foundation Night at Dell Diamond',
-    date: 'May 2026',
+    title: 'Round Rock Express and Round Rock Fire Foundation Unite for Inaugural "Round Rock Fire Foundation Night" at Dell Diamond',
+    date: 'May 29, 2026',
     excerpt:
-      'The Round Rock Express and the Round Rock Fire Foundation are partnering for the inaugural Fire Foundation Night at Dell Diamond on Friday, May 29, 2026. The special evening transforms a night at the ballpark into a community-wide tribute to the firefighters and fire families of Central Texas, featuring a pre-game fire apparatus display, Pipes and Drums performance, ceremonial first pitch by a RRFD chief, and on-field recognition of active-duty firefighters.',
-    contact: 'Diedra Brownell, Executive Chair and Board President — (512) 967-1007 — info@roundrockfirefoundation.org',
+      'The Round Rock Express and the Round Rock Fire Foundation (RRFF) are partnering for the inaugural Round Rock Fire Foundation Night at Dell Diamond on Thursday, May 29, when the Express host the Salt Lake Bees with a 7:05 p.m. first pitch. The special evening transforms a night at the ballpark into a community-wide tribute to the firefighters and fire families of Central Texas. Pre-Game Fire Apparatus Display, ceremonial first pitch by a Round Rock fire family, between-innings tributes honoring fire families who have faced unimaginable loss, and Foundation information booths. "When we lost our daughter, Bailey, the love and support from our fire family and our community helped us through the most difficult time in our lives," said Wylie Brownell, Assistant Chief of the Round Rock Fire Department. 6:00 p.m. Touch-A-Truck, 7:05 p.m. First Pitch at Dell Diamond, 3400 E. Palm Valley Blvd., Round Rock, TX 78665. Tickets at milb.com/round-rock/tickets with coupon code FIRE26.',
+    contact: 'Diedra Brownell, Executive Director — (512) 967-1007 — info@roundrockfirefoundation.org',
   },
 ]
 
@@ -82,11 +83,11 @@ function MediaContactCard() {
       </p>
       <div className="space-y-3">
         <a
-          href="mailto:legacy@roundrockfirefoundation.org"
+          href="mailto:info@roundrockfirefoundation.org"
           className="text-gold text-sm hover:underline flex items-center gap-2"
         >
           <FileText className="w-4 h-4" />
-          legacy@roundrockfirefoundation.org
+          info@roundrockfirefoundation.org
         </a>
         <a
           href="tel:5129671007"
@@ -112,7 +113,7 @@ function FeaturedCard({
         <img
           src={item.image}
           alt={item.title}
-          className="w-full h-56 object-cover"
+          className="w-full h-56 object-contain bg-[hsl(40,15%,96%)]"
         />
         {item.type === 'video' && (
           <div className="absolute inset-0 flex items-center justify-center">
@@ -189,7 +190,7 @@ function NewsCard({
           <img
             src={item.image}
             alt={item.title}
-            className="w-full h-48 object-cover"
+            className="w-full h-56 object-contain bg-[hsl(40,15%,96%)]"
           />
         </div>
       )}
@@ -242,7 +243,7 @@ function Hero() {
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </Link>
         <h1 className="text-5xl md:text-7xl font-light text-white mb-4">
-          Media Room
+          Press Room
         </h1>
         <p className="text-white/60 text-lg max-w-2xl leading-relaxed">
           The Round Rock Fire Foundation is proud to share our story with the
@@ -289,7 +290,7 @@ function FoundationNewsSection() {
           </span>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-md mx-auto">
           {foundationNews.map((item) => (
             <NewsCard key={item.title} item={item} />
           ))}
@@ -354,7 +355,7 @@ function PressReleasesSection() {
                   <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 flex-shrink-0" />
                     <span className="text-[hsl(220,15%,40%)] text-xs">
-                      Founded August 2025 by Wylie and Diedra Brownell
+                      Established in 2025
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
@@ -433,6 +434,10 @@ function BrandStatement() {
 
 /* ─── Main Press Room Page ─── */
 export default function PressRoomPage() {
+  useEffect(() => {
+    document.title = 'Press Room — Round Rock Fire Foundation'
+  }, [])
+
   return (
     <div className="min-h-screen">
       <Navbar />
