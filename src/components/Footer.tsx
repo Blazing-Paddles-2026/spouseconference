@@ -1,4 +1,3 @@
-import { Link } from 'react-router'
 import { Mail, Phone, MapPin, Facebook, Instagram } from 'lucide-react'
 
 export default function Footer() {
@@ -48,34 +47,34 @@ export default function Footer() {
             <h4 className="text-xs tracking-[0.15em] text-gold uppercase mb-4">Visit</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-white/60 hover:text-white text-sm transition-colors">
-                  Home
-                </Link>
+                <a href="https://www.roundrockfirefoundation.org/" className="text-white/60 hover:text-white text-sm transition-colors">
+                  RRFF Home
+                </a>
               </li>
               <li>
-                <Link to="/history" className="text-white/60 hover:text-white text-sm transition-colors">
+                <a href="https://www.roundrockfirefoundation.org/#/history" className="text-white/60 hover:text-white text-sm transition-colors">
                   History
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/press-room" className="text-white/60 hover:text-white text-sm transition-colors">
+                <a href="https://www.roundrockfirefoundation.org/#/press-room" className="text-white/60 hover:text-white text-sm transition-colors">
                   Press Room
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/get-involved" className="text-white/60 hover:text-white text-sm transition-colors">
+                <a href="https://www.roundrockfirefoundation.org/#/get-involved" className="text-white/60 hover:text-white text-sm transition-colors">
                   Get Involved
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/board" className="text-white/60 hover:text-white text-sm transition-colors">
+                <a href="https://www.roundrockfirefoundation.org/board/" className="text-white/60 hover:text-white text-sm transition-colors">
                   Board Members
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/chaps-corner" className="text-white/60 hover:text-white text-sm transition-colors">
+                <a href="https://chap.roundrockfirefoundation.org/firechaplain" className="text-white/60 hover:text-white text-sm transition-colors">
                   Chap's Corner
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -95,14 +94,14 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <Link to="/get-involved" className="text-white/60 hover:text-white text-sm transition-colors">
+                <a href="https://www.roundrockfirefoundation.org/sponsor/" className="text-white/60 hover:text-white text-sm transition-colors">
                   Sponsor an event
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/get-involved" className="text-white/60 hover:text-white text-sm transition-colors">
+                <a href="https://www.roundrockfirefoundation.org/volunteer/" className="text-white/60 hover:text-white text-sm transition-colors">
                   Volunteer
-                </Link>
+                </a>
               </li>
               <li>
                 <span className="text-white/60 text-sm">Legacy donor circle</span>
