@@ -2,16 +2,10 @@ import path from "path"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 
-// https://vite.dev/config/
+// Built to be served at the ROOT of spouseconference.roundrockfirefoundation.org
 export default defineConfig({
-  base: './',
+  base: '/',
   plugins: [react()],
-  server: {
-    port: 3000,
-  },
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
+  server: { port: 3000 },
+  resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
 });
