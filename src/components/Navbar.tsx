@@ -49,13 +49,19 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center gap-3 group">
+            <img
+              src="/images/nsc-logo-official.png"
+              alt=""
+              aria-hidden="true"
+              className="h-10 w-10 object-contain flex-shrink-0"
+            />
             <div className="flex flex-col leading-tight">
               <span className="text-[13px] font-bold tracking-wider text-white">
-                ROUND ROCK
+                NATIONAL SPOUSE
               </span>
-              <span className="text-[10px] tracking-[0.25em] text-gold uppercase font-medium">
-                FIRE FOUNDATION
+              <span className="text-[10px] tracking-[0.25em] text-orange-500 uppercase font-medium">
+                CONFERENCE
               </span>
             </div>
           </Link>

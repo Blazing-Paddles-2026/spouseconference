@@ -29,9 +29,9 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="mb-4">
               <img
-                src="/images/rrff-logo-transparent.png"
-                alt="Round Rock Fire Foundation"
-                className="h-16 w-auto rounded-sm"
+                src="/images/nsc-logo-official.png"
+                alt="Round Rock Fire Foundation National Spouse Conference"
+                className="h-16 w-auto"
               />
             </div>
             <p className="text-white/50 text-sm leading-relaxed">
@@ -162,7 +162,7 @@ export default function Footer() {
       <div className="border-t border-white/5 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/30 text-xs text-center sm:text-left">
-            &copy; 2025 Round Rock Fire Foundation &middot; Gifts made through trusted giving partners
+            &copy; 2026 Round Rock Fire Foundation &middot; Gifts made through trusted giving partners
           </p>
           <div className="flex items-center gap-4">
             <a
