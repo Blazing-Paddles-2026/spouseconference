@@ -98,7 +98,7 @@ function VideoTestimonialCarousel() {
   return (
     <div className="max-w-xl mx-auto">
       {/* Video Card with Overlay */}
-      <div className="relative mb-4">
+      <div className="relative mb-10">
         <div className="rounded-xl overflow-hidden aspect-video bg-black">
           <iframe
             src={`https://www.youtube.com/embed/${v.youtubeId}?rel=0&modestbranding=1&iv_load_policy=3`}
@@ -109,13 +109,9 @@ function VideoTestimonialCarousel() {
             title={`${v.name} — Testimonial`}
           />
         </div>
-        {/* Overlay to hide YouTube title/channel overlay at top */}
-        <div className="absolute top-0 left-0 right-0 h-16 bg-black z-10 pointer-events-none rounded-t-xl" />
-        {/* Overlay to hide YouTube branding at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-14 bg-black z-10 pointer-events-none rounded-b-xl" />
-        {/* Speaker name overlay - bottom left, small, doesn't cover faces */}
-        <div className="absolute bottom-3 left-3 z-20 pointer-events-none">
-          <p className="text-white/80 text-[10px] font-medium tracking-wide bg-black/60 px-2 py-1 rounded">{v.name} &middot; <span className="text-white/50">{v.role}</span></p>
+        {/* Speaker name label below the video (no overlay covering faces) */}
+        <div className="absolute -bottom-7 left-0 z-20 pointer-events-none">
+          <p className="text-white/80 text-xs font-medium tracking-wide">{v.name} &middot; <span className="text-white/50">{v.role}</span></p>
         </div>
       </div>
 
@@ -498,10 +494,10 @@ export default function SpouseConferencePage() {
             <p className="text-white/45 text-sm max-w-md mx-auto">Industry leaders sharing real-world insights for fire service families.</p>
           </FadeIn>
 
-          <div className="grid sm:grid-cols-2 gap-3">
+          <div className="grid sm:grid-cols-2 gap-3 items-stretch">
             {speakers.map((s, i) => (
-              <FadeIn key={i} delay={i * 0.06}>
-                <div className="border border-white/10 rounded-xl overflow-hidden hover:border-orange-500/30 transition-colors flex">
+              <FadeIn key={i} delay={i * 0.06} className="h-full">
+                <div className="border border-white/10 rounded-xl overflow-hidden hover:border-orange-500/30 transition-colors flex h-full">
                   {/* Left - Photo */}
                   <div className="bg-white p-1.5 shrink-0">
                     <div className="w-[100px] sm:w-[120px] h-full bg-neutral-100 overflow-hidden">
@@ -509,13 +505,13 @@ export default function SpouseConferencePage() {
                     </div>
                   </div>
                   {/* Right - Bio on white */}
-                  <div className="bg-white flex-1 p-3 sm:p-4">
-                    <span className="inline-block px-2 py-0.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-[9px] font-bold uppercase tracking-wider mb-2">
+                  <div className="bg-white flex-1 p-3 sm:p-4 flex flex-col">
+                    <span className="inline-block self-start px-2 py-0.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-[9px] font-bold uppercase tracking-wider mb-2">
                       {s.tag}
                     </span>
                     <h3 className="text-xs font-bold text-black mb-0.5 leading-tight">{s.name}</h3>
                     <p className="text-orange-600 text-[10px] font-semibold mb-2">{s.org}</p>
-                    <p className="text-black/50 text-[11px] leading-relaxed">{s.bio}</p>
+                    <p className="text-black/50 text-[11px] leading-relaxed flex-1">{s.bio}</p>
                   </div>
                 </div>
               </FadeIn>
