@@ -97,22 +97,30 @@ function VideoTestimonialCarousel() {
 
   return (
     <div className="max-w-xl mx-auto">
-      {/* Video Card with Overlay */}
-      <div className="relative mb-10">
-        <div className="rounded-xl overflow-hidden aspect-video bg-black">
+      {/* Video Card */}
+      <div className="relative mb-8">
+        <div className="relative rounded-xl overflow-hidden aspect-video bg-black">
           <iframe
-            src={`https://www.youtube.com/embed/${v.youtubeId}?rel=0&modestbranding=1&iv_load_policy=3`}
+            src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}?rel=0&modestbranding=1&iv_load_policy=3&showinfo=0&controls=1`}
             className="w-full h-full"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             title={`${v.name} — Testimonial`}
           />
+          {/* Corner masks to hide YouTube branding while leaving faces fully visible.
+             These DON'T capture clicks (pointer-events-none) so play still works. */}
+          {/* Top-left mask hides the YouTube title overlay (e.g. "Ashley sneed") */}
+          <div className="absolute top-0 left-0 w-1/2 h-12 bg-black pointer-events-none z-10" />
+          {/* Bottom-right mask hides the "Watch on YouTube" link */}
+          <div className="absolute bottom-0 right-0 w-1/2 h-10 bg-black pointer-events-none z-10" />
+          {/* Bottom-left mask hides the share-arrow icon */}
+          <div className="absolute bottom-0 left-0 w-12 h-10 bg-black pointer-events-none z-10" />
         </div>
-        {/* Speaker name label below the video (no overlay covering faces) */}
-        <div className="absolute -bottom-7 left-0 z-20 pointer-events-none">
-          <p className="text-white/80 text-xs font-medium tracking-wide">{v.name} &middot; <span className="text-white/50">{v.role}</span></p>
-        </div>
+        {/* Speaker caption — smaller so it doesn't compete with the video */}
+        <p className="mt-2 text-white/70 text-[11px] tracking-wide text-center">
+          {v.name} <span className="text-white/40">· {v.role}</span>
+        </p>
       </div>
 
       {/* Navigation — matching original: orange circle arrows + X/7 counter */}
