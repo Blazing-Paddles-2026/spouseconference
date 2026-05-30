@@ -108,14 +108,11 @@ function VideoTestimonialCarousel() {
             allowFullScreen
             title={`${v.name} — Testimonial`}
           />
-          {/* Corner masks to hide YouTube branding while leaving faces fully visible.
-             These DON'T capture clicks (pointer-events-none) so play still works. */}
-          {/* Top-left mask hides the YouTube title overlay (e.g. "Ashley sneed") */}
-          <div className="absolute top-0 left-0 w-1/2 h-12 bg-black pointer-events-none z-10" />
-          {/* Bottom-right mask hides the "Watch on YouTube" link */}
-          <div className="absolute bottom-0 right-0 w-1/2 h-10 bg-black pointer-events-none z-10" />
-          {/* Bottom-left mask hides the share-arrow icon */}
-          <div className="absolute bottom-0 left-0 w-12 h-10 bg-black pointer-events-none z-10" />
+          {/* Thin top/bottom bars that cover JUST the YouTube branding strips,
+             not the middle of the video where faces are. Click-through enabled
+             so the play button still works through these masks. */}
+          <div className="absolute top-0 left-0 right-0 h-9 bg-black pointer-events-none z-10" />
+          <div className="absolute bottom-0 left-0 right-0 h-7 bg-black pointer-events-none z-10" />
         </div>
         {/* Speaker caption — smaller so it doesn't compete with the video */}
         <p className="mt-2 text-white/70 text-[11px] tracking-wide text-center">
