@@ -93,33 +93,60 @@ const videoSlides = [
 
 function VideoTestimonialCarousel() {
   const [active, setActive] = useState(0);
+  const [playing, setPlaying] = useState(false);
   const v = videoSlides[active];
+
+  // Reset to thumbnail when switching slides
+  const goTo = (idx: number) => {
+    setPlaying(false);
+    setActive(idx);
+  };
+
+  // Try hqdefault first (always exists for any public video); fall back if it 404s
+  const thumbSrc = `https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`;
 
   return (
     <div className="max-w-xl mx-auto">
       {/* Video Card */}
       <div className="relative mb-8">
         <div className="relative rounded-xl overflow-hidden aspect-video bg-black">
-          <iframe
-            src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}?rel=0&modestbranding=1&iv_load_policy=3&showinfo=0&controls=1`}
-            className="w-full h-full"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            title={`${v.name} — Testimonial`}
-          />
-          {/* Thin top/bottom bars that cover the YouTube branding strips,
-             not the middle of the video. style.transform forces a new
-             stacking context so the masks paint OVER the iframe (iframes
-             create their own stacking context that can defeat z-index). */}
-          <div
-            className="absolute top-0 left-0 right-0 h-9 bg-black pointer-events-none"
-            style={{ zIndex: 50, transform: 'translateZ(0)' }}
-          />
-          <div
-            className="absolute bottom-0 left-0 right-0 h-8 bg-black pointer-events-none"
-            style={{ zIndex: 50, transform: 'translateZ(0)' }}
-          />
+          {playing ? (
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&showinfo=0&controls=1`}
+              className="w-full h-full"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title={`${v.name} — Testimonial`}
+            />
+          ) : (
+            <button
+              type="button"
+              onClick={() => setPlaying(true)}
+              className="group absolute inset-0 w-full h-full block bg-black focus:outline-none"
+              aria-label={`Play testimonial from ${v.name}`}
+            >
+              {/* Thumbnail image — scaled up slightly to crop the YouTube
+                 hqdefault letterbox bars (black bars at top/bottom of
+                 hqdefault images) so we see only the face. */}
+              <img
+                src={thumbSrc}
+                alt={`${v.name} testimonial thumbnail`}
+                className="w-full h-full object-cover scale-[1.35]"
+                loading="lazy"
+              />
+              {/* Subtle dark gradient for play-button contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
+              {/* Centered play button */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-orange-500/95 group-hover:bg-orange-400 transition-all group-hover:scale-110 flex items-center justify-center shadow-2xl ring-4 ring-white/20">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white" className="ml-1">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          )}
         </div>
         {/* Speaker caption — smaller so it doesn't compete with the video */}
         <p className="mt-2 text-white/70 text-[11px] tracking-wide text-center">
@@ -130,7 +157,7 @@ function VideoTestimonialCarousel() {
       {/* Navigation — matching original: orange circle arrows + X/7 counter */}
       <div className="flex justify-center items-center gap-3">
         <button
-          onClick={() => setActive((p) => (p - 1 + videoSlides.length) % videoSlides.length)}
+          onClick={() => goTo((active - 1 + videoSlides.length) % videoSlides.length)}
           className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white hover:bg-orange-400 transition-colors"
         >
           <ChevronLeft className="h-4 w-4" />
@@ -139,7 +166,7 @@ function VideoTestimonialCarousel() {
           {active + 1} / {videoSlides.length}
         </span>
         <button
-          onClick={() => setActive((p) => (p + 1) % videoSlides.length)}
+          onClick={() => goTo((active + 1) % videoSlides.length)}
           className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white hover:bg-orange-400 transition-colors"
         >
           <ChevronLeft className="h-4 w-4 rotate-180" />
