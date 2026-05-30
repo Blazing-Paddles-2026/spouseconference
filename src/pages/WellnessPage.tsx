@@ -250,7 +250,7 @@ export default function WellnessPage() {
                     <sess.icon className="h-5 w-5 text-orange-500" />
                   </div>
                   <h3 className="font-bold text-black text-xs mb-1">{sess.tag}</h3>
-                  <p className="text-black/35 text-[10px] leading-relaxed">{sess.speaker}</p>
+                  <p className="text-black/55 text-xs leading-relaxed">{sess.speaker}</p>
                 </button>
               </FadeIn>
             ))}

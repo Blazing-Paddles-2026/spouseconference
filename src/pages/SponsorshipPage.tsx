@@ -195,7 +195,7 @@ function SponsorFormSection() {
                     <CreditCard className="h-5 w-5 text-orange-500 shrink-0" />
                     <Label htmlFor="card" className="cursor-pointer text-sm text-black">
                       Pay with Credit Card
-                      <p className="text-black/40 text-[10px]">Secure payment via donation page</p>
+                      <p className="text-black/50 text-xs">Secure payment via donation page</p>
                     </Label>
                   </div>
                   <div className={`flex items-center gap-3 border rounded-lg p-3 cursor-pointer transition-colors ${payment === 'check' ? 'border-orange-500 bg-orange-50' : 'border-black/10 hover:border-black/20'}`}>
@@ -203,7 +203,7 @@ function SponsorFormSection() {
                     <Mail className="h-5 w-5 text-orange-500 shrink-0" />
                     <Label htmlFor="check" className="cursor-pointer text-sm text-black">
                       Pay by Check
-                      <p className="text-black/40 text-[10px]">We'll send you payment instructions</p>
+                      <p className="text-black/50 text-xs">We'll send you payment instructions</p>
                     </Label>
                   </div>
                   <div className={`flex items-center gap-3 border rounded-lg p-3 cursor-pointer transition-colors ${payment === 'ach' ? 'border-orange-500 bg-orange-50' : 'border-black/10 hover:border-black/20'}`}>
@@ -211,7 +211,7 @@ function SponsorFormSection() {
                     <Building2 className="h-5 w-5 text-orange-500 shrink-0" />
                     <Label htmlFor="ach" className="cursor-pointer text-sm text-black">
                       ACH / Bank Transfer
-                      <p className="text-black/40 text-[10px]">We'll send you wiring instructions</p>
+                      <p className="text-black/50 text-xs">We'll send you wiring instructions</p>
                     </Label>
                   </div>
                 </RadioGroup>

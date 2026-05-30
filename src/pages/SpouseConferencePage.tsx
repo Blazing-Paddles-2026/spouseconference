@@ -405,7 +405,7 @@ export default function SpouseConferencePage() {
                       <item.icon className="h-4 w-4 text-orange-500" />
                     </div>
                     <h3 className="font-bold text-white text-[11px] mb-1 leading-tight">{item.title}</h3>
-                    <p className="text-white/35 text-[10px] leading-relaxed">{item.desc}</p>
+                    <p className="text-white/45 text-xs leading-relaxed">{item.desc}</p>
                   </a>
                 </FadeIn>
               ))}
@@ -510,7 +510,7 @@ export default function SpouseConferencePage() {
                       {s.tag}
                     </span>
                     <h3 className="text-xs font-bold text-black mb-0.5 leading-tight">{s.name}</h3>
-                    <p className="text-orange-600 text-[10px] font-semibold mb-2">{s.org}</p>
+                    <p className="text-orange-600 text-xs font-semibold mb-2">{s.org}</p>
                     <p className="text-black/50 text-[11px] leading-relaxed flex-1">{s.bio}</p>
                   </div>
                 </div>
@@ -591,9 +591,9 @@ export default function SpouseConferencePage() {
                 <p className="text-black/60 text-sm leading-relaxed">
                   Whether you are newly married or have been together for decades, this experience is designed to help you reconnect, communicate better, and walk away stronger as a couple.
                 </p>
-                <div className="flex flex-wrap gap-2 pt-1">
+                <div className="flex flex-wrap gap-2.5 pt-2">
                   {['Firefighters & Spouses', 'Career & Volunteer', 'All Ranks & Stations'].map((tag, i) => (
-                    <span key={i} className="px-2.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 text-[10px] font-semibold uppercase tracking-wider">{tag}</span>
+                    <span key={i} className="px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 text-sm font-semibold uppercase tracking-wider">{tag}</span>
                   ))}
                 </div>
               </div>
@@ -755,7 +755,7 @@ export default function SpouseConferencePage() {
       <section className="py-10 bg-black">
         <FadeIn className="max-w-xs mx-auto px-4 text-center">
           <img src="/images/nsc-banner-logo.png" alt="Round Rock Fire Foundation National Spouse Conference" className="w-full opacity-80" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-          <p className="text-white/30 text-[10px] uppercase tracking-widest mt-3">Built to Support Fire Service Families</p>
+          <p className="text-white/50 text-xs uppercase tracking-widest mt-3">Built to Support Fire Service Families</p>
         </FadeIn>
       </section>
 

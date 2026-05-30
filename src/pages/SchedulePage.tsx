@@ -186,17 +186,17 @@ export default function SchedulePage() {
               <div className="flex flex-col items-center gap-1.5">
                 <MapPin className="h-4 w-4 text-orange-500" />
                 <p className="font-semibold text-xs">Round Rock Public Safety Training Center</p>
-                <p className="text-black/40 text-[10px]">Tru by Hilton, 2900 Hoppe Trail, Round Rock, TX</p>
+                <p className="text-black/50 text-xs">Tru by Hilton, 2900 Hoppe Trail, Round Rock, TX</p>
               </div>
               <div className="flex flex-col items-center gap-1.5">
                 <Calendar className="h-4 w-4 text-orange-500" />
                 <p className="font-semibold text-xs">November 6-8, 2026</p>
-                <p className="text-black/40 text-[10px]">Check-in: 5:00 PM Thursday, Nov 5</p>
+                <p className="text-black/50 text-xs">Check-in: 5:00 PM Thursday, Nov 5</p>
               </div>
               <div className="flex flex-col items-center gap-1.5">
                 <Users className="h-4 w-4 text-orange-500" />
                 <p className="font-semibold text-xs">$700 per couple</p>
-                <p className="text-black/40 text-[10px]">Includes hotel at Tru by Hilton</p>
+                <p className="text-black/50 text-xs">Includes hotel at Tru by Hilton</p>
               </div>
             </div>
           </FadeIn>
@@ -221,7 +221,7 @@ export default function SchedulePage() {
                   className={`py-3 px-2 rounded-xl text-center transition-all ${activeDay === i ? 'bg-orange-500 text-white' : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white/80'}`}
                 >
                   <p className="font-bold text-sm">{d.day}</p>
-                  <p className={`text-[10px] ${activeDay === i ? 'text-white/80' : 'text-white/30'}`}>{d.date}</p>
+                  <p className={`text-xs ${activeDay === i ? 'text-white/80' : 'text-white/40'}`}>{d.date}</p>
                 </button>
               ))}
             </div>
@@ -253,7 +253,7 @@ export default function SchedulePage() {
 
                   <div className="mb-1">
                     <span className="text-orange-500 text-[10px] font-bold uppercase tracking-wider">{session.period}</span>
-                    <span className="text-white/30 text-[10px] ml-2">{session.time}</span>
+                    <span className="text-white/40 text-xs ml-2">{session.time}</span>
                   </div>
 
                   <div className="space-y-3">
