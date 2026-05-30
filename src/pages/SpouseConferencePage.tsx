@@ -108,11 +108,18 @@ function VideoTestimonialCarousel() {
             allowFullScreen
             title={`${v.name} — Testimonial`}
           />
-          {/* Thin top/bottom bars that cover JUST the YouTube branding strips,
-             not the middle of the video where faces are. Click-through enabled
-             so the play button still works through these masks. */}
-          <div className="absolute top-0 left-0 right-0 h-9 bg-black pointer-events-none z-10" />
-          <div className="absolute bottom-0 left-0 right-0 h-7 bg-black pointer-events-none z-10" />
+          {/* Thin top/bottom bars that cover the YouTube branding strips,
+             not the middle of the video. style.transform forces a new
+             stacking context so the masks paint OVER the iframe (iframes
+             create their own stacking context that can defeat z-index). */}
+          <div
+            className="absolute top-0 left-0 right-0 h-9 bg-black pointer-events-none"
+            style={{ zIndex: 50, transform: 'translateZ(0)' }}
+          />
+          <div
+            className="absolute bottom-0 left-0 right-0 h-8 bg-black pointer-events-none"
+            style={{ zIndex: 50, transform: 'translateZ(0)' }}
+          />
         </div>
         {/* Speaker caption — smaller so it doesn't compete with the video */}
         <p className="mt-2 text-white/70 text-[11px] tracking-wide text-center">
