@@ -232,6 +232,7 @@ export default function SpouseConferencePage() {
             <button onClick={() => scrollToSection('speakers')} className="hidden sm:block text-white/60 text-xs hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0">Speakers</button>
             <button onClick={() => scrollToSection('faq')} className="hidden sm:block text-white/60 text-xs hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0">FAQs</button>
             <button onClick={() => scrollToSection('gallery')} className="hidden sm:block text-white/60 text-xs hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0">Gallery</button>
+            <a href="https://www.roundrockfirefoundation.org/" className="hidden sm:block text-white/60 text-xs hover:text-orange-500 transition-colors">RRFF Home</a>
             <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
               <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-4 py-2 h-8 text-xs rounded-full">Register</Button>
             </a>
