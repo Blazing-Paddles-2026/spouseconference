@@ -105,15 +105,53 @@ const sessions = [
   },
 ];
 
+// Map URL session params/anchors to session index
+const sessionParamMap: Record<string, number> = {
+  resiliency: 0,
+  resilience: 0,
+  communication: 1,
+  conversations: 1,
+  selfcare: 2,
+  'self-care': 2,
+  financial: 2, // legacy alias (was financial in old landing site)
+  chaplain: 3,
+  leadership: 3, // legacy alias
+  faith: 3,
+};
+
+function getSessionFromUrl(): number {
+  if (typeof window === 'undefined') return 0;
+  const hash = window.location.hash; // e.g. "#/wellness?session=resiliency" or "#/wellness#resiliency"
+  // Try query param first: ?session=name
+  const qMatch = hash.match(/[?&]session=([^&#]+)/i);
+  if (qMatch) {
+    const key = decodeURIComponent(qMatch[1]).toLowerCase();
+    if (key in sessionParamMap) return sessionParamMap[key];
+  }
+  // Try sub-hash: /wellness#resiliency
+  const hMatch = hash.match(/#\/wellness#([a-zA-Z-]+)/i);
+  if (hMatch) {
+    const key = hMatch[1].toLowerCase();
+    if (key in sessionParamMap) return sessionParamMap[key];
+  }
+  return 0;
+}
+
 export default function WellnessPage() {
   const [scrolled, setScrolled] = useState(false);
-  const [activeSession, setActiveSession] = useState(0);
+  const [activeSession, setActiveSession] = useState(() => getSessionFromUrl());
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Update active session if the URL changes (e.g. user clicks another link)
+    const onHash = () => setActiveSession(getSessionFromUrl());
+    window.addEventListener('hashchange', onHash);
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('hashchange', onHash);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const s = sessions[activeSession];

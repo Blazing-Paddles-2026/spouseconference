@@ -434,13 +434,13 @@ export default function SpouseConferencePage() {
             {/* Right column - 2x2 card grid */}
             <div className="grid grid-cols-2 gap-3">
               {[
-                { icon: ShieldCheck, title: 'Resilience in Real Life', desc: 'Build lasting resilience with Hunter Harris' },
-                { icon: MessageCircle, title: 'Conversations That Matter', desc: 'Strengthen your partnership with MotivAction' },
-                { icon: PiggyBank, title: 'Secure Your Future', desc: 'Financial planning for fire families with Jeff Paull' },
-                { icon: UserCheck, title: 'The Power of Self-Care', desc: 'Wellness guidance from Fire Chaplain John Patterson' },
+                { icon: ShieldCheck, title: 'Resilience in Real Life', desc: 'Build lasting resilience with Hunter Harris', href: '#/wellness?session=resiliency' },
+                { icon: MessageCircle, title: 'Conversations That Matter', desc: 'Strengthen your partnership with MotivAction', href: '#/wellness?session=communication' },
+                { icon: PiggyBank, title: 'Secure Your Future', desc: 'Financial planning for fire families with Jeff Paull', href: '#/wellness?session=selfcare' },
+                { icon: UserCheck, title: 'The Power of Self-Care', desc: 'Wellness guidance from Fire Chaplain John Patterson', href: '#/wellness?session=chaplain' },
               ].map((item, i) => (
                 <FadeIn key={i} delay={i * 0.05}>
-                  <a href="#/wellness" className="block border border-white/10 rounded-xl p-4 text-center hover:border-orange-500/30 transition-colors h-full">
+                  <a href={item.href} className="block border border-white/10 rounded-xl p-4 text-center hover:border-orange-500/30 transition-colors h-full">
                     <div className="w-9 h-9 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-2">
                       <item.icon className="h-4 w-4 text-orange-500" />
                     </div>
