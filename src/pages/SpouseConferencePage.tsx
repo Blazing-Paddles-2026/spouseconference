@@ -160,10 +160,8 @@ function VideoTestimonialCarousel() {
             </button>
           )}
         </div>
-        {/* Speaker caption — smaller so it doesn't compete with the video */}
-        <p className="mt-2 text-white/70 text-[11px] tracking-wide text-center">
-          {v.name} <span className="text-white/40">· {v.role}</span>
-        </p>
+        {/* Speaker caption is now shown in the overlay itself (see above) so no
+           extra caption needed beneath the video. */}
       </div>
 
       {/* Navigation — matching original: orange circle arrows + X/7 counter */}
