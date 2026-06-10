@@ -137,32 +137,46 @@ function VideoTestimonialCarousel() {
               {/* Thumbnail image — scaled up slightly to crop the YouTube
                  hqdefault letterbox bars (black bars at top/bottom of
                  hqdefault images) so we see only the face. */}
+              {/* Photo with sepia filter — creates the warm vintage tone */}
               <img
                 src={thumbSrc}
                 alt={`${v.name} testimonial thumbnail`}
-                className="w-full h-full object-cover saturate-[1.15] contrast-[1.05] transition-all duration-500"
+                className="w-full h-full object-cover transition-all duration-500 group-hover:[filter:none]"
+                style={{ filter: 'sepia(0.85) saturate(1.4) hue-rotate(-15deg) brightness(0.95) contrast(1.05)' }}
                 loading="lazy"
                 onError={(e) => { (e.target as HTMLImageElement).src = fallbackThumb; }}
               />
-              {/* Soft bottom-only fade for name caption legibility - keeps the face clean and crisp */}
+              {/* Soft orange tint layer on top to enrich the amber */}
+              <div
+                className="absolute inset-0 pointer-events-none transition-opacity group-hover:opacity-0"
+                style={{ background: 'linear-gradient(180deg, rgba(255,140,40,0.15) 0%, rgba(180,80,20,0.25) 100%)' }}
+              />
+              {/* Bottom dark fade for caption legibility */}
               <div
                 className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
-                style={{
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%)',
-                }}
+                style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%)' }}
               />
-              {/* Centered play button only — name moved to bottom-left */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm group-hover:bg-white/25 transition-all group-hover:scale-110 flex items-center justify-center ring-2 ring-white/60">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" className="ml-0.5">
+              {/* Centered: play button + small YouTube icon + name + role + watch line (matches landingsite) */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+                <div className="w-16 h-16 rounded-full border-2 border-white/85 bg-black/15 backdrop-blur-sm group-hover:bg-white/25 transition-all group-hover:scale-110 flex items-center justify-center mb-2">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="white" className="ml-0.5">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
+                {/* Tiny YouTube-style red play badge */}
+                <div className="w-7 h-5 rounded bg-red-600/90 flex items-center justify-center mb-2 shadow">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="white" className="ml-0.5">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-white font-bold text-lg sm:text-xl tracking-tight drop-shadow-md">{v.name}</h3>
+                <p className="text-white/95 text-[10px] tracking-[0.22em] font-semibold uppercase mt-1 drop-shadow">{v.role}</p>
+                <p className="text-white/85 text-xs mt-2 drop-shadow">Watch {v.name.split(' ')[0]} share their conference experience</p>
               </div>
-              {/* Bottom-left name + role */}
-              <div className="absolute bottom-3 left-4 border-l-2 border-white/50 pl-3">
+              {/* Bottom-left name + role with orange accent bar */}
+              <div className="absolute bottom-3 left-4 border-l-2 border-orange-400 pl-3">
                 <p className="text-white font-bold text-xs leading-tight drop-shadow">{v.name}</p>
-                <p className="text-white/85 text-[9px] tracking-[0.18em] font-semibold uppercase mt-0.5 drop-shadow">{v.role}</p>
+                <p className="text-orange-100 text-[9px] tracking-[0.18em] font-semibold uppercase mt-0.5 drop-shadow">{v.role}</p>
               </div>
             </button>
           )}
@@ -194,50 +208,39 @@ function VideoTestimonialCarousel() {
 }
 
 function TestimonialCarousel() {
-  const [active, setActive] = useState(0);
-  const t = testimonials[active];
-  const Icon = testimonialIcons[active];
+  // Static grid layout: first testimonial spans full width, others in a 2-column grid below.
+  const renderCard = (t: typeof testimonials[number], i: number, fullWidth = false) => {
+    const Icon = testimonialIcons[i] || Quote;
+    return (
+      <FadeIn key={i} delay={i * 0.05} className="h-full">
+        <div className={`bg-white rounded-xl p-6 h-full flex flex-col ${fullWidth ? '' : ''}`}>
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center shrink-0">
+              <Icon className="h-4 w-4 text-white" />
+            </div>
+            <h3 className="font-bold text-black text-lg sm:text-xl leading-tight">{t.title}</h3>
+          </div>
+          <div className="flex gap-0.5 mb-3 ml-11">
+            {[...Array(5)].map((_, s) => <Star key={s} className="h-3.5 w-3.5 fill-orange-500 text-orange-500" />)}
+          </div>
+          <p className="text-black/75 text-sm leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
+          <div className="flex items-center gap-2 mt-4">
+            <span className="h-0.5 w-6 bg-orange-500" />
+            <span className="text-orange-500 text-[11px] font-bold uppercase tracking-[0.15em]">{t.author}</span>
+          </div>
+        </div>
+      </FadeIn>
+    );
+  };
 
   return (
-    <div>
-      {/* Card */}
-      <div className="border border-black/10 rounded-2xl p-5 mb-4 min-h-[200px] flex flex-col justify-center">
-        <div className="flex items-center gap-2 mb-3">
-          <div className="w-8 h-8 rounded-full bg-orange-500/10 flex items-center justify-center">
-            <Icon className="h-4 w-4 text-orange-500" />
-          </div>
-          <h3 className="font-bold text-black text-base sm:text-lg">{t.title}</h3>
-        </div>
-        <div className="flex gap-0.5 mb-3">
-          {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 fill-orange-500 text-orange-500" />)}
-        </div>
-        <p className="text-black/55 italic text-sm leading-relaxed mb-4">&ldquo;{t.quote}&rdquo;</p>
-        <p className="text-orange-500 text-xs font-semibold uppercase tracking-wider">&mdash; {t.author}</p>
-      </div>
+    <div className="space-y-4">
+      {/* Full-width first testimonial */}
+      {renderCard(testimonials[0], 0, true)}
 
-      {/* Navigation */}
-      <div className="flex justify-center items-center gap-4">
-        <button
-          onClick={() => setActive((p) => (p - 1 + testimonials.length) % testimonials.length)}
-          className="w-9 h-9 rounded-full border border-black/10 flex items-center justify-center text-black/40 hover:text-orange-500 hover:border-orange-500/30 transition-colors"
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </button>
-        <div className="flex gap-2">
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(i)}
-              className={`w-2 h-2 rounded-full transition-colors ${i === active ? 'bg-orange-500' : 'bg-black/15 hover:bg-black/30'}`}
-            />
-          ))}
-        </div>
-        <button
-          onClick={() => setActive((p) => (p + 1) % testimonials.length)}
-          className="w-9 h-9 rounded-full border border-black/10 flex items-center justify-center text-black/40 hover:text-orange-500 hover:border-orange-500/30 transition-colors"
-        >
-          <ChevronLeft className="h-4 w-4 rotate-180" />
-        </button>
+      {/* 2-column grid for the rest */}
+      <div className="grid md:grid-cols-2 gap-4">
+        {testimonials.slice(1).map((t, i) => renderCard(t, i + 1))}
       </div>
     </div>
   );
@@ -616,14 +619,13 @@ export default function SpouseConferencePage() {
         </div>
       </section>
 
-      {/* ═══ TESTIMONIALS - WHITE BG ═══ */}
-      <section className="py-7 bg-white text-black">
-        <div className="max-w-3xl mx-auto px-4">
-          <FadeIn className="text-center mb-5">
+      {/* ═══ TESTIMONIALS - DARK BG (matches landingsite design) ═══ */}
+      <section className="py-8 bg-black text-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <FadeIn className="text-center mb-6">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">What Attendees Say</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">Stories That Inspire Connection</h2>
-            <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
-            <p className="text-black/45 text-sm max-w-md mx-auto">Real experiences from fire service families.</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Stories That Inspire Connection</h2>
+            <p className="text-white/75 text-sm max-w-xl mx-auto">Real experiences from fire service families who found strength, community, and transformation.</p>
           </FadeIn>
 
           <TestimonialCarousel />
@@ -684,10 +686,11 @@ export default function SpouseConferencePage() {
             <p className="text-black/85 text-sm">Everything you need to know</p>
           </FadeIn>
 
-          {/* Two-column FAQ grid on larger screens — each section is its own column block */}
-          <div className="grid md:grid-cols-2 gap-x-8 gap-y-6 items-start">
+          {/* CSS columns auto-balance content height across the two columns -
+             eliminates the awkward white space when one column is taller. */}
+          <div className="md:columns-2 md:gap-x-8 [column-fill:_balance]">
             {faqSections.map((section, si) => (
-              <FadeIn key={si} delay={si * 0.04}>
+              <FadeIn key={si} delay={si * 0.04} className="break-inside-avoid mb-6 inline-block w-full">
                 <h3 className="text-orange-500 font-semibold text-sm mb-3">{section.category}</h3>
                 <Accordion type="single" collapsible className="space-y-2">
                   {section.items.map((item, ii) => (
