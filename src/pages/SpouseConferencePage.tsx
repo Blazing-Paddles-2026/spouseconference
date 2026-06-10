@@ -684,15 +684,15 @@ export default function SpouseConferencePage() {
             <p className="text-black/85 text-sm">Everything you need to know</p>
           </FadeIn>
 
-          {/* Two-column FAQ grid on larger screens to fill the width */}
-          <div className="grid md:grid-cols-2 gap-x-6 gap-y-2">
+          {/* Two-column FAQ grid on larger screens — each section is its own column block */}
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-6 items-start">
             {faqSections.map((section, si) => (
-              <FadeIn key={si} delay={si * 0.04} className="mb-3">
-                <h3 className="text-orange-500 font-semibold text-sm mb-2">{section.category}</h3>
+              <FadeIn key={si} delay={si * 0.04}>
+                <h3 className="text-orange-500 font-semibold text-sm mb-3">{section.category}</h3>
                 <Accordion type="single" collapsible className="space-y-2">
                   {section.items.map((item, ii) => (
                     <AccordionItem key={ii} value={`faq-${si}-${ii}`} className="bg-white border border-black/10 rounded-xl px-4 data-[state=open]:border-orange-500/40 transition-colors">
-                      <AccordionTrigger className="text-black font-medium text-left hover:no-underline py-3 text-sm">{item.q}</AccordionTrigger>
+                      <AccordionTrigger className="text-black font-medium text-left hover:no-underline py-3 text-sm gap-3">{item.q}</AccordionTrigger>
                       <AccordionContent className="text-black/65 pb-3 text-sm leading-relaxed">{item.a}</AccordionContent>
                     </AccordionItem>
                   ))}

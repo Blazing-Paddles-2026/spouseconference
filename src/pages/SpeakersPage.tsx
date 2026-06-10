@@ -120,13 +120,11 @@ export default function SpeakersPage() {
                     <p className="text-orange-500/80 text-xs font-semibold mb-1">{s.org}</p>
                     <p className="text-white/40 text-xs mb-3">Session: <span className="text-white/60">{s.session}</span></p>
                     <p className="text-white/85 text-xs leading-relaxed">{s.bio}</p>
-                    {s.website ? (
+                    {s.website && (
                       <a href={s.website} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-orange-500/40 text-orange-500 text-xs font-semibold hover:bg-orange-500 hover:text-white transition-colors">
                         <ExternalLink className="h-3 w-3" />
                         {s.websiteLabel}
                       </a>
-                    ) : (
-                      <span className="mt-3 inline-block text-white/35 text-[10px] italic">{s.websiteLabel}</span>
                     )}
                   </div>
                 </div>
