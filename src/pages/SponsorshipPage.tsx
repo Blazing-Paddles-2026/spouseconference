@@ -47,7 +47,7 @@ const tiers = [
   {
     name: 'Lieutenant',
     subtitle: 'Supporting Partner',
-    price: '$1,200',
+    price: '$1,500',
     featured: false,
     benefits: [
       'Enhanced recognition: name + small logo placement on the event slideshow (logo provided by sponsor)',
@@ -80,15 +80,15 @@ function SponsorFormSection() {
     const data = Object.fromEntries(formData.entries());
 
     if (payment === 'card') {
-      const tierLabel = tier === 'chief' ? 'Chief-5000' : tier === 'captain' ? 'Captain-2500' : tier === 'lieutenant' ? 'Lieutenant-1200' : 'Firefighter-700';
+      const tierLabel = tier === 'chief' ? 'Chief-5000' : tier === 'captain' ? 'Captain-2500' : tier === 'lieutenant' ? 'Lieutenant-1500' : 'Firefighter-700';
       window.open(`https://roundrockfirefoundation.org/donate?tier=${tierLabel}&name=${encodeURIComponent(String(data.name))}&org=${encodeURIComponent(String(data.organization))}`, '_blank');
       setSubmitted(true);
     } else {
-      const tierName = tier === 'chief' ? 'Chief ($5,000)' : tier === 'captain' ? 'Captain ($2,500)' : tier === 'lieutenant' ? 'Lieutenant ($1,200)' : 'Firefighter ($700)';
+      const tierName = tier === 'chief' ? 'Chief ($5,000)' : tier === 'captain' ? 'Captain ($2,500)' : tier === 'lieutenant' ? 'Lieutenant ($1,500)' : 'Firefighter ($700)';
       const subject = `Sponsorship Inquiry - ${tierName} - ${data.name}`;
       const payMethod = payment === 'check' ? 'check' : 'ACH/bank transfer';
       const body = `Sponsorship Inquiry for 2026 National Spouse Conference%0A%0ATier: ${tierName}%0AName: ${data.name}%0AOrganization: ${data.organization || 'N/A'}%0AEmail: ${data.email}%0APhone: ${data.phone || 'N/A'}%0A%0AI would like to pay by ${payMethod}.%0A%0APlease send me the payment instructions.%0A%0AMailing Address for Checks:%0ARound Rock Fire Foundation%0A797 Sam Bass Road, Suite 204%0ARound Rock, TX 78681`;
-      window.location.href = `mailto:info@roundrockfirefoundation.org?cc=info@roundrockfirefoundation.org&subject=${encodeURIComponent(subject)}&body=${body}`;
+      window.location.href = `mailto:rrfdspouseconference@gmail.com?cc=info@roundrockfirefoundation.org&subject=${encodeURIComponent(subject)}&body=${body}`;
       setSubmitted(true);
     }
   };
@@ -108,7 +108,7 @@ function SponsorFormSection() {
               ? "A secure donation page has opened in a new tab. Please complete your payment there. We'll email a confirmation within 24 hours."
               : "Your email has been created with your details and our mailing address (797 Sam Bass Road, Suite 204, Round Rock, TX 78681). Hit send and we'll follow up within 24 hours."}
           </p>
-          <p className="text-orange-500 text-sm font-medium">Questions? info@roundrockfirefoundation.org</p>
+          <p className="text-orange-500 text-sm font-medium">Questions? rrfdspouseconference@gmail.com</p>
         </FadeIn>
       </section>
     );
@@ -172,7 +172,7 @@ function SponsorFormSection() {
                   <RadioGroupItem value="lieutenant" id="lieutenant" className="sr-only" />
                   <Label htmlFor="lieutenant" className="cursor-pointer">
                     <p className="font-bold text-black text-sm">Lieutenant</p>
-                    <p className="text-orange-500 text-xs font-semibold">$1,200</p>
+                    <p className="text-orange-500 text-xs font-semibold">$1,500</p>
                   </Label>
                 </div>
                 <div className={`border rounded-lg p-3 cursor-pointer transition-colors ${tier === 'firefighter' ? 'border-orange-500 bg-orange-50' : 'border-black/10 hover:border-black/20'}`}>

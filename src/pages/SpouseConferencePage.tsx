@@ -71,12 +71,12 @@ const testimonials = [
 ];
 
 const topics = [
-  { icon: Timer, title: 'Managing Shift Life', desc: 'Strategies for navigating shift schedules, maintaining connection during long shifts, and creating stability in an unpredictable lifestyle.' },
-  { icon: CloudRain, title: 'Secondary Trauma & Stress', desc: 'Understanding vicarious trauma, recognizing warning signs, and building personal resilience when your partner carries the weight of critical calls.' },
-  { icon: MessagesSquare, title: 'Communication & Connection', desc: 'Tools for deepening relationships, navigating difficult conversations, and staying emotionally connected through the demands of fire service life.' },
-  { icon: Baby, title: 'Parenting in the Fire Family', desc: 'Raising resilient kids when one parent is often absent, explaining the job to children, and managing the unique pressures of first responder families.' },
-  { icon: TrendingUp, title: 'Financial & Career Planning', desc: 'Building financial security, understanding fire service benefits, and developing your own career path while supporting your partner\'s.' },
-  { icon: Network, title: 'Building Your Support Network', desc: 'Connecting with others who truly understand, finding your tribe within the fire service community, and creating lasting peer relationships.' },
+  { icon: Timer, title: 'Managing Shift Life', desc: 'Strategies for navigating shift schedules, maintaining connection during long shifts, and creating stability in an unpredictable lifestyle.', href: '#/wellness?session=resiliency' },
+  { icon: CloudRain, title: 'Secondary Trauma & Stress', desc: 'Understanding vicarious trauma, recognizing warning signs, and building personal resilience when your partner carries the weight of critical calls.', href: '#/wellness?session=resiliency' },
+  { icon: MessagesSquare, title: 'Communication & Connection', desc: 'Tools for deepening relationships, navigating difficult conversations, and staying emotionally connected through the demands of fire service life.', href: '#/wellness?session=communication' },
+  { icon: Baby, title: 'Parenting in the Fire Family', desc: 'Raising resilient kids when one parent is often absent, explaining the job to children, and managing the unique pressures of first responder families.', href: '#/wellness?session=chaplain' },
+  { icon: TrendingUp, title: 'Financial & Career Planning', desc: 'Building financial security, understanding fire service benefits, and developing your own career path while supporting your partner\'s.', href: '#/wellness?session=selfcare' },
+  { icon: Network, title: 'Building Your Support Network', desc: 'Connecting with others who truly understand, finding your tribe within the fire service community, and creating lasting peer relationships.', href: '#/conference-experience' },
 ];
 
 const testimonialIcons = [Quote, Heart, MessageCircle, Users, Flame];
@@ -135,6 +135,9 @@ function VideoTestimonialCarousel() {
                 className="w-full h-full object-cover scale-[1.35]"
                 loading="lazy"
               />
+              {/* Orange brand-color overlay tint (matches landingsite design) */}
+              <div className="absolute inset-0 bg-orange-600/50 group-hover:bg-orange-600/25 transition-colors" style={{ mixBlendMode: 'multiply' }} />
+              <div className="absolute inset-0 bg-orange-500/15 group-hover:bg-transparent transition-colors" />
               {/* Subtle dark gradient for play-button contrast */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
               {/* Centered play button */}
@@ -351,10 +354,10 @@ export default function SpouseConferencePage() {
                     </div>
                   ))}
                 </div>
-                <div className="grid grid-cols-3 gap-2">
-                  {['Established 2025', 'Firefighter-Led', 'Nationwide'].map((label, i) => (
+                <div className="grid grid-cols-4 gap-2">
+                  {['Established 2025', 'Annual National Conference', 'Firefighter-Led', 'Nationwide'].map((label, i) => (
                     <div key={i} className="border border-white/10 rounded-lg py-2.5 px-2 text-center">
-                      <p className="text-orange-500 font-semibold text-[10px] uppercase tracking-wider">{label}</p>
+                      <p className="text-orange-500 font-semibold text-[10px] uppercase tracking-wider leading-tight">{label}</p>
                     </div>
                   ))}
                 </div>
@@ -366,6 +369,29 @@ export default function SpouseConferencePage() {
               </div>
             </FadeIn>
           </div>
+        </div>
+      </section>
+
+      {/* ═══ SEE IT IN ACTION (Vimeo video) - BLACK BG, COMPACT ═══ */}
+      <section className="py-10 bg-black border-t border-white/5">
+        <div className="max-w-3xl mx-auto px-4">
+          <FadeIn className="text-center mb-5">
+            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">See It In Action</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Experience the Conference Through Their Eyes</h2>
+            <div className="w-10 h-0.5 bg-orange-500 mx-auto" />
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <div className="relative w-full rounded-xl overflow-hidden border border-white/10 bg-black" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                src="https://player.vimeo.com/video/1164069619?title=0&byline=0&portrait=0"
+                className="absolute top-0 left-0 w-full h-full"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="Round Rock Fire Foundation National Spouse Conference"
+              />
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -467,13 +493,13 @@ export default function SpouseConferencePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {topics.map((topic, i) => (
               <FadeIn key={i} delay={i * 0.04}>
-                <div className="border border-black/10 rounded-xl p-5 hover:border-orange-500/40 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-3">
+                <a href={topic.href} className="block h-full border border-black/10 rounded-xl p-5 hover:border-orange-500/40 hover:shadow-md transition-all group">
+                  <div className="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-3 group-hover:bg-orange-500/20 transition-colors">
                     <topic.icon className="h-4 w-4 text-orange-500" />
                   </div>
-                  <h3 className="font-bold text-black text-xs mb-1">{topic.title}</h3>
+                  <h3 className="font-bold text-black text-xs mb-1 group-hover:text-orange-600 transition-colors">{topic.title}</h3>
                   <p className="text-black/35 text-xs leading-relaxed">{topic.desc}</p>
-                </div>
+                </a>
               </FadeIn>
             ))}
           </div>
