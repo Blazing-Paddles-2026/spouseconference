@@ -135,20 +135,20 @@ function VideoTestimonialCarousel() {
                 className="w-full h-full object-cover scale-[1.35]"
                 loading="lazy"
               />
-              {/* Orange overlay using radial gradient (lighter top-right, denser bottom-left) — matches landingsite */}
+              {/* Deep orange/amber overlay — darker version that reads as a clear amber wash even on bright photos */}
               <div
-                className="absolute inset-0 transition-opacity group-hover:opacity-50"
+                className="absolute inset-0 transition-opacity group-hover:opacity-60"
                 style={{
-                  background: 'radial-gradient(ellipse at 70% 25%, rgba(255,142,55,0.35) 0%, rgba(234,88,12,0.78) 60%, rgba(124,45,18,0.92) 100%)',
+                  background: 'linear-gradient(135deg, rgba(180,60,10,0.85) 0%, rgba(140,40,5,0.92) 100%)',
                   mixBlendMode: 'multiply',
                 }}
               />
-              {/* Soft brand-orange wash on top for warmth */}
-              <div className="absolute inset-0 bg-orange-500/15 group-hover:bg-orange-500/5 transition-colors" />
-              {/* Bottom darkening for the caption */}
+              {/* Second amber layer (normal blend) to enrich color */}
+              <div className="absolute inset-0 bg-orange-600/25 group-hover:bg-orange-600/10 transition-colors" />
+              {/* Bottom darkening for the caption legibility */}
               <div
                 className="absolute inset-0 pointer-events-none"
-                style={{ background: 'linear-gradient(to top right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 55%)' }}
+                style={{ background: 'linear-gradient(to top right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 55%)' }}
               />
               {/* Centered play button + name + role + watch line */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
@@ -303,8 +303,8 @@ export default function SpouseConferencePage() {
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/images/nsc-hero-website.png)' }}>
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/90 to-black/80" />
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/65 to-black/55" />
+            <div className="absolute inset-0 bg-black/15" />
             <div className="absolute inset-0 backdrop-blur-[1px]" />
           </div>
         </div>
@@ -318,7 +318,7 @@ export default function SpouseConferencePage() {
           <p className="text-xl sm:text-2xl md:text-3xl font-medium text-orange-500 mb-6">
             National Spouse Conference
           </p>
-          <p className="text-sm sm:text-base text-white/60 max-w-xl mx-auto mb-10 leading-relaxed">
+          <p className="text-sm sm:text-base text-white/85 max-w-xl mx-auto mb-10 leading-relaxed">
             An immersive, hands-on conference designed to strengthen firefighter marriages through shared experiences, expert guidance, and lasting connections.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mb-8">
@@ -329,7 +329,7 @@ export default function SpouseConferencePage() {
               <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 font-medium px-8 py-5 text-sm rounded-full bg-transparent">Partner With Us</Button>
             </button>
           </div>
-          <div className="flex flex-wrap justify-center gap-x-5 gap-y-1 text-white/50 text-xs sm:text-sm">
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-1 text-white/80 text-xs sm:text-sm">
             <button onClick={() => scrollToSection('speakers')} className="hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0 text-inherit">Meet Our Speakers</button>
             <span>&middot;</span>
             <a href="#/schedule" className="hover:text-orange-500 transition-colors">Schedule & Details</a>
