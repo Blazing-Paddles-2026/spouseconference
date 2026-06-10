@@ -96,7 +96,7 @@ export default function ConferenceExperiencePage() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto pt-20">
           <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-4">Conference Experience</p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-3xl sm:text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
             Experience the Fire Service Life Together
           </h1>
           <div className="w-12 h-0.5 bg-orange-500 mx-auto mb-4" />
@@ -107,11 +107,11 @@ export default function ConferenceExperiencePage() {
       </section>
 
       {/* A GIFT FROM FIREFIGHTERS */}
-      <section className="py-14 bg-white text-black">
+      <section className="py-8 bg-white text-black">
         <div className="max-w-4xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
+          <FadeIn className="text-center mb-4">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">More Than a Conference</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">A Heartfelt Gift From Firefighters to Their Spouses</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-black mb-3">A Heartfelt Gift From Firefighters to Their Spouses</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-4" />
           </FadeIn>
 
@@ -147,11 +147,11 @@ export default function ConferenceExperiencePage() {
       </section>
 
       {/* HANDS-ON TRAINING */}
-      <section className="py-14 bg-black">
+      <section className="py-8 bg-black">
         <div className="max-w-4xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
+          <FadeIn className="text-center mb-4">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Hands-On Training Activities</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Train Side-by-Side in Real Scenarios</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">Train Side-by-Side in Real Scenarios</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
             <p className="text-white/45 text-sm max-w-md mx-auto">
               Firefighters will guide and train their spouses through realistic fire service scenarios, offering a powerful new perspective on the job.
@@ -175,11 +175,11 @@ export default function ConferenceExperiencePage() {
       </section>
 
       {/* WELLNESS TRAINING */}
-      <section className="py-14 bg-white text-black">
+      <section className="py-8 bg-white text-black">
         <div className="max-w-4xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
+          <FadeIn className="text-center mb-4">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Wellness Training</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">Thriving Together in Fire Service Life</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-black mb-3">Thriving Together in Fire Service Life</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
             <p className="text-black/45 text-sm max-w-md mx-auto">
               The fire service places extraordinary demands not just on firefighters, but on their entire family system. These aren&apos;t generic self-care tips — they&apos;re targeted strategies for the real challenges you face.
@@ -209,11 +209,11 @@ export default function ConferenceExperiencePage() {
       </section>
 
       {/* SUPPORT PROGRAMMING */}
-      <section className="py-14 bg-black">
+      <section className="py-8 bg-black">
         <div className="max-w-4xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
+          <FadeIn className="text-center mb-4">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Support Programming</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Built For Fire Families</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">Built For Fire Families</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
             <p className="text-white/45 text-sm max-w-md mx-auto">
               No one truly understands the fire service lifestyle like someone who lives it alongside you. Our support programming creates sacred spaces for authentic connection.
@@ -245,7 +245,7 @@ export default function ConferenceExperiencePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-10 bg-white text-black">
+      <section className="py-6 bg-white text-black">
         <FadeIn className="max-w-md mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold text-black mb-2">Ready to Experience It Together?</h2>
           <p className="text-black/45 text-sm mb-5">Join us for an unforgettable weekend of growth, connection, and resilience.</p>

@@ -113,7 +113,7 @@ export default function ContactPage() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto pt-20">
           <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-4">Get In Touch</p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">Contact Us</h1>
+          <h1 className="text-3xl sm:text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">Contact Us</h1>
           <div className="w-12 h-0.5 bg-orange-500 mx-auto mb-4" />
           <p className="text-sm text-white/50 max-w-lg mx-auto leading-relaxed">
             Have questions about the conference? We&apos;re here to help! Send us a message and we&apos;ll get back to you as soon as possible.
@@ -122,7 +122,7 @@ export default function ContactPage() {
       </section>
 
       {/* CONTACT FORM */}
-      <section className="py-14 bg-white text-black">
+      <section className="py-8 bg-white text-black">
         <div className="max-w-2xl mx-auto px-4">
           <div className="grid md:grid-cols-[1fr_280px] gap-10">
             {/* Form */}

@@ -95,7 +95,7 @@ function SponsorFormSection() {
 
   if (submitted) {
     return (
-      <section className="py-14 bg-white text-black">
+      <section className="py-8 bg-white text-black">
         <FadeIn className="max-w-md mx-auto px-4 text-center">
           <div className="w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-4">
             <Mail className="h-8 w-8 text-orange-500" />
@@ -115,9 +115,9 @@ function SponsorFormSection() {
   }
 
   return (
-    <section className="py-14 bg-white text-black">
+    <section className="py-8 bg-white text-black">
       <div className="max-w-lg mx-auto px-4">
-        <FadeIn className="text-center mb-8">
+        <FadeIn className="text-center mb-4">
           <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Partner With Us</p>
           <h2 className="text-2xl font-bold text-black mb-3">Sponsorship Form</h2>
           <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
@@ -275,7 +275,7 @@ export default function SponsorshipPage() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto pt-20">
           <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-4">Sponsorship Opportunities</p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-3xl sm:text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
             Partner With Purpose
           </h1>
           <div className="w-12 h-0.5 bg-orange-500 mx-auto mb-4" />
@@ -286,11 +286,11 @@ export default function SponsorshipPage() {
       </section>
 
       {/* WHY PARTNER */}
-      <section className="py-14 bg-white text-black">
+      <section className="py-8 bg-white text-black">
         <div className="max-w-4xl mx-auto px-4">
-          <FadeIn className="text-center mb-10">
+          <FadeIn className="text-center mb-5">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Why Partner</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">Make a Lasting Impact</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-black mb-3">Make a Lasting Impact</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
             <p className="text-black/45 text-sm max-w-md mx-auto">Your support directly funds programming that strengthens firefighter marriages and builds resilient fire families.</p>
           </FadeIn>
@@ -316,11 +316,11 @@ export default function SponsorshipPage() {
       </section>
 
       {/* TIERS */}
-      <section className="py-14 bg-black">
+      <section className="py-8 bg-black">
         <div className="max-w-5xl mx-auto px-4">
-          <FadeIn className="text-center mb-10">
+          <FadeIn className="text-center mb-5">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Partnership Tiers</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Choose Your Level of Support</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">Choose Your Level of Support</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
             <p className="text-white/45 text-sm max-w-md mx-auto">Four partnership levels designed to fit every budget and goal.</p>
           </FadeIn>

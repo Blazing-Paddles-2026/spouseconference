@@ -209,7 +209,7 @@ export default function WellnessPage() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto pt-20">
           <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-4">Mental Health & Wellness</p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-3xl sm:text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
             Build Resilience That Lasts
           </h1>
           <div className="w-12 h-0.5 bg-orange-500 mx-auto mb-4" />
@@ -261,7 +261,7 @@ export default function WellnessPage() {
       {/* ACTIVE SESSION DETAIL */}
       <section
         id="active-session-detail"
-        className={`py-14 transition-all duration-700 ${arrivedViaDeepLink ? 'bg-gradient-to-b from-orange-500/[0.08] via-black to-black' : 'bg-black'}`}
+        className={`py-8 transition-all duration-700 ${arrivedViaDeepLink ? 'bg-gradient-to-b from-orange-500/[0.08] via-black to-black' : 'bg-black'}`}
         style={arrivedViaDeepLink ? { animation: 'rrffHighlight 3.5s ease-out 0s 1 forwards', borderTop: '2px solid rgba(249,115,22, 0.5)', borderBottom: '2px solid rgba(249,115,22, 0.2)' } : undefined}
       >
         <div className="max-w-4xl mx-auto px-4">
@@ -276,25 +276,25 @@ export default function WellnessPage() {
             </FadeIn>
           )}
           <FadeIn key={activeSession}>
-            <div className="text-center mb-8">
+            <div className="text-center mb-4">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-[10px] font-bold uppercase tracking-wider mb-3">
                 <s.icon className="h-3 w-3" />
                 {s.tag}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">{s.title}</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">{s.title}</h2>
               <p className="text-orange-500/80 text-sm font-semibold">{s.speaker}</p>
               <p className="text-white/35 text-xs">{s.org}</p>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <div className="max-w-2xl mx-auto mb-8">
+            <div className="max-w-2xl mx-auto mb-4">
               <p className="text-white/50 text-sm leading-relaxed text-center">{s.description}</p>
             </div>
           </FadeIn>
 
           {/* Topics */}
-          <div className="max-w-2xl mx-auto mb-10">
+          <div className="max-w-2xl mx-auto mb-5">
             <h3 className="text-white font-bold text-sm mb-4 text-center">What You&apos;ll Learn</h3>
             <div className="space-y-3">
               {s.topics.map((t, i) => (
@@ -329,9 +329,9 @@ export default function WellnessPage() {
       </section>
 
       {/* ALL SESSIONS OVERVIEW */}
-      <section className="py-14 bg-white text-black">
+      <section className="py-8 bg-white text-black">
         <div className="max-w-4xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
+          <FadeIn className="text-center mb-4">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Explore All Sessions</p>
             <h2 className="text-2xl font-bold text-black mb-3">Four Pillars of Wellness</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
@@ -357,7 +357,7 @@ export default function WellnessPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-10 bg-black">
+      <section className="py-6 bg-black">
         <FadeIn className="max-w-md mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold text-white mb-2">Invest in Your Wellness Together</h2>
           <p className="text-white/45 text-sm mb-5">These sessions are designed specifically for the unique challenges fire service families face.</p>

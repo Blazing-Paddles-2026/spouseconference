@@ -85,19 +85,19 @@ export default function SpeakersPage() {
         </div>
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto pt-20">
           <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-4">2026 National Spouse Conference</p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">Meet Our Speakers</h1>
+          <h1 className="text-3xl sm:text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">Meet Our Speakers</h1>
           <div className="w-12 h-0.5 bg-orange-500 mx-auto mb-4" />
           <p className="text-sm text-white/50 max-w-lg mx-auto">Industry leaders and experts sharing real-world insights and actionable strategies for fire service families.</p>
         </div>
       </section>
 
       {/* Speakers */}
-      <section className="py-10 bg-black">
+      <section className="py-6 bg-black">
         <div className="max-w-4xl mx-auto px-4">
           <div className="space-y-8">
             {speakers.map((s, i) => (
               <FadeIn key={i} delay={i * 0.08}>
-                <div className="grid sm:grid-cols-[200px_1fr] gap-6 border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-colors">
+                <div className="grid sm:grid-cols-[200px_1fr] gap-3 border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-colors">
                   <div className="bg-white p-2">
                     <div className="aspect-[3/4] bg-neutral-100 overflow-hidden">
                       <img src={s.image} alt={s.name} className="w-full h-full object-cover object-top" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
@@ -120,7 +120,7 @@ export default function SpeakersPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-10 bg-neutral-950">
+      <section className="py-6 bg-neutral-950">
         <FadeIn className="max-w-md mx-auto px-4 text-center">
           <h2 className="text-xl font-bold text-white mb-2">Join Us in <span className="text-orange-500">Round Rock</span></h2>
           <p className="text-white/40 text-xs mb-5">Learn from these incredible speakers and strengthen your fire family.</p>
