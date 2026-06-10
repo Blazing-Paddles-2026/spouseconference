@@ -132,20 +132,15 @@ function VideoTestimonialCarousel() {
               <img
                 src={thumbSrc}
                 alt={`${v.name} testimonial thumbnail`}
-                className="w-full h-full object-cover scale-[1.35] grayscale group-hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover scale-[1.35] grayscale-[60%] group-hover:grayscale-0 transition-all duration-500"
                 loading="lazy"
               />
-              {/* Grayscale + dark overlay (replaces amber) - converts photo to gray and darkens it */}
+              {/* Soft gentle fade - keeps Ashley's face clearly visible */}
               <div
-                className="absolute inset-0 transition-opacity group-hover:opacity-50"
+                className="absolute inset-0 pointer-events-none transition-opacity group-hover:opacity-40"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(20,20,20,0.55) 0%, rgba(0,0,0,0.75) 100%)',
+                  background: 'linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.55) 100%)',
                 }}
-              />
-              {/* Bottom darkening for caption legibility */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{ background: 'linear-gradient(to top right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 55%)' }}
               />
               {/* Centered play button + name + role + watch line */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
