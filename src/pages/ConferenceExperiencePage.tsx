@@ -158,6 +158,16 @@ export default function ConferenceExperiencePage() {
             </p>
           </FadeIn>
 
+          {/* Training photo collage — 4 hands-on scenes */}
+          <FadeIn delay={0.05}>
+            <div className="grid grid-cols-4 gap-1.5 mb-5 rounded-2xl overflow-hidden">
+              <img src="/images/training-rappelling.jpg" alt="Rappelling training" className="w-full h-32 sm:h-40 object-cover" loading="lazy" />
+              <img src="/images/training-live-fire-attack.jpg" alt="Live fire attack" className="w-full h-32 sm:h-40 object-cover" loading="lazy" />
+              <img src="/images/training-hose-work.jpg" alt="Hose work training" className="w-full h-32 sm:h-40 object-cover" loading="lazy" />
+              <img src="/images/training-flames-kneeling.jpg" alt="Hands-on fire training" className="w-full h-32 sm:h-40 object-cover" loading="lazy" />
+            </div>
+          </FadeIn>
+
           <div className="grid sm:grid-cols-2 gap-4">
             {trainingModules.map((m, i) => (
               <FadeIn key={i} delay={i * 0.06}>
@@ -184,6 +194,14 @@ export default function ConferenceExperiencePage() {
             <p className="text-black/45 text-sm max-w-md mx-auto">
               The fire service places extraordinary demands not just on firefighters, but on their entire family system. These aren&apos;t generic self-care tips — they&apos;re targeted strategies for the real challenges you face.
             </p>
+          </FadeIn>
+
+          {/* Visual: wide photo strip - softer, contemplative */}
+          <FadeIn delay={0.05}>
+            <div className="grid grid-cols-2 gap-1.5 mb-5 rounded-2xl overflow-hidden max-w-3xl mx-auto">
+              <img src="/images/training-couch-fire.jpg" alt="Real-world fire training" className="w-full h-32 sm:h-40 object-cover" loading="lazy" />
+              <img src="/images/training-fire-suppression.jpg" alt="Fire suppression training" className="w-full h-32 sm:h-40 object-cover" loading="lazy" />
+            </div>
           </FadeIn>
 
           <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
