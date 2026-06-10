@@ -111,14 +111,17 @@ function VideoTestimonialCarousel() {
       <div className="relative mb-5">
         <div className="relative rounded-xl overflow-hidden aspect-video bg-black">
           {playing ? (
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&showinfo=0&controls=1`}
-              className="w-full h-full"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title={`${v.name} — Testimonial`}
-            />
+            <div className="absolute inset-0 overflow-hidden">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&showinfo=0&controls=1&fs=1&disablekb=1`}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                style={{ width: '120%', height: '120%' }}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title={`${v.name} — Testimonial`}
+              />
+            </div>
           ) : (
             <button
               type="button"
@@ -142,21 +145,18 @@ function VideoTestimonialCarousel() {
                   background: 'linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.55) 100%)',
                 }}
               />
-              {/* Centered play button + name + role + watch line */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-                <div className="w-16 h-16 rounded-full bg-white/15 backdrop-blur-sm group-hover:bg-white/25 transition-all group-hover:scale-110 flex items-center justify-center ring-2 ring-white/60 mb-4">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="white" className="ml-1">
+              {/* Centered play button only — name moved to bottom-left */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm group-hover:bg-white/25 transition-all group-hover:scale-110 flex items-center justify-center ring-2 ring-white/60">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" className="ml-0.5">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
-                <h3 className="text-white font-bold text-xl sm:text-2xl tracking-tight drop-shadow-md">{v.name}</h3>
-                <p className="text-white/90 text-[10px] tracking-[0.2em] font-semibold uppercase mt-1 drop-shadow">{v.role}</p>
-                <p className="text-white/85 text-xs mt-3 drop-shadow">Watch {v.name.split(' ')[0]} share their conference experience</p>
               </div>
               {/* Bottom-left name + role */}
               <div className="absolute bottom-3 left-4 border-l-2 border-white/50 pl-3">
-                <p className="text-white font-bold text-sm leading-tight drop-shadow">{v.name}</p>
-                <p className="text-white/90 text-[9px] tracking-[0.18em] font-semibold uppercase mt-0.5 drop-shadow">{v.role}</p>
+                <p className="text-white font-bold text-xs leading-tight drop-shadow">{v.name}</p>
+                <p className="text-white/85 text-[9px] tracking-[0.18em] font-semibold uppercase mt-0.5 drop-shadow">{v.role}</p>
               </div>
             </button>
           )}
