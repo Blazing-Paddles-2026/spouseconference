@@ -135,12 +135,21 @@ function VideoTestimonialCarousel() {
                 className="w-full h-full object-cover scale-[1.35]"
                 loading="lazy"
               />
-              {/* Strong orange brand wash (matches landingsite — heavy amber overlay) */}
-              <div className="absolute inset-0 bg-orange-500 group-hover:opacity-50 transition-opacity opacity-80" style={{ mixBlendMode: 'multiply' }} />
-              {/* Brand-orange tint on top for warmth */}
-              <div className="absolute inset-0 bg-orange-600/35 group-hover:bg-orange-600/15 transition-colors" />
-              {/* Bottom dark gradient for caption legibility */}
-              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent" />
+              {/* Orange overlay using radial gradient (lighter top-right, denser bottom-left) — matches landingsite */}
+              <div
+                className="absolute inset-0 transition-opacity group-hover:opacity-50"
+                style={{
+                  background: 'radial-gradient(ellipse at 70% 25%, rgba(255,142,55,0.35) 0%, rgba(234,88,12,0.78) 60%, rgba(124,45,18,0.92) 100%)',
+                  mixBlendMode: 'multiply',
+                }}
+              />
+              {/* Soft brand-orange wash on top for warmth */}
+              <div className="absolute inset-0 bg-orange-500/15 group-hover:bg-orange-500/5 transition-colors" />
+              {/* Bottom darkening for the caption */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: 'linear-gradient(to top right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 55%)' }}
+              />
               {/* Centered play button + name + role + watch line */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
                 <div className="w-16 h-16 rounded-full bg-white/15 backdrop-blur-sm group-hover:bg-white/25 transition-all group-hover:scale-110 flex items-center justify-center ring-2 ring-white/60 mb-4">
@@ -269,6 +278,7 @@ export default function SpouseConferencePage() {
   return (
     <div className="min-h-screen bg-black text-white">
 
+
       {/* ═══ STICKY NAV ═══ */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-black/95 backdrop-blur-sm border-b border-white/10' : 'bg-transparent'}`}>
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -376,6 +386,44 @@ export default function SpouseConferencePage() {
               </div>
             </FadeIn>
           </div>
+        </div>
+      </section>
+
+      {/* ═══ WHO WE SERVE - WHITE BG ═══ */}
+      <section className="py-10 bg-white text-black">
+        <div className="max-w-4xl mx-auto px-4">
+          <FadeIn className="text-center mb-6">
+            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Who We Serve</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">Built for Fire Service Couples</h2>
+            <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
+            <p className="text-black/45 text-xs max-w-md mx-auto">Every session, every activity, every moment is designed with fire families in mind.</p>
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <div className="grid md:grid-cols-2 gap-6 items-center max-w-3xl mx-auto">
+              {/* Text content */}
+              <div className="space-y-3">
+                <p className="text-black/60 text-sm leading-relaxed">
+                  This conference was created by firefighters and their spouses, for firefighters and their spouses. We know the unique challenges of shift work, the weight of trauma, and the strain it can place on a marriage.
+                </p>
+                <p className="text-black/60 text-sm leading-relaxed">
+                  Whether you are newly married or have been together for decades, this experience is designed to help you reconnect, communicate better, and walk away stronger as a couple.
+                </p>
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {['Firefighters & Spouses', 'Career & Volunteer', 'All Ranks & Stations'].map((tag, i) => (
+                    <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/[0.04] border border-black/10 text-black/65 text-[11px] font-semibold uppercase tracking-wider">
+                      <span className="w-1 h-1 rounded-full bg-orange-500" />
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              {/* Small couple photo */}
+              <div className="rounded-lg overflow-hidden border border-black/10 max-w-[200px] mx-auto">
+                <img src="/images/hero-couple.jpg" alt="Firefighter couple at training" className="w-full h-auto object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -487,6 +535,42 @@ export default function SpouseConferencePage() {
         </div>
       </section>
 
+      {/* ═══ SPEAKERS - BLACK BG ═══ */}
+      <section id="speakers" className="py-10 bg-black">
+        <div className="max-w-5xl mx-auto px-4">
+          <FadeIn className="text-center mb-8">
+            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Meet Your Presenters</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Expert Guidance from Fire Service Leaders</h2>
+            <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
+            <p className="text-white/45 text-sm max-w-md mx-auto">Industry leaders sharing real-world insights for fire service families.</p>
+          </FadeIn>
+
+          <div className="grid sm:grid-cols-2 gap-3 items-stretch">
+            {speakers.map((s, i) => (
+              <FadeIn key={i} delay={i * 0.06} className="h-full">
+                <div className="border border-white/10 rounded-xl overflow-hidden hover:border-orange-500/30 transition-colors flex h-full">
+                  {/* Left - Photo */}
+                  <div className="bg-white p-1.5 shrink-0">
+                    <div className="w-[100px] sm:w-[120px] h-full bg-neutral-100 overflow-hidden">
+                      <img src={s.image} alt={s.name} className="w-full h-full object-cover object-top" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                    </div>
+                  </div>
+                  {/* Right - Bio on white */}
+                  <div className="bg-white flex-1 p-3 sm:p-4 flex flex-col">
+                    <span className="inline-block self-start px-2 py-0.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-[9px] font-bold uppercase tracking-wider mb-2">
+                      {s.tag}
+                    </span>
+                    <h3 className="text-xs font-bold text-black mb-0.5 leading-tight">{s.name}</h3>
+                    <p className="text-orange-600 text-xs font-semibold mb-2">{s.org}</p>
+                    <p className="text-black/50 text-[11px] leading-relaxed flex-1">{s.bio}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══ WHAT'S INCLUDED - WHITE BG ═══ */}
       <section className="py-10 bg-white text-black">
         <div className="max-w-4xl mx-auto px-4">
@@ -510,6 +594,42 @@ export default function SpouseConferencePage() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ═══ VIDEO TESTIMONIALS - BLACK BG ═══ */}
+      <section className="py-10 bg-black">
+        <div className="max-w-4xl mx-auto px-4">
+          <FadeIn className="text-center mb-8">
+            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Real Stories</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Voices from Fire Service Families</h2>
+            <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
+            <p className="text-white/45 text-sm max-w-md mx-auto">Hear directly from conference attendees about their transformative experiences and the lasting impact on their relationships.</p>
+          </FadeIn>
+
+          <VideoTestimonialCarousel />
+
+          <FadeIn delay={0.2}>
+            <div className="text-center mt-8">
+              <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 rounded-full text-sm">Register Now <ArrowRight className="ml-2 h-4 w-4" /></Button>
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══ TESTIMONIALS - WHITE BG ═══ */}
+      <section className="py-10 bg-white text-black">
+        <div className="max-w-3xl mx-auto px-4">
+          <FadeIn className="text-center mb-8">
+            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">What Attendees Say</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">Stories That Inspire Connection</h2>
+            <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
+            <p className="text-black/45 text-sm max-w-md mx-auto">Real experiences from fire service families.</p>
+          </FadeIn>
+
+          <TestimonialCarousel />
         </div>
       </section>
 
@@ -557,53 +677,39 @@ export default function SpouseConferencePage() {
         </div>
       </section>
 
-      {/* ═══ SPEAKERS - BLACK BG ═══ */}
-      <section id="speakers" className="py-10 bg-black">
-        <div className="max-w-5xl mx-auto px-4">
+      {/* ═══ FAQ - WHITE BG ═══ */}
+      <section id="faq" className="py-14 bg-white text-black">
+        <div className="max-w-2xl mx-auto px-4">
           <FadeIn className="text-center mb-8">
-            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Meet Your Presenters</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Expert Guidance from Fire Service Leaders</h2>
+            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Got Questions?</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">National Spouse Conference FAQs</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
-            <p className="text-white/45 text-sm max-w-md mx-auto">Industry leaders sharing real-world insights for fire service families.</p>
+            <p className="text-black/45 text-sm">Everything you need to know</p>
           </FadeIn>
 
-          <div className="grid sm:grid-cols-2 gap-3 items-stretch">
-            {speakers.map((s, i) => (
-              <FadeIn key={i} delay={i * 0.06} className="h-full">
-                <div className="border border-white/10 rounded-xl overflow-hidden hover:border-orange-500/30 transition-colors flex h-full">
-                  {/* Left - Photo */}
-                  <div className="bg-white p-1.5 shrink-0">
-                    <div className="w-[100px] sm:w-[120px] h-full bg-neutral-100 overflow-hidden">
-                      <img src={s.image} alt={s.name} className="w-full h-full object-cover object-top" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-                    </div>
-                  </div>
-                  {/* Right - Bio on white */}
-                  <div className="bg-white flex-1 p-3 sm:p-4 flex flex-col">
-                    <span className="inline-block self-start px-2 py-0.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-[9px] font-bold uppercase tracking-wider mb-2">
-                      {s.tag}
-                    </span>
-                    <h3 className="text-xs font-bold text-black mb-0.5 leading-tight">{s.name}</h3>
-                    <p className="text-orange-600 text-xs font-semibold mb-2">{s.org}</p>
-                    <p className="text-black/50 text-[11px] leading-relaxed flex-1">{s.bio}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
+          {faqSections.map((section, si) => (
+            <FadeIn key={si} delay={si * 0.04} className="mb-6">
+              <h3 className="text-orange-500 font-semibold text-sm mb-2">{section.category}</h3>
+              <Accordion type="single" collapsible className="space-y-2">
+                {section.items.map((item, ii) => (
+                  <AccordionItem key={ii} value={`faq-${si}-${ii}`} className="bg-white border border-black/10 rounded-xl px-5 data-[state=open]:border-orange-500/40 transition-colors">
+                    <AccordionTrigger className="text-black font-medium text-left hover:no-underline py-4 text-sm">{item.q}</AccordionTrigger>
+                    <AccordionContent className="text-black/50 pb-4 text-sm leading-relaxed">{item.a}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </FadeIn>
+          ))}
 
-      {/* ═══ TESTIMONIALS - WHITE BG ═══ */}
-      <section className="py-10 bg-white text-black">
-        <div className="max-w-3xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
-            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">What Attendees Say</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">Stories That Inspire Connection</h2>
-            <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
-            <p className="text-black/45 text-sm max-w-md mx-auto">Real experiences from fire service families.</p>
+          <FadeIn>
+            <div className="border border-black/10 rounded-2xl p-6 text-center">
+              <p className="text-black font-semibold text-sm mb-1">Still have questions?</p>
+              <p className="text-black/40 text-xs mb-4">Reach out to our team.</p>
+              <a href="#/contact">
+                <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-4 rounded-full text-sm"><Mail className="mr-2 h-4 w-4" /> Contact Us</Button>
+              </a>
+            </div>
           </FadeIn>
-
-          <TestimonialCarousel />
         </div>
       </section>
 
@@ -617,63 +723,6 @@ export default function SpouseConferencePage() {
               <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 rounded-full text-sm">Register Now <ArrowRight className="ml-2 h-4 w-4" /></Button>
               </a>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ═══ VIDEO TESTIMONIALS - BLACK BG ═══ */}
-      <section className="py-10 bg-black">
-        <div className="max-w-4xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
-            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Real Stories</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Voices from Fire Service Families</h2>
-            <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
-            <p className="text-white/45 text-sm max-w-md mx-auto">Hear directly from conference attendees about their transformative experiences and the lasting impact on their relationships.</p>
-          </FadeIn>
-
-          <VideoTestimonialCarousel />
-
-          <FadeIn delay={0.2}>
-            <div className="text-center mt-8">
-              <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 rounded-full text-sm">Register Now <ArrowRight className="ml-2 h-4 w-4" /></Button>
-              </a>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ═══ WHO WE SERVE - WHITE BG ═══ */}
-      <section className="py-10 bg-white text-black">
-        <div className="max-w-4xl mx-auto px-4">
-          <FadeIn className="text-center mb-6">
-            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Who We Serve</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">Built for Fire Service Couples</h2>
-            <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
-            <p className="text-black/45 text-xs max-w-md mx-auto">Every session, every activity, every moment is designed with fire families in mind.</p>
-          </FadeIn>
-
-          <FadeIn delay={0.1}>
-            <div className="grid md:grid-cols-2 gap-6 items-center max-w-3xl mx-auto">
-              {/* Text content */}
-              <div className="space-y-3">
-                <p className="text-black/60 text-sm leading-relaxed">
-                  This conference was created by firefighters and their spouses, for firefighters and their spouses. We know the unique challenges of shift work, the weight of trauma, and the strain it can place on a marriage.
-                </p>
-                <p className="text-black/60 text-sm leading-relaxed">
-                  Whether you are newly married or have been together for decades, this experience is designed to help you reconnect, communicate better, and walk away stronger as a couple.
-                </p>
-                <div className="flex flex-wrap gap-2.5 pt-2">
-                  {['Firefighters & Spouses', 'Career & Volunteer', 'All Ranks & Stations'].map((tag, i) => (
-                    <span key={i} className="px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 text-sm font-semibold uppercase tracking-wider">{tag}</span>
-                  ))}
-                </div>
-              </div>
-              {/* Small couple photo */}
-              <div className="rounded-lg overflow-hidden border border-black/10 max-w-[200px] mx-auto">
-                <img src="/images/hero-couple.jpg" alt="Firefighter couple at training" className="w-full h-auto object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-              </div>
             </div>
           </FadeIn>
         </div>
@@ -756,42 +805,6 @@ export default function SpouseConferencePage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ═══ FAQ - WHITE BG ═══ */}
-      <section id="faq" className="py-14 bg-white text-black">
-        <div className="max-w-2xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
-            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Got Questions?</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">National Spouse Conference FAQs</h2>
-            <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
-            <p className="text-black/45 text-sm">Everything you need to know</p>
-          </FadeIn>
-
-          {faqSections.map((section, si) => (
-            <FadeIn key={si} delay={si * 0.04} className="mb-6">
-              <h3 className="text-orange-500 font-semibold text-sm mb-2">{section.category}</h3>
-              <Accordion type="single" collapsible className="space-y-2">
-                {section.items.map((item, ii) => (
-                  <AccordionItem key={ii} value={`faq-${si}-${ii}`} className="bg-white border border-black/10 rounded-xl px-5 data-[state=open]:border-orange-500/40 transition-colors">
-                    <AccordionTrigger className="text-black font-medium text-left hover:no-underline py-4 text-sm">{item.q}</AccordionTrigger>
-                    <AccordionContent className="text-black/50 pb-4 text-sm leading-relaxed">{item.a}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </FadeIn>
-          ))}
-
-          <FadeIn>
-            <div className="border border-black/10 rounded-2xl p-6 text-center">
-              <p className="text-black font-semibold text-sm mb-1">Still have questions?</p>
-              <p className="text-black/40 text-xs mb-4">Reach out to our team.</p>
-              <a href="#/contact">
-                <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-4 rounded-full text-sm"><Mail className="mr-2 h-4 w-4" /> Contact Us</Button>
-              </a>
-            </div>
-          </FadeIn>
         </div>
       </section>
 
