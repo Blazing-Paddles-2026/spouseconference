@@ -135,18 +135,27 @@ function VideoTestimonialCarousel() {
                 className="w-full h-full object-cover scale-[1.35]"
                 loading="lazy"
               />
-              {/* Orange brand-color overlay tint (matches landingsite design) */}
-              <div className="absolute inset-0 bg-orange-600/50 group-hover:bg-orange-600/25 transition-colors" style={{ mixBlendMode: 'multiply' }} />
-              <div className="absolute inset-0 bg-orange-500/15 group-hover:bg-transparent transition-colors" />
-              {/* Subtle dark gradient for play-button contrast */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
-              {/* Centered play button */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-orange-500/95 group-hover:bg-orange-400 transition-all group-hover:scale-110 flex items-center justify-center shadow-2xl ring-4 ring-white/20">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white" className="ml-1">
+              {/* Strong orange brand wash (matches landingsite — heavy amber overlay) */}
+              <div className="absolute inset-0 bg-orange-500 group-hover:opacity-50 transition-opacity opacity-80" style={{ mixBlendMode: 'multiply' }} />
+              {/* Brand-orange tint on top for warmth */}
+              <div className="absolute inset-0 bg-orange-600/35 group-hover:bg-orange-600/15 transition-colors" />
+              {/* Bottom dark gradient for caption legibility */}
+              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent" />
+              {/* Centered play button + name + role + watch line */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+                <div className="w-16 h-16 rounded-full bg-white/15 backdrop-blur-sm group-hover:bg-white/25 transition-all group-hover:scale-110 flex items-center justify-center ring-2 ring-white/60 mb-4">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="white" className="ml-1">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
+                <h3 className="text-white font-bold text-xl sm:text-2xl tracking-tight drop-shadow-md">{v.name}</h3>
+                <p className="text-white/90 text-[10px] tracking-[0.2em] font-semibold uppercase mt-1 drop-shadow">{v.role}</p>
+                <p className="text-white/85 text-xs mt-3 drop-shadow">Watch {v.name.split(' ')[0]} share their conference experience</p>
+              </div>
+              {/* Bottom-left name + role like landingsite */}
+              <div className="absolute bottom-3 left-4 border-l-2 border-orange-300 pl-3">
+                <p className="text-white font-bold text-sm leading-tight drop-shadow">{v.name}</p>
+                <p className="text-orange-100 text-[9px] tracking-[0.18em] font-semibold uppercase mt-0.5 drop-shadow">{v.role}</p>
               </div>
             </button>
           )}
