@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Mail } from 'lucide-react';
+import { ArrowRight, Mail, ExternalLink } from 'lucide-react';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
@@ -21,6 +21,8 @@ const speakers = [
     bio: 'Owner/operator of Bonfire Counseling, specializing in Adventure Therapy, Training, and retreats for First Responders. Hunter uses hands-on experiences to facilitate learning, growth, and healing. He will lead engaging activities designed to strengthen resiliency in firefighter marriages — an active skill-building experience to help couples thrive.',
     image: '/images/speaker-hunter.jpg',
     session: 'Resilience in Real Life',
+    website: 'https://bonfirecounseling.com/',
+    websiteLabel: 'bonfirecounseling.com',
   },
   {
     tag: 'Communication',
@@ -29,6 +31,8 @@ const speakers = [
     bio: 'CEO Irina Alexander and COO Jen Hardy help high-stress professionals and their loved ones restore human connection through training, mentorship, and practical tools. They\'re bringing "Crafting Conversations That Connect" — simple, powerful shifts to reduce misunderstandings, build trust, and strengthen connection where it matters most.',
     image: '/images/speaker-irina-jen.jpg',
     session: 'Conversations That Matter',
+    website: 'https://www.motivaction.academy/',
+    websiteLabel: 'motivaction.academy',
   },
   {
     tag: 'Financial Planning',
@@ -37,6 +41,9 @@ const speakers = [
     bio: 'With over 20 years of experience in financial services, Jeff is committed to helping clients achieve peace of mind and long-term financial security. He specializes in guiding public service professionals through personalized financial strategies, ensuring the client, spouse, and family are well-protected and confident in their financial future.',
     image: '/images/speaker-jeff.png',
     session: 'Secure Your Future, Together',
+    // Jeff's website coming soon - leaving null so the link doesn't render until ready
+    website: null,
+    websiteLabel: 'Website coming soon',
   },
   {
     tag: 'Self-Care & Wellness',
@@ -45,6 +52,8 @@ const speakers = [
     bio: 'John Patterson has served as Fire Chaplain since 2019, offering spiritual leadership and care to firefighters and their families. He is passionate about ensuring firefighters are supported as whole people — spiritually, emotionally, relationally, and physically. John believes deeply that with faith-centered care and intentional support, firefighters can finish their careers stronger and more connected than when they began.',
     image: '/images/speaker-john.jpg',
     session: 'The Power of Self-Care',
+    website: 'https://chap.roundrockfirefoundation.org/firechaplain',
+    websiteLabel: "Chap's Corner",
   },
 ];
 
@@ -110,7 +119,15 @@ export default function SpeakersPage() {
                     <h2 className="text-xl font-bold text-white mb-0.5">{s.name}</h2>
                     <p className="text-orange-500/80 text-xs font-semibold mb-1">{s.org}</p>
                     <p className="text-white/40 text-xs mb-3">Session: <span className="text-white/60">{s.session}</span></p>
-                    <p className="text-white/45 text-xs leading-relaxed">{s.bio}</p>
+                    <p className="text-white/85 text-xs leading-relaxed">{s.bio}</p>
+                    {s.website ? (
+                      <a href={s.website} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-orange-500/40 text-orange-500 text-xs font-semibold hover:bg-orange-500 hover:text-white transition-colors">
+                        <ExternalLink className="h-3 w-3" />
+                        {s.websiteLabel}
+                      </a>
+                    ) : (
+                      <span className="mt-3 inline-block text-white/35 text-[10px] italic">{s.websiteLabel}</span>
+                    )}
                   </div>
                 </div>
               </FadeIn>

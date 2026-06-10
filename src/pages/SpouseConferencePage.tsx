@@ -102,8 +102,9 @@ function VideoTestimonialCarousel() {
     setActive(idx);
   };
 
-  // Try hqdefault first (always exists for any public video); fall back if it 404s
-  const thumbSrc = `https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`;
+  // Use maxresdefault for crisp 1280x720 thumbnails; fall back to hqdefault if it 404s
+  const thumbSrc = `https://i.ytimg.com/vi/${v.youtubeId}/maxresdefault.jpg`;
+  const fallbackThumb = `https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`;
 
   return (
     <div className="max-w-xl mx-auto">
@@ -111,17 +112,21 @@ function VideoTestimonialCarousel() {
       <div className="relative mb-5">
         <div className="relative rounded-xl overflow-hidden aspect-video bg-black">
           {playing ? (
-            <div className="absolute inset-0 overflow-hidden">
+            <>
               <iframe
-                src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&showinfo=0&controls=1&fs=1&disablekb=1`}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                style={{ width: '120%', height: '120%' }}
+                src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&showinfo=0&controls=1&fs=1&disablekb=1&playsinline=1&color=white`}
+                className="absolute inset-0 w-full h-full"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 title={`${v.name} — Testimonial`}
               />
-            </div>
+              {/* Cover YouTube channel-name watermark (top-left) and 'Watch on YouTube' (bottom-right) with brand-colored bars */}
+              {/* Top-left cover: hides the channel name overlay that appears when video starts */}
+              <div className="absolute top-0 left-0 h-10 w-[55%] bg-black pointer-events-none" />
+              {/* Bottom-right cover: hides the 'Watch on YouTube' button (sits above the controls bar) */}
+              <div className="absolute bottom-10 right-0 h-10 w-44 bg-black pointer-events-none" />
+            </>
           ) : (
             <button
               type="button"
@@ -135,14 +140,15 @@ function VideoTestimonialCarousel() {
               <img
                 src={thumbSrc}
                 alt={`${v.name} testimonial thumbnail`}
-                className="w-full h-full object-cover scale-[1.35] grayscale-[60%] group-hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover saturate-[1.15] contrast-[1.05] transition-all duration-500"
                 loading="lazy"
+                onError={(e) => { (e.target as HTMLImageElement).src = fallbackThumb; }}
               />
-              {/* Soft gentle fade - keeps Ashley's face clearly visible */}
+              {/* Soft bottom-only fade for name caption legibility - keeps the face clean and crisp */}
               <div
-                className="absolute inset-0 pointer-events-none transition-opacity group-hover:opacity-40"
+                className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
                 style={{
-                  background: 'linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.55) 100%)',
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%)',
                 }}
               />
               {/* Centered play button only — name moved to bottom-left */}
@@ -669,35 +675,38 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ FAQ - WHITE BG ═══ */}
-      <section id="faq" className="py-10 bg-white text-black">
-        <div className="max-w-2xl mx-auto px-4">
+      <section id="faq" className="py-8 bg-white text-black">
+        <div className="max-w-5xl mx-auto px-4">
           <FadeIn className="text-center mb-5">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Got Questions?</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">National Spouse Conference FAQs</h2>
-            <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
-            <p className="text-black/45 text-sm">Everything you need to know</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-black mb-2">National Spouse Conference FAQs</h2>
+            <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-2" />
+            <p className="text-black/85 text-sm">Everything you need to know</p>
           </FadeIn>
 
-          {faqSections.map((section, si) => (
-            <FadeIn key={si} delay={si * 0.04} className="mb-6">
-              <h3 className="text-orange-500 font-semibold text-sm mb-2">{section.category}</h3>
-              <Accordion type="single" collapsible className="space-y-2">
-                {section.items.map((item, ii) => (
-                  <AccordionItem key={ii} value={`faq-${si}-${ii}`} className="bg-white border border-black/10 rounded-xl px-5 data-[state=open]:border-orange-500/40 transition-colors">
-                    <AccordionTrigger className="text-black font-medium text-left hover:no-underline py-4 text-sm">{item.q}</AccordionTrigger>
-                    <AccordionContent className="text-black/50 pb-4 text-sm leading-relaxed">{item.a}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </FadeIn>
-          ))}
+          {/* Two-column FAQ grid on larger screens to fill the width */}
+          <div className="grid md:grid-cols-2 gap-x-6 gap-y-2">
+            {faqSections.map((section, si) => (
+              <FadeIn key={si} delay={si * 0.04} className="mb-3">
+                <h3 className="text-orange-500 font-semibold text-sm mb-2">{section.category}</h3>
+                <Accordion type="single" collapsible className="space-y-2">
+                  {section.items.map((item, ii) => (
+                    <AccordionItem key={ii} value={`faq-${si}-${ii}`} className="bg-white border border-black/10 rounded-xl px-4 data-[state=open]:border-orange-500/40 transition-colors">
+                      <AccordionTrigger className="text-black font-medium text-left hover:no-underline py-3 text-sm">{item.q}</AccordionTrigger>
+                      <AccordionContent className="text-black/65 pb-3 text-sm leading-relaxed">{item.a}</AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </FadeIn>
+            ))}
+          </div>
 
           <FadeIn>
-            <div className="border border-black/10 rounded-2xl p-6 text-center">
+            <div className="mt-5 border border-black/10 rounded-2xl p-4 text-center max-w-md mx-auto">
               <p className="text-black font-semibold text-sm mb-1">Still have questions?</p>
-              <p className="text-black/40 text-xs mb-4">Reach out to our team.</p>
+              <p className="text-black/55 text-xs mb-3">Reach out to our team.</p>
               <a href="#/contact">
-                <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-4 rounded-full text-sm"><Mail className="mr-2 h-4 w-4" /> Contact Us</Button>
+                <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-3 rounded-full text-sm"><Mail className="mr-2 h-4 w-4" /> Contact Us</Button>
               </a>
             </div>
           </FadeIn>
