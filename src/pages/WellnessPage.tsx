@@ -140,11 +140,37 @@ function getSessionFromUrl(): number {
 export default function WellnessPage() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSession, setActiveSession] = useState(() => getSessionFromUrl());
+  // Was the page arrived at via a deep-link? Used to highlight the active section.
+  const [arrivedViaDeepLink, setArrivedViaDeepLink] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    const h = window.location.hash;
+    return /[?&]session=/.test(h) || /#\/wellness#[a-zA-Z-]+/.test(h);
+  });
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // If user arrived via deep link, scroll past the hero and into the active
+    // session block so it's obvious they landed on the right thing.
+    if (arrivedViaDeepLink) {
+      // Defer so the layout has time to settle
+      setTimeout(() => {
+        const target = document.getElementById('active-session-detail');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 250);
+      // Remove the highlight after a few seconds so it doesn't stay forever
+      const t = setTimeout(() => setArrivedViaDeepLink(false), 4500);
+      return () => clearTimeout(t);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [arrivedViaDeepLink, activeSession]);
+
+  useEffect(() => {
     // Update active session if the URL changes (e.g. user clicks another link)
-    const onHash = () => setActiveSession(getSessionFromUrl());
+    const onHash = () => {
+      setActiveSession(getSessionFromUrl());
+      const h = window.location.hash;
+      setArrivedViaDeepLink(/[?&]session=/.test(h) || /#\/wellness#[a-zA-Z-]+/.test(h));
+    };
     window.addEventListener('hashchange', onHash);
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
@@ -201,8 +227,13 @@ export default function WellnessPage() {
               {sessions.map((sess, i) => (
                 <button
                   key={i}
-                  onClick={() => setActiveSession(i)}
-                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all ${activeSession === i ? 'bg-orange-500 text-white' : 'bg-black/5 text-black/50 hover:bg-black/10 hover:text-black'}`}
+                  onClick={() => { setArrivedViaDeepLink(false); setActiveSession(i); }}
+                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all ${
+                    activeSession === i
+                      ? `bg-orange-500 text-white ${arrivedViaDeepLink ? 'ring-4 ring-orange-300 ring-offset-2 scale-110 shadow-lg shadow-orange-400/50' : ''}`
+                      : 'bg-black/5 text-black/50 hover:bg-black/10 hover:text-black'
+                  }`}
+                  style={arrivedViaDeepLink && activeSession === i ? { animation: 'rrffPulse 1.4s ease-in-out 0s 3' } : undefined}
                 >
                   <sess.icon className="h-3 w-3" />
                   {sess.tag}
@@ -213,9 +244,37 @@ export default function WellnessPage() {
         </div>
       </section>
 
+      {/* Inline keyframe for the arrival pulse - kept local so it doesn't affect other pages */}
+      <style>{`
+        @keyframes rrffPulse {
+          0%   { box-shadow: 0 0 0 0 rgba(249,115,22, 0.7); }
+          70%  { box-shadow: 0 0 0 14px rgba(249,115,22, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(249,115,22, 0); }
+        }
+        @keyframes rrffHighlight {
+          0%   { background-color: rgba(249,115,22, 0); border-color: rgba(249,115,22, 0.2); }
+          25%  { background-color: rgba(249,115,22, 0.08); border-color: rgba(249,115,22, 0.7); }
+          100% { background-color: rgba(249,115,22, 0);   border-color: rgba(249,115,22, 0.2); }
+        }
+      `}</style>
+
       {/* ACTIVE SESSION DETAIL */}
-      <section className="py-14 bg-black">
+      <section
+        id="active-session-detail"
+        className={`py-14 transition-all duration-700 ${arrivedViaDeepLink ? 'bg-gradient-to-b from-orange-500/[0.08] via-black to-black' : 'bg-black'}`}
+        style={arrivedViaDeepLink ? { animation: 'rrffHighlight 3.5s ease-out 0s 1 forwards', borderTop: '2px solid rgba(249,115,22, 0.5)', borderBottom: '2px solid rgba(249,115,22, 0.2)' } : undefined}
+      >
         <div className="max-w-4xl mx-auto px-4">
+          {arrivedViaDeepLink && (
+            <FadeIn>
+              <div className="max-w-xl mx-auto mb-6 px-4 py-3 rounded-xl bg-orange-500/15 border border-orange-500/40 flex items-center gap-3 justify-center text-center">
+                <Sparkles className="h-4 w-4 text-orange-400 shrink-0" />
+                <p className="text-orange-100 text-xs font-medium">
+                  You’re viewing the <span className="font-bold text-orange-300">{s.tag}</span> session
+                </p>
+              </div>
+            </FadeIn>
+          )}
           <FadeIn key={activeSession}>
             <div className="text-center mb-8">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-[10px] font-bold uppercase tracking-wider mb-3">
