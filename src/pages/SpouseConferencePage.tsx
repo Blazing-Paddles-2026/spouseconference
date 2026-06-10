@@ -137,52 +137,31 @@ function VideoTestimonialCarousel() {
               {/* Thumbnail image — scaled up slightly to crop the YouTube
                  hqdefault letterbox bars (black bars at top/bottom of
                  hqdefault images) so we see only the face. */}
-              {/* Photo - punchy, saturated, clean (no sepia muddying) */}
+              {/* Clean full-color photo, no overlays */}
               <img
                 src={thumbSrc}
                 alt={`${v.name} testimonial thumbnail`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover"
                 loading="lazy"
                 onError={(e) => { (e.target as HTMLImageElement).src = fallbackThumb; }}
               />
-              {/* Layer 1: grayscale via mix-blend so the photo becomes monochrome under the orange */}
-              <div className="absolute inset-0 bg-white/40 mix-blend-color pointer-events-none transition-opacity group-hover:opacity-0" />
-              {/* Layer 2: rich orange overlay (multiply) - converts the now-grayscale photo into a duotone amber */}
+              {/* Soft bottom-only fade so the name caption stays legible */}
               <div
-                className="absolute inset-0 pointer-events-none transition-opacity group-hover:opacity-0"
-                style={{
-                  background: 'linear-gradient(180deg, #ff8c2a 0%, #d96b1a 100%)',
-                  mixBlendMode: 'multiply',
-                }}
+                className="absolute inset-x-0 bottom-0 h-2/5 pointer-events-none"
+                style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)' }}
               />
-              {/* Layer 3: slight orange screen for highlights */}
-              <div
-                className="absolute inset-0 pointer-events-none transition-opacity group-hover:opacity-0"
-                style={{
-                  background: 'linear-gradient(180deg, rgba(255,180,90,0.25) 0%, rgba(255,140,40,0) 100%)',
-                  mixBlendMode: 'screen',
-                }}
-              />
-              {/* Bottom dark vignette for caption legibility */}
-              <div
-                className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
-                style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%)' }}
-              />
-              {/* Centered: clean white play button + name + role + watch line */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-                <div className="w-16 h-16 rounded-full border-2 border-white bg-white/10 backdrop-blur-sm group-hover:bg-white/25 group-hover:scale-110 transition-all flex items-center justify-center mb-4 shadow-lg">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="white" className="ml-0.5">
+              {/* Centered play button */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm group-hover:bg-white/25 transition-all group-hover:scale-110 flex items-center justify-center ring-2 ring-white/60">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" className="ml-0.5">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
-                <h3 className="text-white font-bold text-lg sm:text-xl tracking-tight drop-shadow-md">{v.name}</h3>
-                <p className="text-white/95 text-[10px] tracking-[0.22em] font-semibold uppercase mt-1 drop-shadow">{v.role}</p>
-                <p className="text-white/90 text-xs mt-2 drop-shadow">Watch {v.name.split(' ')[0]} share their conference experience</p>
               </div>
-              {/* Bottom-left name + role with white accent bar */}
-              <div className="absolute bottom-3 left-4 border-l-2 border-white/80 pl-3">
-                <p className="text-white font-bold text-xs leading-tight drop-shadow">{v.name}</p>
-                <p className="text-white/85 text-[9px] tracking-[0.18em] font-semibold uppercase mt-0.5 drop-shadow">{v.role}</p>
+              {/* Bottom-left name + role */}
+              <div className="absolute bottom-3 left-4 border-l-2 border-white/70 pl-3">
+                <p className="text-white font-bold text-sm leading-tight drop-shadow">{v.name}</p>
+                <p className="text-white/85 text-[10px] tracking-[0.18em] font-semibold uppercase mt-0.5 drop-shadow">{v.role}</p>
               </div>
             </button>
           )}
