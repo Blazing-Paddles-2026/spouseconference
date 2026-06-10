@@ -108,7 +108,7 @@ function VideoTestimonialCarousel() {
   return (
     <div className="max-w-xl mx-auto">
       {/* Video Card */}
-      <div className="relative mb-8">
+      <div className="relative mb-5">
         <div className="relative rounded-xl overflow-hidden aspect-video bg-black">
           {playing ? (
             <iframe
@@ -132,20 +132,17 @@ function VideoTestimonialCarousel() {
               <img
                 src={thumbSrc}
                 alt={`${v.name} testimonial thumbnail`}
-                className="w-full h-full object-cover scale-[1.35]"
+                className="w-full h-full object-cover scale-[1.35] grayscale group-hover:grayscale-0 transition-all duration-500"
                 loading="lazy"
               />
-              {/* Deep orange/amber overlay — darker version that reads as a clear amber wash even on bright photos */}
+              {/* Grayscale + dark overlay (replaces amber) - converts photo to gray and darkens it */}
               <div
-                className="absolute inset-0 transition-opacity group-hover:opacity-60"
+                className="absolute inset-0 transition-opacity group-hover:opacity-50"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(180,60,10,0.85) 0%, rgba(140,40,5,0.92) 100%)',
-                  mixBlendMode: 'multiply',
+                  background: 'linear-gradient(135deg, rgba(20,20,20,0.55) 0%, rgba(0,0,0,0.75) 100%)',
                 }}
               />
-              {/* Second amber layer (normal blend) to enrich color */}
-              <div className="absolute inset-0 bg-orange-600/25 group-hover:bg-orange-600/10 transition-colors" />
-              {/* Bottom darkening for the caption legibility */}
+              {/* Bottom darkening for caption legibility */}
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{ background: 'linear-gradient(to top right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 55%)' }}
@@ -161,10 +158,10 @@ function VideoTestimonialCarousel() {
                 <p className="text-white/90 text-[10px] tracking-[0.2em] font-semibold uppercase mt-1 drop-shadow">{v.role}</p>
                 <p className="text-white/85 text-xs mt-3 drop-shadow">Watch {v.name.split(' ')[0]} share their conference experience</p>
               </div>
-              {/* Bottom-left name + role like landingsite */}
-              <div className="absolute bottom-3 left-4 border-l-2 border-orange-300 pl-3">
+              {/* Bottom-left name + role */}
+              <div className="absolute bottom-3 left-4 border-l-2 border-white/50 pl-3">
                 <p className="text-white font-bold text-sm leading-tight drop-shadow">{v.name}</p>
-                <p className="text-orange-100 text-[9px] tracking-[0.18em] font-semibold uppercase mt-0.5 drop-shadow">{v.role}</p>
+                <p className="text-white/90 text-[9px] tracking-[0.18em] font-semibold uppercase mt-0.5 drop-shadow">{v.role}</p>
               </div>
             </button>
           )}
@@ -287,11 +284,11 @@ export default function SpouseConferencePage() {
             <span className="font-bold text-xs text-white tracking-wide hidden sm:inline">NATIONAL SPOUSE CONFERENCE</span>
           </a>
           <div className="flex items-center gap-4">
-            <a href="#/schedule" className="hidden sm:block text-white/60 text-xs hover:text-orange-500 transition-colors">Schedule</a>
-            <button onClick={() => scrollToSection('speakers')} className="hidden sm:block text-white/60 text-xs hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0">Speakers</button>
-            <button onClick={() => scrollToSection('faq')} className="hidden sm:block text-white/60 text-xs hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0">FAQs</button>
-            <button onClick={() => scrollToSection('gallery')} className="hidden sm:block text-white/60 text-xs hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0">Gallery</button>
-            <a href="https://www.roundrockfirefoundation.org/" className="hidden sm:block text-white/60 text-xs hover:text-orange-500 transition-colors">RRFF Home</a>
+            <a href="#/schedule" className="hidden sm:block text-white/90 text-xs hover:text-orange-500 transition-colors">Schedule</a>
+            <button onClick={() => scrollToSection('speakers')} className="hidden sm:block text-white/90 text-xs hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0">Speakers</button>
+            <button onClick={() => scrollToSection('faq')} className="hidden sm:block text-white/90 text-xs hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0">FAQs</button>
+            <button onClick={() => scrollToSection('gallery')} className="hidden sm:block text-white/90 text-xs hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0">Gallery</button>
+            <a href="https://www.roundrockfirefoundation.org/" className="hidden sm:block text-white/90 text-xs hover:text-orange-500 transition-colors">RRFF Home</a>
             <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
               <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-4 py-2 h-8 text-xs rounded-full">Register</Button>
             </a>
@@ -318,10 +315,10 @@ export default function SpouseConferencePage() {
           <p className="text-xl sm:text-2xl md:text-3xl font-medium text-orange-500 mb-6">
             National Spouse Conference
           </p>
-          <p className="text-sm sm:text-base text-white/85 max-w-xl mx-auto mb-10 leading-relaxed">
+          <p className="text-sm sm:text-base text-white/85 max-w-xl mx-auto mb-6 leading-relaxed">
             An immersive, hands-on conference designed to strengthen firefighter marriages through shared experiences, expert guidance, and lasting connections.
           </p>
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 mb-5">
             <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
               <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 text-sm rounded-full">Register Now <ArrowRight className="ml-2 h-4 w-4" /></Button>
             </a>
@@ -340,9 +337,9 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ MISSION - BLACK BG ═══ */}
-      <section className="py-10 bg-black">
+      <section className="py-7 bg-black">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-6 items-center">
+          <div className="grid md:grid-cols-2 gap-4 items-center">
             <div>
               <FadeIn>
                 <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Our Mission</p>
@@ -350,10 +347,10 @@ export default function SpouseConferencePage() {
                 <div className="w-10 h-0.5 bg-orange-500 mb-5" />
               </FadeIn>
               <FadeIn delay={0.1}>
-                <p className="text-white/50 text-sm leading-relaxed mb-4">
+                <p className="text-white/85 text-sm leading-relaxed mb-4">
                   The Round Rock Fire Foundation National Spouse Conference is the first national event designed specifically for the spouses of firefighters. Through immersive hands-on training and expert-led wellness programming, we create shared experiences that strengthen relationships and build lasting resilience.
                 </p>
-                <p className="text-white/50 text-sm leading-relaxed mb-6">
+                <p className="text-white/85 text-sm leading-relaxed mb-6">
                   By bringing firefighters and their spouses together for real training scenarios, meaningful conversations, and supportive community connection, we equip fire service couples with the tools they need to thrive — both at home and on the job.
                 </p>
               </FadeIn>
@@ -366,7 +363,7 @@ export default function SpouseConferencePage() {
                       </div>
                       <div>
                         <p className="font-medium text-white text-xs">{item.title}</p>
-                        <p className="text-white/35 text-[11px]">{item.desc}</p>
+                        <p className="text-white/80 text-[11px]">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -390,7 +387,7 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ WHO WE SERVE - WHITE BG ═══ */}
-      <section className="py-10 bg-white text-black">
+      <section className="py-7 bg-white text-black">
         <div className="max-w-4xl mx-auto px-4">
           <FadeIn className="text-center mb-6">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Who We Serve</p>
@@ -400,7 +397,7 @@ export default function SpouseConferencePage() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <div className="grid md:grid-cols-2 gap-6 items-center max-w-3xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-4 items-center max-w-3xl mx-auto">
               {/* Text content */}
               <div className="space-y-3">
                 <p className="text-black/60 text-sm leading-relaxed">
@@ -428,15 +425,14 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ SEE IT IN ACTION (Vimeo video) - BLACK BG, COMPACT ═══ */}
-      <section className="py-10 bg-black border-t border-white/5">
-        <div className="max-w-3xl mx-auto px-4">
-          <FadeIn className="text-center mb-5">
-            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">See It In Action</p>
-            <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Experience the Conference Through Their Eyes</h2>
-            <div className="w-10 h-0.5 bg-orange-500 mx-auto" />
+      <section className="py-7 bg-black border-t border-white/5">
+        <div className="max-w-md mx-auto px-4">
+          <FadeIn className="text-center mb-3">
+            <p className="text-orange-500 font-semibold text-[10px] tracking-[0.2em] uppercase mb-1">See It In Action</p>
+            <h2 className="text-base sm:text-lg font-bold text-white">Experience the Conference Through Their Eyes</h2>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <div className="relative w-full rounded-xl overflow-hidden border border-white/10 bg-black" style={{ paddingBottom: '56.25%' }}>
+            <div className="relative w-full rounded-lg overflow-hidden border border-white/10 bg-black" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 src="https://player.vimeo.com/video/1164069619?title=0&byline=0&portrait=0"
                 className="absolute top-0 left-0 w-full h-full"
@@ -451,9 +447,9 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ CONFERENCE EXPERIENCE - WHITE BG ═══ */}
-      <section className="py-10 bg-white text-black">
+      <section className="py-7 bg-white text-black">
         <div className="max-w-4xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
+          <FadeIn className="text-center mb-5">
             <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">Experience the Fire Service Life as a Couple</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
             <p className="text-black/45 text-sm max-w-md mx-auto">A transformative experience where spouses gain firsthand understanding.</p>
@@ -480,9 +476,9 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ MENTAL HEALTH - BLACK BG ═══ */}
-      <section className="py-10 bg-black">
+      <section className="py-7 bg-black">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 items-start">
+          <div className="grid md:grid-cols-2 gap-5 items-start">
             {/* Left column - heading + intro */}
             <div>
               <FadeIn>
@@ -491,7 +487,7 @@ export default function SpouseConferencePage() {
                 <div className="w-10 h-0.5 bg-orange-500 mb-5" />
               </FadeIn>
               <FadeIn delay={0.1}>
-                <p className="text-white/50 text-sm leading-relaxed mb-4">
+                <p className="text-white/85 text-sm leading-relaxed mb-4">
                   Fire service life brings unique pressures that affect both partners. Our wellness programming gives couples practical tools to navigate stress, strengthen communication, and build resilience — together.
                 </p>
                 <div className="space-y-3">
@@ -505,7 +501,7 @@ export default function SpouseConferencePage() {
                       <div className="w-6 h-6 rounded-full bg-orange-500/10 flex items-center justify-center shrink-0">
                         <item.icon className="h-3 w-3 text-orange-500" />
                       </div>
-                      <p className="text-white/60 text-xs">{item.label}</p>
+                      <p className="text-white/90 text-xs">{item.label}</p>
                     </div>
                   ))}
                 </div>
@@ -526,7 +522,7 @@ export default function SpouseConferencePage() {
                       <item.icon className="h-4 w-4 text-orange-500" />
                     </div>
                     <h3 className="font-bold text-white text-[11px] mb-1 leading-tight">{item.title}</h3>
-                    <p className="text-white/45 text-xs leading-relaxed">{item.desc}</p>
+                    <p className="text-white/85 text-xs leading-relaxed">{item.desc}</p>
                   </a>
                 </FadeIn>
               ))}
@@ -536,13 +532,13 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ SPEAKERS - BLACK BG ═══ */}
-      <section id="speakers" className="py-10 bg-black">
+      <section id="speakers" className="py-7 bg-black">
         <div className="max-w-5xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
+          <FadeIn className="text-center mb-5">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Meet Your Presenters</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Expert Guidance from Fire Service Leaders</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
-            <p className="text-white/45 text-sm max-w-md mx-auto">Industry leaders sharing real-world insights for fire service families.</p>
+            <p className="text-white/85 text-sm max-w-md mx-auto">Industry leaders sharing real-world insights for fire service families.</p>
           </FadeIn>
 
           <div className="grid sm:grid-cols-2 gap-3 items-stretch">
@@ -572,9 +568,9 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ WHAT'S INCLUDED - WHITE BG ═══ */}
-      <section className="py-10 bg-white text-black">
+      <section className="py-7 bg-white text-black">
         <div className="max-w-4xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
+          <FadeIn className="text-center mb-5">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">What&apos;s Included</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">Everything You Need for Growth</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
@@ -598,13 +594,13 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ VIDEO TESTIMONIALS - BLACK BG ═══ */}
-      <section className="py-10 bg-black">
+      <section className="py-7 bg-black">
         <div className="max-w-4xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
+          <FadeIn className="text-center mb-5">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Real Stories</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Voices from Fire Service Families</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
-            <p className="text-white/45 text-sm max-w-md mx-auto">Hear directly from conference attendees about their transformative experiences and the lasting impact on their relationships.</p>
+            <p className="text-white/85 text-sm max-w-md mx-auto">Hear directly from conference attendees about their transformative experiences and the lasting impact on their relationships.</p>
           </FadeIn>
 
           <VideoTestimonialCarousel />
@@ -620,9 +616,9 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ TESTIMONIALS - WHITE BG ═══ */}
-      <section className="py-10 bg-white text-black">
+      <section className="py-7 bg-white text-black">
         <div className="max-w-3xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
+          <FadeIn className="text-center mb-5">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">What Attendees Say</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">Stories That Inspire Connection</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
@@ -634,9 +630,9 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ VENUE - BLACK BG ═══ */}
-      <section id="venue" className="py-10 bg-black">
+      <section id="venue" className="py-7 bg-black">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-6 items-center">
+          <div className="grid md:grid-cols-2 gap-4 items-center">
             <FadeIn>
               <div className="rounded-xl overflow-hidden border border-white/10 max-w-sm mx-auto">
                 <img src="/images/venue-training-center.jpg" alt="Round Rock Public Safety Training Center" className="w-full h-auto object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
@@ -656,11 +652,11 @@ export default function SpouseConferencePage() {
                 <div className="space-y-2.5 mb-6">
                   <div className="flex items-start gap-3 p-3.5 rounded-xl border border-white/10">
                     <MapPin className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
-                    <div><p className="font-medium text-white text-sm">Tru by Hilton</p><p className="text-white/40 text-xs">2900 Hoppe Trail, Round Rock, TX 78681</p></div>
+                    <div><p className="font-medium text-white text-sm">Tru by Hilton</p><p className="text-white/85 text-xs">2900 Hoppe Trail, Round Rock, TX 78681</p></div>
                   </div>
                   <div className="flex items-start gap-3 p-3.5 rounded-xl border border-white/10">
                     <Clock className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
-                    <div><p className="font-medium text-white text-sm">Check-in: 5:00 PM</p><p className="text-white/40 text-xs">Thursday, November 5, 2026</p></div>
+                    <div><p className="font-medium text-white text-sm">Check-in: 5:00 PM</p><p className="text-white/85 text-xs">Thursday, November 5, 2026</p></div>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-3">
@@ -678,9 +674,9 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ FAQ - WHITE BG ═══ */}
-      <section id="faq" className="py-14 bg-white text-black">
+      <section id="faq" className="py-10 bg-white text-black">
         <div className="max-w-2xl mx-auto px-4">
-          <FadeIn className="text-center mb-8">
+          <FadeIn className="text-center mb-5">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Got Questions?</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">National Spouse Conference FAQs</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
@@ -719,7 +715,7 @@ export default function SpouseConferencePage() {
           <FadeIn>
             <div className="border border-white/10 rounded-2xl p-8">
               <h2 className="text-xl font-bold text-white mb-2">Ready to Connect with Fire Families?</h2>
-              <p className="text-white/40 text-xs mb-5">Join us for an unforgettable experience of growth, connection, and resilience.</p>
+              <p className="text-white/85 text-xs mb-5">Join us for an unforgettable experience of growth, connection, and resilience.</p>
               <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 rounded-full text-sm">Register Now <ArrowRight className="ml-2 h-4 w-4" /></Button>
               </a>
@@ -729,10 +725,10 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ FINAL CTA - BLACK BG ═══ */}
-      <section className="py-10 bg-black">
+      <section className="py-7 bg-black">
         <FadeIn className="max-w-md mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-3">Join Us in <span className="text-orange-500">Round Rock</span></h2>
-          <p className="text-white/45 text-sm mb-6">Be part of the first national conference designed exclusively for firefighter couples.</p>
+          <p className="text-white/85 text-sm mb-6">Be part of the first national conference designed exclusively for firefighter couples.</p>
           <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
             <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-10 py-5 text-sm rounded-full">Register Now <ArrowRight className="ml-2 h-5 w-5" /></Button>
           </a>
@@ -809,7 +805,7 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ PARTNERS - BLACK BG ═══ */}
-      <section id="partnership" className="py-10 bg-black">
+      <section id="partnership" className="py-7 bg-black">
         <div className="max-w-4xl mx-auto px-4">
           <FadeIn className="text-center mb-6">
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Our Partners</p>
@@ -819,7 +815,7 @@ export default function SpouseConferencePage() {
 
           {/* Sponsor logo placeholder area */}
           <FadeIn delay={0.1}>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 max-w-2xl mx-auto min-h-[90px]">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-5 max-w-2xl mx-auto min-h-[90px]">
               {/* Sponsor logos will go here */}
             </div>
           </FadeIn>
@@ -828,7 +824,7 @@ export default function SpouseConferencePage() {
             <div className="border-t border-white/10 pt-8 max-w-lg mx-auto text-center">
               <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Sponsorship Opportunities</p>
               <h3 className="text-xl font-bold text-white mb-2">Partner With Purpose</h3>
-              <p className="text-white/45 text-xs mb-5 max-w-sm mx-auto">From $700 to $5,000 — choose the tier that aligns with your goals and make a lasting impact on fire service families.</p>
+              <p className="text-white/85 text-xs mb-5 max-w-sm mx-auto">From $700 to $5,000 — choose the tier that aligns with your goals and make a lasting impact on fire service families.</p>
               <a href="#/sponsorship">
                 <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 rounded-full text-sm">View Partnership Tiers <ArrowRight className="ml-2 h-4 w-4" /></Button>
               </a>
@@ -838,15 +834,15 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ CLOSING BRAND STAMP - BLACK BG ═══ */}
-      <section className="py-10 bg-black">
+      <section className="py-7 bg-black">
         <FadeIn className="max-w-xs mx-auto px-4 text-center">
           <img src="/images/nsc-banner-logo.png" alt="Round Rock Fire Foundation National Spouse Conference" className="w-full opacity-80" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-          <p className="text-white/50 text-xs uppercase tracking-widest mt-3">Built to Support Fire Service Families</p>
+          <p className="text-white/85 text-xs uppercase tracking-widest mt-3">Built to Support Fire Service Families</p>
         </FadeIn>
       </section>
 
       {/* ═══ FOOTER - WHITE BG ═══ */}
-      <footer className="py-10 bg-white text-black border-t border-black/10">
+      <footer className="py-7 bg-white text-black border-t border-black/10">
         <div className="max-w-sm mx-auto px-4 text-center">
           <p className="text-black font-medium text-sm mb-4">Connect With Us</p>
           <div className="flex justify-center gap-3 mb-6">
