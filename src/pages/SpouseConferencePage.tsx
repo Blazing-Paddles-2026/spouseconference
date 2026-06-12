@@ -563,7 +563,7 @@ export default function SpouseConferencePage() {
             <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">What&apos;s Included</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">Everything You Need for Growth</h2>
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-3" />
-            <p className="text-black/45 text-sm max-w-md mx-auto">A comprehensive conference experience.</p>
+            <p className="text-black/75 text-sm max-w-md mx-auto">A comprehensive conference experience.</p>
           </FadeIn>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -573,8 +573,8 @@ export default function SpouseConferencePage() {
                   <div className="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-3 group-hover:bg-orange-500/20 transition-colors">
                     <topic.icon className="h-4 w-4 text-orange-500" />
                   </div>
-                  <h3 className="font-bold text-black text-xs mb-1 group-hover:text-orange-600 transition-colors">{topic.title}</h3>
-                  <p className="text-black/35 text-xs leading-relaxed">{topic.desc}</p>
+                  <h3 className="font-bold text-black text-sm mb-1.5 group-hover:text-orange-600 transition-colors">{topic.title}</h3>
+                  <p className="text-black/75 text-xs leading-relaxed">{topic.desc}</p>
                 </a>
               </FadeIn>
             ))}
