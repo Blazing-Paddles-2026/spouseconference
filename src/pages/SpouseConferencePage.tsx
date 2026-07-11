@@ -298,12 +298,12 @@ export default function SpouseConferencePage() {
           <p className="text-white font-medium text-xs sm:text-sm tracking-[0.2em] uppercase mb-6">
             November 6-8, 2026 &middot; Round Rock, TX
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-3 leading-tight text-white">
+          <p className="text-lg sm:text-xl md:text-2xl font-medium text-white/90 mb-2">
             Round Rock Fire Foundation
-          </h1>
-          <p className="text-xl sm:text-2xl md:text-3xl font-medium text-orange-500 mb-6">
-            National Spouse Conference
           </p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight text-orange-500">
+            National Spouse Conference
+          </h1>
           <p className="text-sm sm:text-base text-white/85 max-w-xl mx-auto mb-6 leading-relaxed">
             An immersive, hands-on conference designed to strengthen firefighter marriages through shared experiences, expert guidance, and lasting connections.
           </p>
@@ -805,10 +805,47 @@ export default function SpouseConferencePage() {
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-2" />
           </FadeIn>
 
-          {/* Sponsor logo placeholder area */}
+          {/* ─── OFFICIAL MEDIA SPONSOR — CRACKYL ─── */}
           <FadeIn delay={0.1}>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-5 max-w-2xl mx-auto min-h-[90px]">
-              {/* Sponsor logos will go here */}
+            <div className="relative max-w-2xl mx-auto mb-8">
+              {/* Soft gold glow echoing the CRACKYL brand palette */}
+              <div className="absolute -inset-px rounded-3xl bg-gradient-to-b from-[#C8A24A]/25 via-orange-500/10 to-transparent blur-[2px]" aria-hidden="true" />
+              <div className="relative rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent px-6 py-8 sm:px-10 sm:py-9 text-center overflow-hidden">
+                {/* Designation badge */}
+                <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/25 text-orange-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
+                  <Star className="h-3 w-3 fill-orange-500" /> Official Media Sponsor
+                </span>
+
+                {/* CRACKYL wordmark */}
+                <a
+                  href="https://crackylmag.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                  aria-label="CRACKYL Magazine — Official Media Sponsor (opens in a new tab)"
+                >
+                  <img
+                    src="/images/crackyl-logo-white.svg"
+                    alt="CRACKYL Magazine"
+                    className="h-14 sm:h-16 w-auto mx-auto opacity-95 group-hover:opacity-100 transition-opacity"
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  />
+                </a>
+
+                {/* Partnership line */}
+                <p className="text-white/70 text-sm leading-relaxed max-w-md mx-auto mt-6">
+                  CRACKYL Magazine, the national voice for firefighter lifestyle, health, and wellness, is proud to serve as the Official Media Sponsor of the RRFF National Spouse Conference.
+                </p>
+
+                <a
+                  href="https://crackylmag.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-orange-500 hover:text-orange-400 text-xs font-semibold uppercase tracking-[0.15em] mt-5 transition-colors"
+                >
+                  Visit CRACKYL <ArrowRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
             </div>
           </FadeIn>
 

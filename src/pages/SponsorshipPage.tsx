@@ -285,6 +285,37 @@ export default function SponsorshipPage() {
         </div>
       </section>
 
+      {/* OFFICIAL MEDIA SPONSOR — CRACKYL */}
+      <section className="py-8 bg-black border-t border-white/5">
+        <FadeIn className="max-w-2xl mx-auto px-4">
+          <div className="relative">
+            <div className="absolute -inset-px rounded-3xl bg-gradient-to-b from-[#C8A24A]/25 via-orange-500/10 to-transparent blur-[2px]" aria-hidden="true" />
+            <div className="relative rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent px-6 py-8 sm:px-10 text-center">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/25 text-orange-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
+                <Star className="h-3 w-3 fill-orange-500" /> Official Media Sponsor
+              </span>
+              <a
+                href="https://crackylmag.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+                aria-label="CRACKYL Magazine — Official Media Sponsor (opens in a new tab)"
+              >
+                <img
+                  src="/images/crackyl-logo-white.svg"
+                  alt="CRACKYL Magazine"
+                  className="h-14 sm:h-16 w-auto mx-auto opacity-95 group-hover:opacity-100 transition-opacity"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
+              </a>
+              <p className="text-white/70 text-sm leading-relaxed max-w-md mx-auto mt-6">
+                CRACKYL Magazine, the national voice for firefighter lifestyle, health, and wellness, is proud to serve as the Official Media Sponsor of the RRFF National Spouse Conference.
+              </p>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
       {/* WHY PARTNER */}
       <section className="py-8 bg-white text-black">
         <div className="max-w-4xl mx-auto px-4">
