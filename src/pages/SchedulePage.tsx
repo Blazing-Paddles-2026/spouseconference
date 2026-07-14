@@ -5,6 +5,7 @@ import {
   ArrowRight, Clock, MapPin, Calendar, Users,
   Flame, MessageCircle, Brain, Heart, Star, Utensils,
 } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
@@ -334,6 +335,44 @@ export default function SchedulePage() {
             </div>
           </FadeIn>
         </div>
+      </section>
+
+      {/* OFFICIAL MEDIA SPONSOR — CRACKYL */}
+      <section className="py-8 bg-black border-t border-white/5">
+        <FadeIn className="max-w-3xl mx-auto px-4">
+          <div className="relative rounded-2xl border border-orange-500/40 bg-gradient-to-r from-[#160d02] via-black to-[#160d02] px-6 py-6 sm:px-8 flex flex-col sm:flex-row items-center gap-5 sm:gap-7 text-center sm:text-left shadow-[0_0_40px_-12px_rgba(249,115,22,0.5)]">
+            <a
+              href="https://crackylmag.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 group"
+              aria-label="CRACKYL Magazine — Official Media Sponsor (opens in a new tab)"
+            >
+              <img
+                src="/images/crackyl-logo-white.svg"
+                alt="CRACKYL Magazine"
+                className="h-14 sm:h-16 w-auto group-hover:scale-105 transition-transform duration-300"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
+            </a>
+            <div className="flex-1">
+              <p className="inline-flex items-center gap-1.5 text-orange-500 text-[10px] font-extrabold uppercase tracking-[0.2em] mb-1.5">
+                <Sparkles className="h-3.5 w-3.5" /> Official Media Sponsor
+              </p>
+              <p className="text-white/85 text-sm sm:text-base leading-relaxed">
+                Proudly partnering with <span className="text-orange-400 font-semibold">CRACKYL Magazine</span> — the national voice for firefighter lifestyle, health, and wellness.
+              </p>
+            </div>
+            <a
+              href="https://crackylmag.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 inline-flex items-center gap-1.5 text-orange-500 hover:text-orange-400 text-xs font-bold uppercase tracking-[0.12em] transition-colors"
+            >
+              Visit <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
+        </FadeIn>
       </section>
 
       {/* FINAL CTA */}
