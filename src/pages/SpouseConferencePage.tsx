@@ -325,6 +325,30 @@ export default function SpouseConferencePage() {
         </div>
       </section>
 
+      {/* ═══ MEDIA SPONSOR RIBBON (after hero) - BLACK BG ═══ */}
+      <section className="py-4 bg-gradient-to-r from-black via-[#160d02] to-black border-y border-orange-500/30">
+        <FadeIn className="max-w-4xl mx-auto px-4">
+          <a
+            href="https://crackylmag.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 text-center"
+            aria-label="CRACKYL Magazine — Official Media Sponsor (opens in a new tab)"
+          >
+            <span className="inline-flex items-center gap-2 text-orange-500 text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.2em] shrink-0">
+              <Sparkles className="h-3.5 w-3.5" /> Official Media Sponsor
+            </span>
+            <span className="hidden sm:block h-7 w-px bg-orange-500/40 shrink-0" aria-hidden="true" />
+            <img
+              src="/images/crackyl-logo-white.svg"
+              alt="CRACKYL Magazine"
+              className="h-10 sm:h-12 w-auto shrink-0 group-hover:scale-105 transition-transform duration-300"
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            />
+          </a>
+        </FadeIn>
+      </section>
+
       {/* ═══ MISSION - BLACK BG ═══ */}
       <section className="py-7 bg-black">
         <div className="max-w-5xl mx-auto px-4">
@@ -554,6 +578,44 @@ export default function SpouseConferencePage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ═══ MEDIA SPONSOR MID-PAGE CALLOUT - BLACK BG ═══ */}
+      <section className="py-8 bg-black">
+        <FadeIn className="max-w-3xl mx-auto px-4">
+          <div className="relative rounded-2xl border border-orange-500/40 bg-gradient-to-r from-[#160d02] via-black to-[#160d02] px-6 py-6 sm:px-8 flex flex-col sm:flex-row items-center gap-5 sm:gap-7 text-center sm:text-left shadow-[0_0_40px_-12px_rgba(249,115,22,0.5)]">
+            <a
+              href="https://crackylmag.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 group"
+              aria-label="CRACKYL Magazine — Official Media Sponsor (opens in a new tab)"
+            >
+              <img
+                src="/images/crackyl-logo-white.svg"
+                alt="CRACKYL Magazine"
+                className="h-14 sm:h-16 w-auto group-hover:scale-105 transition-transform duration-300"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
+            </a>
+            <div className="flex-1">
+              <p className="inline-flex items-center gap-1.5 text-orange-500 text-[10px] font-extrabold uppercase tracking-[0.2em] mb-1.5">
+                <Star className="h-3.5 w-3.5 fill-orange-500" /> Official Media Sponsor
+              </p>
+              <p className="text-white/85 text-sm sm:text-base leading-relaxed">
+                Proudly partnering with <span className="text-orange-400 font-semibold">CRACKYL Magazine</span> to bring the National Spouse Conference to fire service families everywhere.
+              </p>
+            </div>
+            <a
+              href="https://crackylmag.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 inline-flex items-center gap-1.5 text-orange-500 hover:text-orange-400 text-xs font-bold uppercase tracking-[0.12em] transition-colors"
+            >
+              Visit <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
+        </FadeIn>
       </section>
 
       {/* ═══ WHAT'S INCLUDED - WHITE BG ═══ */}
