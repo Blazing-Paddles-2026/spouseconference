@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import {
-  Check, Mail, Star, CreditCard, Building2,
+  Check, Mail, Star, CreditCard, Building2, Sparkles, ArrowRight,
 } from 'lucide-react';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -285,15 +285,19 @@ export default function SponsorshipPage() {
         </div>
       </section>
 
-      {/* OFFICIAL MEDIA SPONSOR — CRACKYL */}
-      <section className="py-8 bg-black border-t border-white/5">
-        <FadeIn className="max-w-2xl mx-auto px-4">
+      {/* OFFICIAL MEDIA SPONSOR — CRACKYL (bold announcement) */}
+      <section className="py-10 bg-black border-t border-white/5">
+        <FadeIn className="max-w-3xl mx-auto px-4">
           <div className="relative">
-            <div className="absolute -inset-px rounded-3xl bg-gradient-to-b from-[#C8A24A]/25 via-orange-500/10 to-transparent blur-[2px]" aria-hidden="true" />
-            <div className="relative rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent px-6 py-8 sm:px-10 text-center">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/25 text-orange-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
-                <Star className="h-3 w-3 fill-orange-500" /> Official Media Sponsor
+            <div className="absolute -inset-1.5 rounded-[2rem] bg-gradient-to-br from-orange-500/60 via-[#C8A24A]/40 to-orange-600/60 blur-xl opacity-80" aria-hidden="true" />
+            <div className="relative rounded-[1.75rem] border-2 border-orange-500/70 bg-gradient-to-b from-[#1a1206] via-[#120a02] to-black px-6 py-10 sm:px-12 sm:py-12 text-center overflow-hidden shadow-[0_0_60px_-10px_rgba(249,115,22,0.55)]">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500 text-black text-[11px] font-extrabold uppercase tracking-[0.18em] mb-5 shadow-lg">
+                <Sparkles className="h-3.5 w-3.5" /> Just Announced
               </span>
+              <h3 className="flex items-center justify-center gap-2 text-orange-500 text-lg sm:text-2xl font-extrabold uppercase tracking-[0.2em] mb-1">
+                <Star className="h-5 w-5 fill-orange-500 shrink-0" /> <span>Official Media Sponsor</span>
+              </h3>
+              <p className="text-white/60 text-xs uppercase tracking-[0.25em] mb-8">of the National Spouse Conference</p>
               <a
                 href="https://crackylmag.com"
                 target="_blank"
@@ -304,13 +308,21 @@ export default function SponsorshipPage() {
                 <img
                   src="/images/crackyl-logo-white.svg"
                   alt="CRACKYL Magazine"
-                  className="h-14 sm:h-16 w-auto mx-auto opacity-95 group-hover:opacity-100 transition-opacity"
+                  className="h-20 sm:h-28 w-auto mx-auto drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)] group-hover:scale-[1.03] transition-transform duration-300"
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                 />
               </a>
-              <p className="text-white/70 text-sm leading-relaxed max-w-md mx-auto mt-6">
-                CRACKYL Magazine, the national voice for firefighter lifestyle, health, and wellness, is proud to serve as the Official Media Sponsor of the RRFF National Spouse Conference.
+              <p className="text-white text-base sm:text-lg leading-relaxed max-w-xl mx-auto mt-8 font-medium">
+                We're thrilled to welcome <span className="text-orange-400 font-bold">CRACKYL Magazine</span> — the national voice for firefighter lifestyle, health, and wellness — as the <span className="text-orange-400 font-bold">Official Media Sponsor</span> of the RRFF National Spouse Conference.
               </p>
+              <a
+                href="https://crackylmag.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-[0.12em] px-7 py-3.5 rounded-full mt-8 transition-colors shadow-lg"
+              >
+                Explore CRACKYL <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </FadeIn>
