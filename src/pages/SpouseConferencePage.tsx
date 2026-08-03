@@ -873,7 +873,7 @@ export default function SpouseConferencePage() {
               <p className="text-center text-white/60 text-[11px] uppercase tracking-[0.2em] mb-5">With Thanks to Our Sponsors</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
                 {[
-                  { name: 'CRACKYL Magazine — Official Media Sponsor', src: '/images/crackyl-logo-white.svg', href: 'https://crackylmag.com', invert: true },
+                  { name: 'CRACKYL Magazine — Official Media Sponsor', src: '/images/crackyl-logo-white.svg', href: 'https://crackylmag.com', darkBox: true },
                   { name: 'Round Rock IAFF Local 3082', src: '/images/sponsor-local-3082.jpg', href: 'https://www.roundrockfirefighters.org/' },
                   { name: 'Firehouse Vigilance', src: '/images/sponsor-firehouse-vigilance.jpg', href: 'https://www.firehousevigilance.com/' },
                   { name: 'Lawless Brothers Fire Tools', src: '/images/sponsor-lawless-brothers-fire-tools.jpg', href: 'https://lawlessbrothersfiretools.com/' },
@@ -886,12 +886,14 @@ export default function SpouseConferencePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${s.name} (opens in a new tab)`}
-                    className="group flex items-center justify-center rounded-xl bg-white/95 border border-white/10 p-3 h-20 hover:border-orange-500/60 hover:bg-white transition-all"
+                    className={s.darkBox
+                      ? "group flex items-center justify-center rounded-xl bg-black border border-white/15 p-3 h-20 hover:border-orange-500/60 transition-all"
+                      : "group flex items-center justify-center rounded-xl bg-white/95 border border-white/10 p-3 h-20 hover:border-orange-500/60 hover:bg-white transition-all"}
                   >
                     <img
                       src={s.src}
                       alt={s.name}
-                      className={`max-h-14 max-w-full w-auto object-contain group-hover:scale-105 transition-transform duration-300${s.invert ? ' brightness-0' : ''}`}
+                      className="max-h-14 max-w-full w-auto object-contain group-hover:scale-105 transition-transform duration-300"
                       onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                     />
                   </a>
