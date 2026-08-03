@@ -917,6 +917,38 @@ export default function SpouseConferencePage() {
             </div>
           </FadeIn>
 
+          {/* ─── COMMUNITY & BUSINESS SPONSORS ─── */}
+          <FadeIn delay={0.12}>
+            <div className="max-w-3xl mx-auto mb-10">
+              <p className="text-center text-white/60 text-[11px] uppercase tracking-[0.2em] mb-5">With Thanks to Our Sponsors</p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+                {[
+                  { name: 'Round Rock IAFF Local 3082', src: '/images/sponsor-local-3082.jpg', href: 'https://www.roundrockfirefighters.org/' },
+                  { name: 'Firehouse Vigilance', src: '/images/sponsor-firehouse-vigilance.jpg', href: 'https://www.firehousevigilance.com/' },
+                  { name: 'Lawless Brothers Fire Tools', src: '/images/sponsor-lawless-brothers-fire-tools.jpg', href: 'https://lawlessbrothersfiretools.com/' },
+                  { name: 'MSA Safety', src: '/images/sponsor-msa-safety.jpg', href: 'https://us.msasafety.com/products/turnout-gear?locale=en' },
+                  { name: 'Next Step Connect', src: '/images/sponsor-next-step-connect.jpg', href: 'https://www.thenextstepconnects.com' },
+                ].map((s) => (
+                  <a
+                    key={s.name}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${s.name} (opens in a new tab)`}
+                    className="group flex items-center justify-center rounded-xl bg-white/95 border border-white/10 p-3 h-20 hover:border-orange-500/60 hover:bg-white transition-all"
+                  >
+                    <img
+                      src={s.src}
+                      alt={s.name}
+                      className="max-h-14 max-w-full w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+
           <FadeIn delay={0.15}>
             <div className="border-t border-white/10 pt-8 max-w-lg mx-auto text-center">
               <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Sponsorship Opportunities</p>

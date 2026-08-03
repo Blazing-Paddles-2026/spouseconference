@@ -222,6 +222,38 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* SUPPORTED BY */}
+      <section className="py-6 bg-black border-t border-white/5">
+        <FadeIn className="max-w-2xl mx-auto px-4 text-center">
+          <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-3">Supported By</p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {[
+              { name: 'Round Rock IAFF Local 3082', src: '/images/sponsor-local-3082.jpg', href: 'https://www.roundrockfirefighters.org/' },
+              { name: 'Firehouse Vigilance', src: '/images/sponsor-firehouse-vigilance.jpg', href: 'https://www.firehousevigilance.com/' },
+              { name: 'Lawless Brothers Fire Tools', src: '/images/sponsor-lawless-brothers-fire-tools.jpg', href: 'https://lawlessbrothersfiretools.com/' },
+              { name: 'MSA Safety', src: '/images/sponsor-msa-safety.jpg', href: 'https://us.msasafety.com/products/turnout-gear?locale=en' },
+              { name: 'Next Step Connect', src: '/images/sponsor-next-step-connect.jpg', href: 'https://www.thenextstepconnects.com' },
+            ].map((s) => (
+              <a
+                key={s.name}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${s.name} (opens in a new tab)`}
+                className="group flex items-center justify-center rounded-md bg-white/95 border border-white/10 p-1.5 h-10 w-16 hover:border-orange-500/60 hover:bg-white transition-all"
+              >
+                <img
+                  src={s.src}
+                  alt={s.name}
+                  className="max-h-6 max-w-full w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
+              </a>
+            ))}
+          </div>
+        </FadeIn>
+      </section>
+
       {/* FOOTER */}
       <footer className="py-8 bg-black border-t border-white/10">
         <div className="max-w-sm mx-auto px-4 text-center">
