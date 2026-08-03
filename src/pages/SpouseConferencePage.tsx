@@ -867,62 +867,13 @@ export default function SpouseConferencePage() {
             <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-2" />
           </FadeIn>
 
-          {/* ─── OFFICIAL MEDIA SPONSOR — CRACKYL (bold announcement) ─── */}
-          <FadeIn delay={0.1}>
-            <div className="relative max-w-3xl mx-auto mb-10">
-              {/* Strong orange/gold glow so the card pops off the black */}
-              <div className="absolute -inset-1.5 rounded-[2rem] bg-gradient-to-br from-orange-500/60 via-[#C8A24A]/40 to-orange-600/60 blur-xl opacity-80" aria-hidden="true" />
-              <div className="relative rounded-[1.75rem] border-2 border-orange-500/70 bg-gradient-to-b from-[#1a1206] via-[#120a02] to-black px-6 py-10 sm:px-12 sm:py-12 text-center overflow-hidden shadow-[0_0_60px_-10px_rgba(249,115,22,0.55)]">
-                {/* Just announced pill */}
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500 text-black text-[11px] font-extrabold uppercase tracking-[0.18em] mb-5 shadow-lg">
-                  <Sparkles className="h-3.5 w-3.5" /> Just Announced
-                </span>
-
-                {/* Designation — large and unmistakable */}
-                <h3 className="flex items-center justify-center gap-2 text-orange-500 text-lg sm:text-2xl font-extrabold uppercase tracking-[0.2em] mb-1">
-                  <Star className="h-5 w-5 fill-orange-500 shrink-0" /> <span>Official Media Sponsor</span>
-                </h3>
-                <p className="text-white/60 text-xs uppercase tracking-[0.25em] mb-8">of the National Spouse Conference</p>
-
-                {/* CRACKYL wordmark — large */}
-                <a
-                  href="https://crackylmag.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block group"
-                  aria-label="CRACKYL Magazine — Official Media Sponsor (opens in a new tab)"
-                >
-                  <img
-                    src="/images/crackyl-logo-white.svg"
-                    alt="CRACKYL Magazine"
-                    className="h-20 sm:h-28 w-auto mx-auto drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)] group-hover:scale-[1.03] transition-transform duration-300"
-                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                  />
-                </a>
-
-                {/* Excited copy */}
-                <p className="text-white text-base sm:text-lg leading-relaxed max-w-xl mx-auto mt-8 font-medium">
-                  We're thrilled to welcome <span className="text-orange-400 font-bold">CRACKYL Magazine</span> — the national voice for firefighter lifestyle, health, and wellness — as the <span className="text-orange-400 font-bold">Official Media Sponsor</span> of the RRFF National Spouse Conference.
-                </p>
-
-                <a
-                  href="https://crackylmag.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-[0.12em] px-7 py-3.5 rounded-full mt-8 transition-colors shadow-lg"
-                >
-                  Explore CRACKYL <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
-          </FadeIn>
-
-          {/* ─── COMMUNITY & BUSINESS SPONSORS ─── */}
+          {/* ─── COMMUNITY & BUSINESS SPONSORS (incl. CRACKYL, same size as the rest) ─── */}
           <FadeIn delay={0.12}>
             <div className="max-w-3xl mx-auto mb-10">
               <p className="text-center text-white/60 text-[11px] uppercase tracking-[0.2em] mb-5">With Thanks to Our Sponsors</p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
                 {[
+                  { name: 'CRACKYL Magazine — Official Media Sponsor', src: '/images/crackyl-logo-white.svg', href: 'https://crackylmag.com', darkContain: true },
                   { name: 'Round Rock IAFF Local 3082', src: '/images/sponsor-local-3082.jpg', href: 'https://www.roundrockfirefighters.org/' },
                   { name: 'Firehouse Vigilance', src: '/images/sponsor-firehouse-vigilance.jpg', href: 'https://www.firehousevigilance.com/' },
                   { name: 'Lawless Brothers Fire Tools', src: '/images/sponsor-lawless-brothers-fire-tools.jpg', href: 'https://lawlessbrothersfiretools.com/' },
@@ -935,9 +886,11 @@ export default function SpouseConferencePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${s.name} (opens in a new tab)`}
-                    className={s.dark
-                      ? "group flex items-center justify-center rounded-xl overflow-hidden border border-white/15 h-20 hover:border-orange-500/60 transition-all"
-                      : "group flex items-center justify-center rounded-xl bg-white/95 border border-white/10 p-3 h-20 hover:border-orange-500/60 hover:bg-white transition-all"}
+                    className={s.darkContain
+                      ? "group flex items-center justify-center rounded-xl bg-black border border-white/15 p-3 h-20 hover:border-orange-500/60 transition-all"
+                      : s.dark
+                        ? "group flex items-center justify-center rounded-xl overflow-hidden border border-white/15 h-20 hover:border-orange-500/60 transition-all"
+                        : "group flex items-center justify-center rounded-xl bg-white/95 border border-white/10 p-3 h-20 hover:border-orange-500/60 hover:bg-white transition-all"}
                   >
                     <img
                       src={s.src}
