@@ -160,7 +160,7 @@ export default function SpeakersPage() {
               { name: 'Firehouse Vigilance', src: '/images/sponsor-firehouse-vigilance.jpg', href: 'https://www.firehousevigilance.com/' },
               { name: 'Lawless Brothers Fire Tools', src: '/images/sponsor-lawless-brothers-fire-tools.jpg', href: 'https://lawlessbrothersfiretools.com/' },
               { name: 'MSA Safety', src: '/images/sponsor-msa-safety.jpg', href: 'https://us.msasafety.com/products/turnout-gear?locale=en' },
-              { name: 'Next Step Connect', src: '/images/sponsor-next-step-connect.jpg', href: 'https://www.thenextstepconnects.com', dark: true },
+              { name: 'Next Step Connect', src: '/images/sponsor-next-step-connect-cropped.jpg', href: 'https://www.thenextstepconnects.com' },
             ].map((s) => (
               <a
                 key={s.name}
@@ -168,16 +168,12 @@ export default function SpeakersPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${s.name} (opens in a new tab)`}
-                className={s.dark
-                  ? "group flex items-center justify-center rounded-lg overflow-hidden border border-white/15 h-12 w-20 hover:border-orange-500/60 transition-all"
-                  : "group flex items-center justify-center rounded-lg bg-white/95 border border-white/10 p-2 h-12 w-20 hover:border-orange-500/60 hover:bg-white transition-all"}
+                className="group flex items-center justify-center rounded-lg bg-white/95 border border-white/10 p-2 h-16 w-24 hover:border-orange-500/60 hover:bg-white transition-all"
               >
                 <img
                   src={s.src}
                   alt={s.name}
-                  className={s.dark
-                    ? "h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    : "max-h-8 max-w-full w-auto object-contain group-hover:scale-105 transition-transform duration-300"}
+                  className="max-h-12 max-w-full w-auto object-contain group-hover:scale-105 transition-transform duration-300"
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                 />
               </a>
