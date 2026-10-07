@@ -325,6 +325,68 @@ export default function SpouseConferencePage() {
         </div>
       </section>
 
+      {/* ═══ PARTNERS - BLACK BG ═══ */}
+      <section id="partnership" className="py-7 bg-black">
+        <div className="max-w-4xl mx-auto px-4">
+          <FadeIn className="text-center mb-6">
+            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Our Partners</p>
+            <h2 className="text-xl font-bold text-white mb-2">Thank You to Our Sponsors</h2>
+            <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-2" />
+          </FadeIn>
+
+          {/* ─── COMMUNITY & BUSINESS SPONSORS (incl. CRACKYL, same size as the rest) ─── */}
+          <FadeIn delay={0.12}>
+            <div className="max-w-3xl mx-auto mb-10">
+              <p className="text-center text-white/60 text-[11px] uppercase tracking-[0.2em] mb-5">With Thanks to Our Sponsors</p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                {[
+                  { name: 'CRACKYL Magazine — Official Media Sponsor', src: '/images/crackyl-logo-white.svg', href: 'https://crackylmag.com', invert: true },
+                  { name: 'Round Rock IAFF Local 3082', src: '/images/sponsor-local-3082.jpg', href: 'https://www.roundrockfirefighters.org/' },
+                  { name: 'Firehouse Vigilance', src: '/images/sponsor-firehouse-vigilance.jpg', href: 'https://www.firehousevigilance.com/' },
+                  { name: 'Lawless Brothers Fire Tools', src: '/images/sponsor-lawless-brothers-fire-tools.jpg', href: 'https://lawlessbrothersfiretools.com/' },
+                  { name: 'MSA Safety', src: '/images/sponsor-msa-safety.jpg', href: 'https://us.msasafety.com/products/turnout-gear?locale=en' },
+                  { name: 'Next Step Connect', src: '/images/sponsor-next-step-connect-cropped.jpg', href: 'https://www.thenextstepconnects.com' },
+                  { name: 'Firehouse Flyer', src: '/images/sponsor-firehouse-flyer.jpg' },
+                  { name: 'Tru by Hilton Round Rock', src: '/images/sponsor-tru-by-hilton.jpg' },
+                  { name: 'Salty Firewife Collective', src: '/images/sponsor-salty-firewife-collective.jpg' },
+                  { name: 'First I Respond Jerky', src: '/images/sponsor-first-i-respond-jerky.jpg' },
+                ].map((s) => {
+                  const SponsorCard = s.href ? 'a' : 'div';
+                  return (
+                  <SponsorCard
+                    key={s.name}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.href ? `${s.name} (opens in a new tab)` : s.name}
+                    className="group flex items-center justify-center rounded-xl bg-white/95 border border-white/10 p-3 h-28 hover:border-orange-500/60 hover:bg-white transition-all"
+                  >
+                    <img
+                      src={s.src}
+                      alt={s.name}
+                      className={`max-h-24 max-w-full w-auto object-contain group-hover:scale-105 transition-transform duration-300${s.invert ? ' brightness-0' : ''}`}
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                    />
+                  </SponsorCard>
+                  );
+                })}
+              </div>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.15}>
+            <div className="border-t border-white/10 pt-8 max-w-lg mx-auto text-center">
+              <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Sponsorship Opportunities</p>
+              <h3 className="text-xl font-bold text-white mb-2">Partner With Purpose</h3>
+              <p className="text-white/85 text-xs mb-5 max-w-sm mx-auto">From $700 to $5,000 — choose the tier that aligns with your goals and make a lasting impact on fire service families.</p>
+              <a href="#/sponsorship">
+                <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 rounded-full text-sm">View Partnership Tiers <ArrowRight className="ml-2 h-4 w-4" /></Button>
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* ═══ MEDIA SPONSOR RIBBON (after hero) - BLACK BG ═══ */}
       <section className="py-4 bg-gradient-to-r from-black via-[#160d02] to-black border-y border-orange-500/30">
         <FadeIn className="max-w-4xl mx-auto px-4">
@@ -855,68 +917,6 @@ export default function SpouseConferencePage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ═══ PARTNERS - BLACK BG ═══ */}
-      <section id="partnership" className="py-7 bg-black">
-        <div className="max-w-4xl mx-auto px-4">
-          <FadeIn className="text-center mb-6">
-            <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Our Partners</p>
-            <h2 className="text-xl font-bold text-white mb-2">Thank You to Our Sponsors</h2>
-            <div className="w-10 h-0.5 bg-orange-500 mx-auto mb-2" />
-          </FadeIn>
-
-          {/* ─── COMMUNITY & BUSINESS SPONSORS (incl. CRACKYL, same size as the rest) ─── */}
-          <FadeIn delay={0.12}>
-            <div className="max-w-3xl mx-auto mb-10">
-              <p className="text-center text-white/60 text-[11px] uppercase tracking-[0.2em] mb-5">With Thanks to Our Sponsors</p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-                {[
-                  { name: 'CRACKYL Magazine — Official Media Sponsor', src: '/images/crackyl-logo-white.svg', href: 'https://crackylmag.com', invert: true },
-                  { name: 'Round Rock IAFF Local 3082', src: '/images/sponsor-local-3082.jpg', href: 'https://www.roundrockfirefighters.org/' },
-                  { name: 'Firehouse Vigilance', src: '/images/sponsor-firehouse-vigilance.jpg', href: 'https://www.firehousevigilance.com/' },
-                  { name: 'Lawless Brothers Fire Tools', src: '/images/sponsor-lawless-brothers-fire-tools.jpg', href: 'https://lawlessbrothersfiretools.com/' },
-                  { name: 'MSA Safety', src: '/images/sponsor-msa-safety.jpg', href: 'https://us.msasafety.com/products/turnout-gear?locale=en' },
-                  { name: 'Next Step Connect', src: '/images/sponsor-next-step-connect-cropped.jpg', href: 'https://www.thenextstepconnects.com' },
-                  { name: 'Firehouse Flyer', src: '/images/sponsor-firehouse-flyer.jpg' },
-                  { name: 'Tru by Hilton Round Rock', src: '/images/sponsor-tru-by-hilton.jpg' },
-                  { name: 'Salty Firewife Collective', src: '/images/sponsor-salty-firewife-collective.jpg' },
-                  { name: 'First I Respond Jerky', src: '/images/sponsor-first-i-respond-jerky.jpg' },
-                ].map((s) => {
-                  const SponsorCard = s.href ? 'a' : 'div';
-                  return (
-                  <SponsorCard
-                    key={s.name}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={s.href ? `${s.name} (opens in a new tab)` : s.name}
-                    className="group flex items-center justify-center rounded-xl bg-white/95 border border-white/10 p-3 h-28 hover:border-orange-500/60 hover:bg-white transition-all"
-                  >
-                    <img
-                      src={s.src}
-                      alt={s.name}
-                      className={`max-h-24 max-w-full w-auto object-contain group-hover:scale-105 transition-transform duration-300${s.invert ? ' brightness-0' : ''}`}
-                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                    />
-                  </SponsorCard>
-                  );
-                })}
-              </div>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.15}>
-            <div className="border-t border-white/10 pt-8 max-w-lg mx-auto text-center">
-              <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Sponsorship Opportunities</p>
-              <h3 className="text-xl font-bold text-white mb-2">Partner With Purpose</h3>
-              <p className="text-white/85 text-xs mb-5 max-w-sm mx-auto">From $700 to $5,000 — choose the tier that aligns with your goals and make a lasting impact on fire service families.</p>
-              <a href="#/sponsorship">
-                <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 rounded-full text-sm">View Partnership Tiers <ArrowRight className="ml-2 h-4 w-4" /></Button>
-              </a>
-            </div>
-          </FadeIn>
         </div>
       </section>
 
