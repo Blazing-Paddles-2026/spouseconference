@@ -108,8 +108,8 @@ export default function SpeakersPage() {
               <FadeIn key={i} delay={i * 0.08}>
                 <div className="grid sm:grid-cols-[200px_1fr] gap-3 border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-colors">
                   <div className="bg-white p-2">
-                    <div className="aspect-[3/4] bg-neutral-100 overflow-hidden">
-                      <img src={s.image} alt={s.name} className="w-full h-full object-cover object-top" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                    <div className="w-full max-w-[320px] mx-auto bg-white">
+                      <img src={s.image} alt={s.name} className="block w-full h-auto object-contain" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
                     </div>
                   </div>
                   <div className="p-5 sm:py-5 sm:pr-6 sm:pl-0">

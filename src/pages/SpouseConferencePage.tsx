@@ -557,11 +557,11 @@ export default function SpouseConferencePage() {
           <div className="grid sm:grid-cols-2 gap-3 items-stretch">
             {speakers.map((s, i) => (
               <FadeIn key={i} delay={i * 0.06} className="h-full">
-                <div className="border border-white/10 rounded-xl overflow-hidden hover:border-orange-500/30 transition-colors flex h-full">
+                <div className="border border-white/10 rounded-xl overflow-hidden hover:border-orange-500/30 transition-colors flex flex-col sm:flex-row h-full">
                   {/* Left - Photo */}
                   <div className="bg-white p-1.5 shrink-0">
-                    <div className="w-[100px] sm:w-[120px] h-full bg-neutral-100 overflow-hidden">
-                      <img src={s.image} alt={s.name} className="w-full h-full object-cover object-top" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                    <div className="w-full max-w-[240px] mx-auto sm:w-[120px] bg-white">
+                      <img src={s.image} alt={s.name} className="block w-full h-auto object-contain" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
                     </div>
                   </div>
                   {/* Right - Bio on white */}
