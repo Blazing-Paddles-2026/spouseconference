@@ -375,13 +375,14 @@ export default function SpouseConferencePage() {
           </FadeIn>
 
           <FadeIn delay={0.14}>
-            <section aria-labelledby="captain-sponsor-heading" className="max-w-3xl mx-auto mb-10 rounded-2xl border-2 border-orange-500/80 bg-gradient-to-br from-[#21150d] via-[#111] to-black shadow-[0_12px_40px_rgba(249,115,22,0.12)]">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-6 py-7 sm:px-8">
-                <div>
-                  <p className="text-orange-400 text-xs font-bold uppercase tracking-[0.16em] mb-2">Captain Sponsor</p>
-                  <h3 id="captain-sponsor-heading" className="text-xl sm:text-2xl font-bold text-white leading-tight">Firefighters First Credit Union</h3>
-                </div>
-                <p className="self-start sm:self-auto shrink-0 rounded-full border border-orange-500/50 bg-orange-500/10 px-4 py-2 text-sm font-semibold text-orange-200">$2,500 level</p>
+            <section aria-labelledby="captain-sponsor-heading" className="max-w-3xl mx-auto mb-10 rounded-2xl border border-orange-400/60 bg-[#101010] p-2 text-center">
+              <div className="flex flex-col items-center rounded-xl border border-white/10 px-6 py-9 sm:px-10 sm:py-11">
+                <p className="mb-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-orange-400">Captain Sponsor</p>
+                <h3 id="captain-sponsor-heading" className="text-center">
+                  <span className="block text-2xl sm:text-3xl font-semibold tracking-tight leading-tight text-white">Firefighters First</span>{' '}
+                  <span className="mt-2 block text-base sm:text-lg font-medium tracking-[0.12em] text-white/80">Credit Union</span>
+                </h3>
+                <div aria-hidden="true" className="mt-6 h-px w-12 bg-orange-400/70" />
               </div>
             </section>
           </FadeIn>
