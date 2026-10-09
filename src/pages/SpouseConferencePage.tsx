@@ -374,6 +374,18 @@ export default function SpouseConferencePage() {
             </div>
           </FadeIn>
 
+          <FadeIn delay={0.14}>
+            <section aria-labelledby="captain-sponsor-heading" className="max-w-3xl mx-auto mb-10 rounded-2xl border-2 border-orange-500/80 bg-gradient-to-br from-[#21150d] via-[#111] to-black shadow-[0_12px_40px_rgba(249,115,22,0.12)]">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-6 py-7 sm:px-8">
+                <div>
+                  <p className="text-orange-400 text-xs font-bold uppercase tracking-[0.16em] mb-2">Captain Sponsor</p>
+                  <h3 id="captain-sponsor-heading" className="text-xl sm:text-2xl font-bold text-white leading-tight">Firefighters First Credit Union</h3>
+                </div>
+                <p className="self-start sm:self-auto shrink-0 rounded-full border border-orange-500/50 bg-orange-500/10 px-4 py-2 text-sm font-semibold text-orange-200">$2,500 level</p>
+              </div>
+            </section>
+          </FadeIn>
+
           <FadeIn delay={0.15}>
             <div className="border-t border-white/10 pt-8 max-w-lg mx-auto text-center">
               <p className="text-orange-500 font-semibold text-xs tracking-[0.2em] uppercase mb-2">Sponsorship Opportunities</p>
