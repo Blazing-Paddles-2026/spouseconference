@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import RegisterLink, { registerLabel } from '@/components/RegisterLink';
 import RegistrationCountdown from '@/components/RegistrationCountdown';
+import ConferencePhotoCarousel from '@/components/ConferencePhotoCarousel';
 import {
   CONFERENCE_DATES, CONFERENCE_DAYS, CONFERENCE_LOCATION, REGISTRATION_OPENS_LABEL,
   CONFERENCE_ICS, CONFERENCE_GCAL,
@@ -359,7 +360,7 @@ export default function SpouseConferencePage() {
 
       {/* Keep the entire group visible, including on phones. */}
       <section aria-label="2026 conference group photo" className="bg-black px-4 pt-8 pb-5 sm:pt-12 sm:pb-8">
-        <figure className="max-w-5xl mx-auto">
+        <figure className="max-w-3xl mx-auto">
           <img
             src="/images/nsc-2026-group.webp"
             alt="2026 National Spouse Conference participants in turnout gear, gathered on and in front of a Round Rock fire truck."
@@ -918,74 +919,7 @@ export default function SpouseConferencePage() {
         </FadeIn>
       </section>
 
-      {/* ═══ SCROLLING PHOTO MARQUEE ═══ */}
-      <section id="gallery" className="py-0 bg-black overflow-hidden">
-        <style>{`
-          @keyframes marquee-scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .marquee-track {
-            animation: marquee-scroll 40s linear infinite;
-          }
-          .marquee-track:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
-        <div className="relative">
-          {/* Left fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-          {/* Right fade */}
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
-
-          <div className="marquee-track flex gap-4 py-4" style={{ width: 'max-content' }}>
-            {/* First set of photos */}
-            {[
-              '/images/gallery-BBE6C938-3387-4F49-A183-34B60B7E9D76.jpg',
-              '/images/gallery-A173FD4E-9633-4DCA-966C-01A718B24FD5.jpg',
-              '/images/gallery-4F688D40-F6AE-473F-819D-8D4CD49B5697.jpg',
-              '/images/gallery-FC4378E2-C008-4FEC-8C47-ECAAAD4512B9.jpg',
-              '/images/gallery-B23462A6-51CC-4E6D-B6FC-447E699CEE90.jpg',
-              '/images/gallery-BA478303-BA34-4E2F-B96D-DEC2B8469036.jpg',
-              '/images/gallery-B2347142-083B-45CC-8CC5-2A09A50A826F.jpg',
-              '/images/gallery-38BA5659-6942-4CD8-855B-53AB9DB04868.jpg',
-              '/images/gallery-143E1361-A1E8-4384-8486-23366FFE878B.jpg',
-              '/images/gallery-73AB4801-0C68-428F-9DC7-354D7A04CA6B.jpg',
-              '/images/gallery-C4EBE053-B708-43AA-927D-F4DC530F5AE7.jpg',
-              '/images/gallery-9D8ED385-4A46-4F2D-92AB-AEAD52A0C515.jpg',
-              '/images/gallery-D9BF4DEF-4CDD-4877-9A83-1E6EC97EC6B1.jpg',
-              '/images/gallery-8A8F167F-5767-4FF4-BB78-0075932C2B23.jpg',
-              '/images/gallery-EF0364BF-AF6B-498F-9E59-74D25AA9E07F.jpg',
-            ].map((src, i) => (
-              <div key={`a-${i}`} className="w-44 h-28 rounded-lg overflow-hidden border border-white/10 shrink-0 hover:border-orange-500/40 transition-colors">
-                <img src={src} alt={`Conference moment ${i + 1}`} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-              </div>
-            ))}
-            {/* Duplicate set for seamless loop */}
-            {[
-              '/images/gallery-BBE6C938-3387-4F49-A183-34B60B7E9D76.jpg',
-              '/images/gallery-A173FD4E-9633-4DCA-966C-01A718B24FD5.jpg',
-              '/images/gallery-4F688D40-F6AE-473F-819D-8D4CD49B5697.jpg',
-              '/images/gallery-FC4378E2-C008-4FEC-8C47-ECAAAD4512B9.jpg',
-              '/images/gallery-B23462A6-51CC-4E6D-B6FC-447E699CEE90.jpg',
-              '/images/gallery-BA478303-BA34-4E2F-B96D-DEC2B8469036.jpg',
-              '/images/gallery-B2347142-083B-45CC-8CC5-2A09A50A826F.jpg',
-              '/images/gallery-38BA5659-6942-4CD8-855B-53AB9DB04868.jpg',
-              '/images/gallery-143E1361-A1E8-4384-8486-23366FFE878B.jpg',
-              '/images/gallery-73AB4801-0C68-428F-9DC7-354D7A04CA6B.jpg',
-              '/images/gallery-C4EBE053-B708-43AA-927D-F4DC530F5AE7.jpg',
-              '/images/gallery-9D8ED385-4A46-4F2D-92AB-AEAD52A0C515.jpg',
-              '/images/gallery-D9BF4DEF-4CDD-4877-9A83-1E6EC97EC6B1.jpg',
-              '/images/gallery-8A8F167F-5767-4FF4-BB78-0075932C2B23.jpg',
-              '/images/gallery-EF0364BF-AF6B-498F-9E59-74D25AA9E07F.jpg',
-            ].map((src, i) => (
-              <div key={`b-${i}`} className="w-44 h-28 rounded-lg overflow-hidden border border-white/10 shrink-0 hover:border-orange-500/40 transition-colors">
-                <img src={src} alt={`Conference moment ${i + 1}`} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ConferencePhotoCarousel />
 
       {/* ═══ CLOSING BRAND STAMP - BLACK BG ═══ */}
       <section className="py-7 bg-black">

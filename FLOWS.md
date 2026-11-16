@@ -8,3 +8,6 @@
 - Mobile: navigation and disabled registration label fit without horizontal overflow.
 - Edge cases: after April 1 with no form URL registration remains disabled; keyboard cannot activate disabled registration.
 - Delivery: private preview loads with photo and disabled controls. Public site and main branch remain unchanged.
+- Gallery: 30 new photos plus all 15 existing photos (45 unique); thumbnails and enlarged images show full frame with object-contain. Auto-scroll pauses on hover/focus, with a manual pause control; reduced-motion disables auto-scroll.
+- Gallery viewer: tap a photo or Browse all 45 photos; next/previous wrap around; arrow keys navigate; Escape and Close dismiss and restore focus. No page overflow at 375px.
+- Group feature: max width 768px to match nearby content, preserving full image.
