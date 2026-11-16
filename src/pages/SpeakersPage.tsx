@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Mail, ExternalLink } from 'lucide-react';
+import RegisterLink, { registerLabel } from '@/components/RegisterLink';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
@@ -80,9 +81,9 @@ export default function SpeakersPage() {
           <div className="flex items-center gap-4">
             <a href="#/" className="text-white/60 text-xs hover:text-orange-500 transition-colors">Back to Conference</a>
             <a href="https://www.roundrockfirefoundation.org/" className="hidden sm:block text-white/60 text-xs hover:text-orange-500 transition-colors">RRFF Home</a>
-            <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-4 py-2 h-8 text-xs rounded-full">Register</Button>
-            </a>
+            <RegisterLink>
+              <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-4 py-2 h-8 text-xs rounded-full">{registerLabel('short')}</Button>
+            </RegisterLink>
           </div>
         </div>
       </nav>
@@ -140,9 +141,9 @@ export default function SpeakersPage() {
           <h2 className="text-xl font-bold text-white mb-2">Join Us in <span className="text-orange-500">Round Rock</span></h2>
           <p className="text-white/40 text-xs mb-5">Learn from these incredible speakers and strengthen your fire family.</p>
           <div className="flex flex-wrap justify-center gap-3">
-            <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-6 py-4 text-xs rounded-full">Register Now <ArrowRight className="ml-2 h-4 w-4" /></Button>
-            </a>
+            <RegisterLink>
+              <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-6 py-4 text-xs rounded-full">{registerLabel()} <ArrowRight className="ml-2 h-4 w-4" /></Button>
+            </RegisterLink>
             <a href="mailto:info@roundrockfirefoundation.org?cc=info@roundrockfirefoundation.org">
               <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 px-6 py-4 rounded-full bg-transparent text-xs"><Mail className="mr-2 h-4 w-4" /> Contact</Button>
             </a>

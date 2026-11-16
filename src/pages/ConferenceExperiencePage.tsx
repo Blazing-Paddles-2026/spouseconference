@@ -5,6 +5,7 @@ import {
   ArrowRight, Flame, Heart, Users, Brain, Shield,
   MessageCircle, Target, Lightbulb, HandHeart, Star,
 } from 'lucide-react';
+import RegisterLink, { registerLabel } from '@/components/RegisterLink';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
@@ -82,9 +83,9 @@ export default function ConferenceExperiencePage() {
           <div className="flex items-center gap-4">
             <a href="#/" className="text-white/60 text-xs hover:text-orange-500 transition-colors">Back to Conference</a>
             <a href="https://www.roundrockfirefoundation.org/" className="hidden sm:block text-white/60 text-xs hover:text-orange-500 transition-colors">RRFF Home</a>
-            <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-4 py-2 h-8 text-xs rounded-full">Register</Button>
-            </a>
+            <RegisterLink>
+              <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-4 py-2 h-8 text-xs rounded-full">{registerLabel('short')}</Button>
+            </RegisterLink>
           </div>
         </div>
       </nav>
@@ -267,9 +268,9 @@ export default function ConferenceExperiencePage() {
         <FadeIn className="max-w-md mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold text-black mb-2">Ready to Experience It Together?</h2>
           <p className="text-black/45 text-sm mb-5">Join us for an unforgettable weekend of growth, connection, and resilience.</p>
-          <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 rounded-full text-sm">Register Now <ArrowRight className="ml-2 h-4 w-4" /></Button>
-          </a>
+          <RegisterLink>
+            <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 rounded-full text-sm">{registerLabel()} <ArrowRight className="ml-2 h-4 w-4" /></Button>
+          </RegisterLink>
         </FadeIn>
       </section>
 

@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Round Rock Fire Foundation//National Spouse Conference//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:nsc-2027@spouseconference.roundrockfirefoundation.org
+DTSTAMP:20261115T120000Z
+DTSTART;VALUE=DATE:20271105
+DTEND;VALUE=DATE:20271108
+SUMMARY:2027 RRFF National Spouse Conference
+LOCATION:Round Rock\, TX
+DESCRIPTION:Round Rock Fire Foundation National Spouse Conference. Registration opens April 1\, 2027.
+URL:https://spouseconference.roundrockfirefoundation.org/
+END:VEVENT
+END:VCALENDAR

@@ -10,6 +10,12 @@ import {
   Mail, Facebook, Instagram, ArrowRight, UsersRound,
   ChevronLeft, Sparkles,
 } from 'lucide-react';
+import RegisterLink, { registerLabel } from '@/components/RegisterLink';
+import RegistrationCountdown from '@/components/RegistrationCountdown';
+import {
+  CONFERENCE_DATES, CONFERENCE_DAYS, CONFERENCE_LOCATION, REGISTRATION_OPENS_LABEL,
+  CONFERENCE_ICS, CONFERENCE_GCAL,
+} from '@/lib/conference';
 
 /* ─── Data ─── */
 const faqSections = [
@@ -17,7 +23,7 @@ const faqSections = [
     category: 'Registration & Eligibility',
     items: [
       { q: 'Who can attend the conference?', a: 'The National Spouse Conference is designed for firefighters and their spouses or partners. Whether you are a career or volunteer firefighter, newly married or have been together for decades, this conference is for you.' },
-      { q: 'When and where is the conference?', a: 'November 6-8, 2026 at the Tru by Hilton, 2900 Hoppe Trail, Round Rock, TX 78681. Check-in begins at 5:00 PM on Thursday, November 5, 2026.' },
+      { q: 'When and where is the conference?', a: 'The 2027 National Spouse Conference is November 5-7, 2027 in Round Rock, Texas. Registration opens April 1, 2027. Venue, check-in, and room block details will be shared on this site before registration opens.' },
       { q: "What's included in registration?", a: 'Registration includes all conference sessions, hands-on training activities, meals during the conference, welcome bag, and access to all wellness programming and social events.' },
       { q: 'Is there a payment plan option?', a: 'Yes! We offer flexible payment plans to make attendance accessible. Contact us to discuss payment plan options that work for your budget.' },
       { q: 'Is a deposit required? What are the payment options?', a: 'A deposit secures your spot with the balance due closer to the event. We accept all major credit cards and can arrange payment plans upon request.' },
@@ -27,8 +33,8 @@ const faqSections = [
   {
     category: 'Location, Travel & Lodging',
     items: [
-      { q: 'Where is the conference held?', a: 'Tru by Hilton, 2900 Hoppe Trail, Round Rock, TX 78681. A room block is available at a discounted rate for conference attendees.' },
-      { q: 'Is parking available?', a: 'Yes, complimentary parking is available at the hotel for all conference attendees.' },
+      { q: 'Where is the conference held?', a: 'The 2027 conference returns to Round Rock, Texas. The venue and discounted room block for attendees will be announced before registration opens on April 1, 2027.' },
+      { q: 'Is parking available?', a: 'Parking details will be shared with the 2027 venue announcement. In 2026, complimentary parking was available at the hotel for all attendees.' },
     ],
   },
   {
@@ -50,7 +56,7 @@ const faqSections = [
   {
     category: 'Accessibility & Inclusion',
     items: [
-      { q: 'Is the venue accessible for people with mobility needs?', a: 'Yes, the Tru by Hilton is fully ADA compliant. Please contact us in advance if you have specific accessibility needs so we can ensure the best possible experience.' },
+      { q: 'Is the venue accessible for people with mobility needs?', a: 'Yes. We choose ADA-compliant venues. Please contact us in advance if you have specific accessibility needs so we can ensure the best possible experience.' },
     ],
   },
 ];
@@ -247,7 +253,7 @@ export default function SpouseConferencePage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     const prevTitle = document.title;
-    document.title = '2026 RRFF National Spouse Conference';
+    document.title = '2027 RRFF National Spouse Conference · November 5–7, 2027';
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -278,9 +284,9 @@ export default function SpouseConferencePage() {
             <button onClick={() => scrollToSection('faq')} className="hidden sm:block text-white/90 text-xs hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0">FAQs</button>
             <button onClick={() => scrollToSection('gallery')} className="hidden sm:block text-white/90 text-xs hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0">Gallery</button>
             <a href="https://www.roundrockfirefoundation.org/" className="hidden sm:block text-white/90 text-xs hover:text-orange-500 transition-colors">RRFF Home</a>
-            <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-4 py-2 h-8 text-xs rounded-full">Register</Button>
-            </a>
+            <RegisterLink>
+              <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-4 py-2 h-8 text-xs rounded-full">{registerLabel('short')}</Button>
+            </RegisterLink>
           </div>
         </div>
       </nav>
@@ -294,27 +300,44 @@ export default function SpouseConferencePage() {
             <div className="absolute inset-0 backdrop-blur-[1px]" />
           </div>
         </div>
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
-          <p className="text-white font-medium text-xs sm:text-sm tracking-[0.2em] uppercase mb-6">
-            November 6-8, 2026 &middot; Round Rock, TX
-          </p>
-          <p className="text-lg sm:text-xl md:text-2xl font-medium text-white/90 mb-2">
-            Round Rock Fire Foundation
-          </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight text-orange-500">
-            National Spouse Conference
-          </h1>
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-24 pb-12">
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/50 text-orange-400 text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase mb-5">
+              <Calendar className="h-3.5 w-3.5" /> Save the Date
+            </span>
+            <p className="text-lg sm:text-xl md:text-2xl font-medium text-white/90 mb-1">
+              Round Rock Fire Foundation
+            </p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-5 leading-tight text-orange-500">
+              2027 National Spouse Conference
+            </h1>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.15 }}>
+            <p className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-none">
+              {CONFERENCE_DATES}
+            </p>
+            <p className="mt-3 text-white/85 text-xs sm:text-sm tracking-[0.25em] uppercase">
+              {CONFERENCE_DAYS} &middot; {CONFERENCE_LOCATION}
+            </p>
+          </motion.div>
+          <div className="w-12 h-0.5 bg-orange-500 mx-auto my-6" />
           <p className="text-sm sm:text-base text-white/85 max-w-xl mx-auto mb-6 leading-relaxed">
-            An immersive, hands-on conference designed to strengthen firefighter marriages through shared experiences, expert guidance, and lasting connections.
+            We're coming back. Another immersive, hands-on weekend built to strengthen firefighter marriages through shared experiences, expert guidance, and lasting connections.
           </p>
+          <motion.div className="mb-6" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
+            <RegistrationCountdown />
+          </motion.div>
           <div className="flex flex-wrap justify-center gap-3 mb-5">
-            <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 text-sm rounded-full">Register Now <ArrowRight className="ml-2 h-4 w-4" /></Button>
+            <a href={CONFERENCE_ICS} download>
+              <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 text-sm rounded-full"><Calendar className="mr-2 h-4 w-4" /> Add to My Calendar</Button>
             </a>
             <button onClick={() => scrollToSection('partnership')}>
               <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 font-medium px-8 py-5 text-sm rounded-full bg-transparent">Partner With Us</Button>
             </button>
           </div>
+          <p className="text-white/70 text-xs mb-4">
+            Using Google Calendar? <a href={CONFERENCE_GCAL} target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 underline underline-offset-4">Add it here</a>
+          </p>
           <div className="flex flex-wrap justify-center gap-x-5 gap-y-1 text-white/80 text-xs sm:text-sm">
             <button onClick={() => scrollToSection('speakers')} className="hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0 text-inherit">Meet Our Speakers</button>
             <span>&middot;</span>
@@ -322,6 +345,15 @@ export default function SpouseConferencePage() {
             <span>&middot;</span>
             <button onClick={() => scrollToSection('faq')} className="hover:text-orange-500 transition-colors cursor-pointer bg-transparent border-0 p-0 text-inherit">FAQs</button>
           </div>
+        </div>
+      </section>
+
+      {/* ═══ 2026 THANK-YOU RIBBON ═══ */}
+      <section className="bg-orange-500 text-black">
+        <div className="max-w-4xl mx-auto px-4 py-3.5 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 text-center">
+          <Heart className="h-4 w-4 shrink-0 fill-black" aria-hidden="true" />
+          <p className="text-sm font-semibold">Thank you to every fire family who joined us in 2026.</p>
+          <p className="text-sm">We can't wait to see you again in November 2027.</p>
         </div>
       </section>
 
@@ -733,9 +765,9 @@ export default function SpouseConferencePage() {
 
           <FadeIn delay={0.2}>
             <div className="text-center mt-8">
-              <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 rounded-full text-sm">Register Now <ArrowRight className="ml-2 h-4 w-4" /></Button>
-              </a>
+              <RegisterLink>
+                <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 rounded-full text-sm">{registerLabel()} <ArrowRight className="ml-2 h-4 w-4" /></Button>
+              </RegisterLink>
             </div>
           </FadeIn>
         </div>
@@ -769,27 +801,31 @@ export default function SpouseConferencePage() {
                   <Calendar className="h-3 w-3" /> Save the Date
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-                  Join Us <span className="text-orange-500">November 6-8, 2026</span>
+                  Join Us <span className="text-orange-500">{CONFERENCE_DATES}</span>
                 </h2>
                 <div className="w-10 h-0.5 bg-orange-500 mb-5" />
               </FadeIn>
               <FadeIn delay={0.2}>
                 <div className="space-y-2.5 mb-6">
                   <div className="flex items-start gap-3 p-3.5 rounded-xl border border-white/10">
-                    <MapPin className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
-                    <div><p className="font-medium text-white text-sm">Tru by Hilton</p><p className="text-white/85 text-xs">2900 Hoppe Trail, Round Rock, TX 78681</p></div>
+                    <Calendar className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
+                    <div><p className="font-medium text-white text-sm">{CONFERENCE_DATES}</p><p className="text-white/85 text-xs">{CONFERENCE_DAYS}</p></div>
+                  </div>
+                  <div className="flex items-start gap-3 p-3.5 rounded-xl border border-orange-500/40 bg-orange-500/[0.06]">
+                    <Clock className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
+                    <div><p className="font-medium text-white text-sm">Registration opens {REGISTRATION_OPENS_LABEL}</p><p className="text-white/85 text-xs">Thursday &middot; Mark your calendar</p></div>
                   </div>
                   <div className="flex items-start gap-3 p-3.5 rounded-xl border border-white/10">
-                    <Clock className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
-                    <div><p className="font-medium text-white text-sm">Check-in: 5:00 PM</p><p className="text-white/85 text-xs">Thursday, November 5, 2026</p></div>
+                    <MapPin className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
+                    <div><p className="font-medium text-white text-sm">{CONFERENCE_LOCATION}</p><p className="text-white/85 text-xs">Venue and lodging details coming soon</p></div>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
-                    <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-6 py-5 rounded-full text-sm">Register Now <ArrowRight className="ml-2 h-4 w-4" /></Button>
-                  </a>
-                  <a href="#/schedule">
-                    <Button variant="outline" className="border-white/25 text-white hover:bg-white/10 px-6 py-5 rounded-full bg-transparent text-sm"><Calendar className="mr-2 h-4 w-4" /> Full Schedule</Button>
+                  <RegisterLink>
+                    <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-6 py-5 rounded-full text-sm">{registerLabel()} <ArrowRight className="ml-2 h-4 w-4" /></Button>
+                  </RegisterLink>
+                  <a href={CONFERENCE_ICS} download>
+                    <Button variant="outline" className="border-white/25 text-white hover:bg-white/10 px-6 py-5 rounded-full bg-transparent text-sm"><Calendar className="mr-2 h-4 w-4" /> Add to Calendar</Button>
                   </a>
                 </div>
               </FadeIn>
@@ -845,9 +881,9 @@ export default function SpouseConferencePage() {
             <div className="border border-white/10 rounded-2xl p-8">
               <h2 className="text-xl font-bold text-white mb-2">Ready to Connect with Fire Families?</h2>
               <p className="text-white/85 text-xs mb-5">Join us for an unforgettable experience of growth, connection, and resilience.</p>
-              <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 rounded-full text-sm">Register Now <ArrowRight className="ml-2 h-4 w-4" /></Button>
-              </a>
+              <RegisterLink>
+                <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-8 py-5 rounded-full text-sm">{registerLabel()} <ArrowRight className="ml-2 h-4 w-4" /></Button>
+              </RegisterLink>
             </div>
           </FadeIn>
         </div>
@@ -858,9 +894,9 @@ export default function SpouseConferencePage() {
         <FadeIn className="max-w-md mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-3">Join Us in <span className="text-orange-500">Round Rock</span></h2>
           <p className="text-white/85 text-sm mb-6">Be part of the first national conference designed exclusively for firefighter couples.</p>
-          <a href="https://forms.gle/VUuMEssGe3cqP4Ge8" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-10 py-5 text-sm rounded-full">Register Now <ArrowRight className="ml-2 h-5 w-5" /></Button>
-          </a>
+          <RegisterLink>
+            <Button className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-10 py-5 text-sm rounded-full">{registerLabel()} <ArrowRight className="ml-2 h-5 w-5" /></Button>
+          </RegisterLink>
         </FadeIn>
       </section>
 
