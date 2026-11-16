@@ -307,10 +307,10 @@ export default function SpouseConferencePage() {
               <Calendar className="h-3.5 w-3.5" /> Save the Date
             </span>
             <p className="text-lg sm:text-xl md:text-2xl font-medium text-white/90 mb-1">
-              Round Rock Fire Foundation
+              2027 Round Rock Fire Foundation
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-5 leading-tight text-orange-500">
-              2027 National Spouse Conference
+              National Spouse Conference
             </h1>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.15 }}>

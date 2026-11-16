@@ -1,5 +1,7 @@
 # Preview QA
 
+- Hero: smaller “2027 Round Rock Fire Foundation” precedes larger “National Spouse Conference”; no 2027 repeated in large title. Desktop and 375px layout must fit.
+
 - Thank-you ribbon: soft light-gray background with dark text and matching heart, no orange background; readable at desktop and 375px. Wording unchanged.
 
 - Home: dates and registration countdown remain visible and advance; calendar links remain usable.
