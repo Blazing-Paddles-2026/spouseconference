@@ -307,7 +307,8 @@ export default function SpouseConferencePage() {
               <Calendar className="h-3.5 w-3.5" /> Save the Date
             </span>
             <p className="text-lg sm:text-xl md:text-2xl font-medium text-white/90 mb-1">
-              2027 Round Rock Fire Foundation
+              <span className="block">2027</span>
+              <span className="block">Round Rock Fire Foundation</span>
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-5 leading-tight text-orange-500">
               National Spouse Conference
