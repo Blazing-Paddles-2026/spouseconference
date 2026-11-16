@@ -412,9 +412,16 @@ export default function SpouseConferencePage() {
             <section aria-labelledby="captain-sponsor-heading" className="max-w-3xl mx-auto mb-10 rounded-2xl border border-orange-400/60 bg-[#101010] p-2 text-center">
               <div className="flex flex-col items-center rounded-xl border border-white/10 px-6 py-9 sm:px-10 sm:py-11">
                 <p className="mb-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-orange-400">Captain Sponsor</p>
-                <h3 id="captain-sponsor-heading" className="text-center">
-                  <span className="block text-2xl sm:text-3xl font-semibold tracking-tight leading-tight text-white">Firefighters First</span>{' '}
-                  <span className="mt-2 block text-base sm:text-lg font-medium tracking-[0.12em] text-white/80">Credit Union</span>
+                <h3 id="captain-sponsor-heading" className="w-full max-w-md rounded-xl bg-white p-5 sm:p-7">
+                  <img
+                    src="/images/sponsor-firefighters-first-cu.svg"
+                    alt="Firefighters First Credit Union"
+                    width="254"
+                    height="49"
+                    loading="lazy"
+                    decoding="async"
+                    className="block w-full h-auto"
+                  />
                 </h3>
                 <div aria-hidden="true" className="mt-6 h-px w-12 bg-orange-400/70" />
               </div>
