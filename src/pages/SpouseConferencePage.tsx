@@ -358,24 +358,6 @@ export default function SpouseConferencePage() {
         </div>
       </section>
 
-      {/* Keep the entire group visible, including on phones. */}
-      <section aria-label="2026 conference group photo" className="bg-black px-4 pt-8 pb-5 sm:pt-12 sm:pb-8">
-        <figure className="max-w-3xl mx-auto">
-          <img
-            src="/images/nsc-2026-group.webp"
-            alt="2026 National Spouse Conference participants in turnout gear, gathered on and in front of a Round Rock fire truck."
-            width="2048"
-            height="1536"
-            loading="lazy"
-            decoding="async"
-            className="block w-full h-auto rounded-xl"
-          />
-          <figcaption className="mt-3 text-center text-white/70 text-xs sm:text-sm">
-            Together in 2026. Back together November 5–7, 2027.
-          </figcaption>
-        </figure>
-      </section>
-
       {/* ═══ PARTNERS - BLACK BG ═══ */}
       <section id="partnership" className="py-7 bg-black">
         <div className="max-w-4xl mx-auto px-4">
@@ -517,9 +499,20 @@ export default function SpouseConferencePage() {
               </FadeIn>
             </div>
             <FadeIn delay={0.2}>
-              <div className="rounded-xl overflow-hidden border border-white/10 max-w-sm mx-auto">
-                <img src="/images/rrfd-team-bw.jpg" alt="Round Rock Fire Department team" className="w-full h-auto object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-              </div>
+              <figure className="max-w-sm mx-auto">
+                <img
+                  src="/images/nsc-2026-group.webp"
+                  alt="2026 National Spouse Conference participants in turnout gear, gathered on and in front of a Round Rock fire truck."
+                  width="2048"
+                  height="1536"
+                  loading="lazy"
+                  decoding="async"
+                  className="block w-full h-auto rounded-xl border border-white/10"
+                />
+                <figcaption className="mt-3 text-center text-white/70 text-xs sm:text-sm">
+                  Together in 2026. Back together November 5–7, 2027.
+                </figcaption>
+              </figure>
             </FadeIn>
           </div>
         </div>

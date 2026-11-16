@@ -39,13 +39,13 @@ export default function RegistrationCountdown() {
   const tiles: [number, string][] = [[p.days, 'Days'], [p.hours, 'Hours'], [p.minutes, 'Minutes'], [p.seconds, 'Seconds']];
   return (
     <div id="save-the-date" className="mx-auto max-w-lg rounded-2xl border border-orange-500/40 bg-black/55 backdrop-blur-sm px-4 py-5 sm:px-6">
-      <p className="text-orange-500 font-semibold text-xs tracking-[0.12em] uppercase mb-2">Countdown to registration opening</p>
+      <p className="text-orange-500 font-semibold text-xs tracking-[0.12em] uppercase mb-2">Registration opens in</p>
       <p className="text-white font-bold text-lg sm:text-xl mb-3">Registration opens {REGISTRATION_OPENS_LABEL}</p>
       <p className="text-white/85 text-sm leading-relaxed mb-4">
         For the RRFF National Spouse Conference<br />
         <span className="font-semibold text-white">{CONFERENCE_DATES}</span>
       </p>
-      <div className="grid grid-cols-4 gap-2 sm:gap-3 mb-3" role="timer" aria-label={`Countdown to registration opening on ${REGISTRATION_OPENS_LABEL} for the RRFF National Spouse Conference, ${CONFERENCE_DATES}`}>
+      <div className="grid grid-cols-4 gap-2 sm:gap-3 mb-3" role="timer" aria-label={`Time until registration opens on ${REGISTRATION_OPENS_LABEL} for the RRFF National Spouse Conference, ${CONFERENCE_DATES}`}>
         {tiles.map(([n, label]) => (
           <div key={label} className="rounded-xl border border-white/10 bg-white/[0.06] py-2.5 sm:py-3">
             <div className="text-2xl sm:text-3xl font-bold text-white tabular-nums leading-none">{String(n).padStart(2, '0')}</div>
