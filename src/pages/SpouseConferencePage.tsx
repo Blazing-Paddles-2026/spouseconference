@@ -350,9 +350,9 @@ export default function SpouseConferencePage() {
       </section>
 
       {/* ═══ 2026 THANK-YOU RIBBON ═══ */}
-      <section className="bg-orange-500 text-black">
+      <section className="bg-stone-100 text-stone-900">
         <div className="max-w-4xl mx-auto px-4 py-3.5 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 text-center">
-          <Heart className="h-4 w-4 shrink-0 fill-black" aria-hidden="true" />
+          <Heart className="h-4 w-4 shrink-0 fill-current" aria-hidden="true" />
           <p className="text-sm font-semibold">Thank you to every fire family who joined us in 2026.</p>
           <p className="text-sm">We can't wait to see you again in November 2027.</p>
         </div>

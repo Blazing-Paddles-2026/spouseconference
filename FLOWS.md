@@ -1,5 +1,7 @@
 # Preview QA
 
+- Thank-you ribbon: soft light-gray background with dark text and matching heart, no orange background; readable at desktop and 375px. Wording unchanged.
+
 - Home: dates and registration countdown remain visible and advance; calendar links remain usable.
 - Countdown explicitly says “Registration opens in”, gives April 1, 2027 as the registration opening date and November 5–7, 2027 as the RRFF National Spouse Conference dates; disclaimer distinguishes registration from conference. Timer and registration reminders still target April 1.
 - Registration: every registration control on home, schedule, speakers, sponsorship, wellness, conference experience, and contact is a native disabled button labeled “Registration opens April 1st”. No Google Form link is present.
