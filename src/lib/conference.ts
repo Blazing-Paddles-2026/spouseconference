@@ -1,7 +1,7 @@
 /* 2027 National Spouse Conference — single source of truth for dates and
    registration. Change these values (or REGISTRATION_URL) and every page
-   updates. Register buttons say "Registration Opens April 1" and link to
-   the Save the Date announcement. They switch to "Register Now" only when
+   updates. Register buttons are disabled and say "Registration opens April
+   1st". They switch to "Register Now" only when
    BOTH (a) REGISTRATION_OPENS has passed and (b) REGISTRATION_URL is set.
    The 2027 Google Form goes live on April 1, 2027 — paste its link below
    then. Until a link is added, no button points to any form. */
