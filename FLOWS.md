@@ -1,5 +1,7 @@
 # Preview QA
 
+- Hero invitation begins “Join us in Round Rock for another immersive, hands-on weekend”; “We're coming back” is absent. Copy wraps without overflow at desktop and 375px.
+
 - Hero: “2027” occupies its own line above smaller “Round Rock Fire Foundation”, followed by larger “National Spouse Conference”; no 2027 repeated in large title. Desktop and 375px layout must fit.
 
 - Thank-you ribbon: soft light-gray background with dark text and matching heart, no orange background; readable at desktop and 375px. Wording unchanged.

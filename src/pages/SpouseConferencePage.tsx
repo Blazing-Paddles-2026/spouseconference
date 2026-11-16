@@ -324,7 +324,7 @@ export default function SpouseConferencePage() {
           </motion.div>
           <div className="w-12 h-0.5 bg-orange-500 mx-auto my-6" />
           <p className="text-sm sm:text-base text-white/85 max-w-xl mx-auto mb-6 leading-relaxed">
-            We're coming back. Another immersive, hands-on weekend built to strengthen firefighter marriages through shared experiences, expert guidance, and lasting connections.
+            Join us in Round Rock for another immersive, hands-on weekend built to strengthen firefighter marriages through shared experiences, expert guidance, and lasting connections.
           </p>
           <motion.div className="mb-6" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
             <RegistrationCountdown />
